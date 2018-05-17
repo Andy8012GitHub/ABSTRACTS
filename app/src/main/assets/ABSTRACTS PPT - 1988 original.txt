@@ -1,0 +1,320 @@
+ Pe:Charles Manson             Pl:     San Andreas Fault         T:         Civil War
+        Pe:Billy Graham               Pl:     Wall Street               T:       Candid Camera
+        Pe:Bob Uecker                 Pl:     The Corn Belt             T:     Good Morning America
+        Pe:Rumplestiltskin            Pl:      Cleveland, Ohio          T:        The French Connection
+        Pe:Rock Hudson                Pl:     Nicaragua                 T:     Boston Tea Party
+        Pe:Bruce Willis               Pl:       Golden Gate Bridge      T:            The Renaissance
+        Pe:Mae West                   Pl:     Alabama                   T:   Dragnet
+        Pe:Jane Fonda                 Pl:      Death Valley             T:     National Debt
+        Pe:Jackie Robinson            Pl:      Sydney, Australia        T:          Star Trek
+        Pe:Jerry Lewis                Pl:     Arkansas                  T:   Gold Rush
+        Pe:Barbara Walters            Pl: United Nations Building       T:      Some Like it Hot
+        Pe:John McEnroe               Pl:  Taiwan                       T:     U.S. Post Office
+        Pe:Laurel & Hardy             Pl:    Liverpool                  T:   Weight Watchers
+        Pe:Woody Allen                Pl:    Denmark                    T:          Jell-O
+        Pe:Cecil B. DeMille           Pl:      Berlin Wall              T:       The Hobbit
+        Pe:Minnesota Fats             Pl:    Buckingham Palace          T:       TWA
+        Pe:Lady Godiva                Pl:    New York                   T:  Yellow Submarine
+        Pe:Perry Mason                Pl:   Quebec                      T:          Goodyear Blimp
+        Pe:David Bowie                Pl:   Hawaii                      T:         Independence Day
+        Pe:Phil Donahue               Pl:  Greenwich Village            T:          Godzilla
+        Pe:Bruce Springsteen          Pl:   Lake Erie                   T:        All My Children
+        Pe:Davy Crockett              Pl:    Long Island, New York      T:             Abbey Road (album)
+        Pe:Pablo Picasso              Pl:    Rhode Island               T:        The Love Boat
+        Pe:John Glenn                 Pl:     Niagara Falls             T:            The Candyman
+        Pe:Hercules                   Pl:   World Trade Center          T:             Maybelline
+        Pe:Jimmy Carter               Pl:   Phoenix, Arizona            T:           National Velvet
+        Pe:James Dean                 Pl:     Bethlehem                 T:          Kentucky Fried Chicken
+        Pe:Tarzan                     Pl:    Acapulco                   T:        Kellogg’s Corn Flakes
+        Pe:Lucille Ball               Pl:       Masada                  T:                 Crocodile Dundee
+        Pe:Ringo Starr                Pl:     Nassau                    T:        Passover
+        Pe:Robert Redford             Pl:    Wailing Wall               T:                  IBM
+        Pe:Dustin Hoffman             Pl:    New Zealand                T:                Congress
+        Pe:James Cagney               Pl:  Denver, Colorado             T:    NutraSweet
+        Pe:Napoleon Bonaparte         Pl:  Dominican Republic           T:      YMCA
+        Pe:Buddy Holly                Pl:  San Diego Zoo                T:            Communism
+        Pe:Alan Alda                  Pl:  Colorado                     T:             Armageddon
+        Pe:Captain Kangaroo           Pl:  Three Mile Island            T:     America’s Cup
+        Pe:Jerry Falwell              Pl:  Milky Way Galaxy             T:    Three Men and a Baby
+        Pe:Hansel & Gretel            Pl:  Fort Lauderdale, Florida     T:        Entertainment Tonight
+        Pe:John DeLorean              Pl:   Turkey                      T:            New Testament
+        Pe:Brooke Shields             Pl:  Metropolitan Art Museum        T:      Care Bears
+        Pe:Doris Day                  Pl:    Hudson Bay                 T:              McDonald’s
+        Pe:Bette Davis                Pl:   Iceland                     T:          Boston Celtics
+        Pe:Bob Newhart                Pl:   Detroit, Michigan           T:                Silent Night
+        Pe:Vincent van Gogh           Pl:    California                 T:              Star Wars
+        Pe:Peter Sellers              Pl:   Connecticut                 T:              Moby Dick
+        Pe:John Lennon                Pl:   South America               T:            Father’s Day
+        Pe:Jesse James                Pl:   Los Angeles, California     T:                    Mister Roger’s Neighborhood
+        Pe:Julius Caesar              Pl:   Houston, Texas              T:             Charlotte’s Web
+        Pe:William Tell               Pl:  Great Wall of China          T:                White Christmas
+        Pe:Thomas Jefferson           Pl:  Las Vegas                    T:            Ford Motor Company
+        Pe:Lily Tomlin                Pl:  Cambodia                     T:         Tide Laundry Detergent
+        Pe:Dr. Benjamin Spock         Pl:   Caesars Palace              T:     Days of Our Lives
+        Pe:Calvin Klein               Pl:  Seoul, South Korea           T:      Rolls Royce
+        Pe:Marie Antoinette           Pl:  Ponderosa                    T: Cabbage Patch Kids
+        Pe:Mahatma Gandhi             Pl: Rock of Gibraltar               T:  Prodigal Son
+        Pe:King Tutankhamen (Tut)     Pl:    Tara                       T:        Bambi
+        Pe:Little Bo Peep             Pl:        Rome                   T:  Roots
+        Pe:Howard Hughes              Pl:    North America              T:   December
+        Pe:Lee Harvey Oswald          Pl:   Jerusalem                   T:  Pony Express
+        Pe:Mark Twain                 Pl: Tomb of the Unknown Soldier   T:      The Ten Commandments
+        Pe:Ulysses S. Grant           Pl:         Amazon River          T:    Easter
+        Pe:Mikhail Baryshnikov        Pl:      Old Faithful             T:   The Bible
+        Pe:Paul Newman                Pl:    Cuba                       T:    Ark of the Covenant
+        Pe:Fred Flintstone            Pl:         Missouri              T:    The Rose Parade
+        Pe:Jimmy Connors              Pl:     Illinois                  T:    7-Up
+        Pe:Sitting Bull               Pl:     North Pole                T:  Bar Mitzvah
+        Pe:Elizabeth Taylor           Pl:    Cambridge University       T:   Sermon on the Mount
+        Pe:Christopher Columbus       Pl: Rocky Mountains               T:     Live Aid
+        Pe:Jack Lemmon                Pl:   Nazareth                    T:    Diary of Anne Frank
+        Pe:Humphrey Bogart            Pl: Dead Sea                      T: Beverly Hills Cop
+        Pe:Tom Selleck                Pl:  Iowa                         T:    Thirty-Something
+        Pe:Harry Houdini              Pl:  New Jersey                   T:     Stairway to Heaven
+        Pe:Will Rogers                Pl:  Mount Ararat                 T: Tony Awards
+        Pe:Robin Hood                 Pl:  Calvary                      T:    Platoon
+        Pe:Paul Revere                Pl:   Brigham Young University    T:     Mercedes-Benz
+        Pe:Adam & Eve                 Pl:  Dallas, Texas                T:     Monopoly
+        Pe:Erma Bombeck               Pl:  Arctic Ocean                 T:    NASA
+        Pe:Marco Polo                 Pl:  Rio Grande                   T:    Groundhog Day
+        Pe:Mickey Mantle              Pl:  San Francisco, California    T:     The Titanic
+        Pe:Mary Poppins               Pl:   Red Square                  T:      Golden Rule
+        Pe:Jack Benny                 Pl:   Pompeii                     T:       Paint Your Wagon
+        Pe:Louis Armstrong            Pl:    East Germany               T:         Hawaiian Punch
+        Pe:Prince Charles             Pl:   Montana                     T:         Bloomingdale’s
+        Pe:Larry King                 Pl:   North Dakota                T:        America the Beautiful
+        Pe:Little Red Riding Hood     Pl:   Solar System                T:        Dead Poets Society
+        Pe:Mormon Tabernacle Choir    Pl:    Oregon                     T:       This Land is Your Land
+        Pe:Goldie Locks               Pl:   Peru                        T:         Pictionary
+        Pe:Robin Williams             Pl:   Jupiter                     T:       Wizard of Oz
+        Pe:Pat Sajak                  Pl:  Wyoming                      T:            Life Magazine
+        Pe:Flash Gordon               Pl:  Suez Canal                   T:        Prohibition
+        Pe:Richard Nixon              Pl:  Broadway                     T:      Tootsie Roll
+        Pe:Mike Tyson                 Pl:  Malibu                       T:           BMW
+        Pe:Bob Dylan                  Pl:  Jamestown, Virginia          T:             On Golden Pond
+        Pe:Hulk Hogan                 Pl:  Maui                         T:           Grammy Awards
+        Pe:Franklin D. Roosevelt      Pl:     Brooklyn Bridge           T:            The Jetsons
+        Pe:Oprah Winfrey              Pl:  Statue of Liberty            T:           My Favorite Martian
+        Pe:Moses                      Pl:  Fiji                         T:           Take Me Out to the Ballgame
+        Pe:Sherlock Holmes            Pl:    Leaning Tower of Pisa      T:             February
+        Pe:Bill Cosby                 Pl:   Iraq                        T:      The Parent Trap
+        Pe:Barbra Streisand           Pl:      Minnesota                T:           Salvation Army
+        Pe:Shirley MacLaine           Pl: Chicago, Illinois             T:          Trivial Pursuit
+        Pe:Jack Nicholson             Pl:      Korea                    T:       Gulliver’s Travels
+        Pe:Walt Disney                Pl:       Indian Ocean            T:           Saturday Night Live
+        Pe:Jackie Gleason             Pl:      Nile River               T:            Big Dipper
+        Pe:Charlie Chaplin            Pl:       Hearst Castle           T:            Barefoot in the Park
+        Pe:Douglas MacArthur          Pl:         Hell                  T:             National Football League
+        Pe:Bill Murray                Pl:        Mason-Dixon Line       T:                A Christmas Carol
+        Pe:Robert F. Kennedy          Pl:         Hoover Dam            T:               Sesame Street
+        Pe:H.G. Wells                 Pl:     Atlantis                  T:        Sleeping Beauty
+        Pe:John Wilkes Booth          Pl:        Moscow                 T:          Gilligan’s Island
+        Pe:Quasimodo                  Pl:  Pearl Harbor                 T:     Pillsbury Dough Boy
+        Pe:Joan Collins               Pl:  Georgia                      T:         Red Cross
+        Pe:Walter Cronkite            Pl:  France                       T:          Labor Day
+        Pe:John D. Rockefeller        Pl:     Louisiana                 T:           The Untouchables
+        Pe:Charlton Heston            Pl:  Woodstock                    T:          U.S. Supreme Court
+        Pe:Queen Elizabeth            Pl:  Hollywood, California        T:          Gerber Baby Food
+        Pe:Jay Leno                   Pl: Pennsylvania                  T:          Citizen Kane
+        Pe:Joe Namath                 Pl: English Channel               T:       Spiegel Catalog
+        Pe:Ed McMahon                 Pl:  Saturn                       T:          Revolutionary War
+        Pe:Diana Ross                 Pl:   Pittsburgh, Pennsylvania    T:      L.A. Law
+        Pe:Ted Turner                 Pl:   Kansas                      T:      F.A.O. Schwarz
+        Pe:Little Orphan Annie        Pl:      Neptune                  T:          True Grit
+        Pe:Chris Everett              Pl:   Toronto, Canada             T:           M*A*S*H
+        Pe:Zorro                      Pl:   South Carolina              T:          The Elephant Man
+        Pe:Darth Vader                Pl:   The Queen Mary              T:          Mad, Mad, Mad, Mad World
+        Pe:Donald Trump               Pl:  West Virginia                T:        Newsweek Magazine
+        Pe:Bo Jackson                 Pl:   South Dakota                T:        Around the World in 80 Days
+        Pe:Harrison Ford              Pl:   Beijing, China              T:          Sony
+        Pe:Gary Hart                  Pl:  Antarctica                  T:         Indianapolis 500
+        Pe:Gene Kelly                 Pl:  Ottawa, Canada               T:        Tupperware
+        Pe:Jessie Jackson             Pl:  Egypt                        T:           Webster’s Dictionary
+        Pe:Luke Skywalker             Pl:  Sea World                    T:       I Want to Hold Your Hand
+        Pe:Rodney Dangerfield         Pl:        Finland                T:           The Color Purple
+        Pe:William Shakespeare        Pl:      Mayo Clinic              T:             Doctor Dolittle
+        Pe:Robert Frost               Pl: Atlantic City, New Jersey       T:            Chrysler Corporation
+        Pe:Rembrandt                  Pl:   Virgin Islands              T:         Wheel of Fortune
+        Pe:Michael Dukakis            Pl:      Oklahoma                 T:  Jack and the Beanstalk
+        Pe:Jesse Owens                Pl:  Canada                       T:    Challenger Space Shuttle
+        Pe:Arnold Palmer              Pl:   Canary Islands              T:    Shogun
+        Pe:Daniel Boone               Pl:      Mount Olympus            T:    My Fair Lady
+        Pe:Lady Diana                 Pl: Palm Springs, California       T:   U.S. Marine Corps
+        Pe:Sugar Ray Leonard          Pl:     Mount Saint Helens        T:      Twinkle, Twinkle Little Star
+        Pe:Shirley Temple             Pl:    Great Barrier Reef         T:      California Girls
+        Pe:O.J. Simpson               Pl:       Plymouth Rock           T:   All that Jazz
+        Pe:Frank Sinatra              Pl: United States of America      T:    The Sting
+        Pe:Grace Kelly                Pl:          Sears Tower          T:      Family Ties
+        Pe:Alfred E. Neuman           Pl:      Casablanca               T:    Rubik’s Cube
+        Pe:Al Capone                  Pl:        Sahara Desert          T:    Toyota
+        Pe:Rod Stewart                Pl:         Valley Forge          T:    The Muppets
+        Pe:The Boston Strangler       Pl:          Monte Carlo          T:       Academy Awards
+        Pe:Steve McQueen              Pl:  Vatican City                 T:    Internal Revenue Service/IRS
+        Pe:Stephen King               Pl:    Guggenheim Museum          T:     Bubonic Plague
+        Pe:Winston Churchill          Pl:        Silicon Valley         T:    E.T.
+        Pe:Dr. Ruth Westheimer        Pl:      Sinai Peninsula          T:   Leave it to Beaver
+        Pe:Milton Berle               Pl:    Kansas City                T:         Family Feud
+        Pe:Ayatollah Khomeini         Pl:         Siberia               T:  Ivory Soap
+        Pe:Diane Keaton               Pl: England                       T:       Campbell’s Soup
+        Pe:Oliver North               Pl: Maine                         T:       Jungle Book
+        Pe:George Lucas               Pl: Liberty Bell                  T:     Fiddler on the Roof
+        Pe:Gumby                      Pl:  Atlanta, Georgia             T:       Equal Right Amendment/ERA
+        Pe:John Wayne                 Pl:   Oral Roberts University     T:           Hill Street Blues
+        Pe:Cher                       Pl: Washington D.C.               T:     Hollywood Squares
+        Pe:Paul McCartney             Pl:   Chernobyl                   T:     Scrabble
+        Pe:Sigmund Freud              Pl:      China                    T:    Alcoholics Anonymous/AA
+        Pe:Snow White                 Pl:      Sistine Chapel           T:         Field of Dreams
+        Pe:Geraldo Rivera             Pl:      Nigeria                  T:         U.F.O.
+        Pe:Superman                   Pl:      Michigan                 T:           Fisher-Price
+        Pe:The Beach Boys             Pl:      Italy                    T:           June
+        Pe:Albert Einstein            Pl:      Iran                     T:               October
+        Pe:Wolfman Jack               Pl:     Seattle Washington        T:           Korean War
+        Pe:Marlon Brando              Pl:     Nashville, Tennessee      T:            FBI
+        Pe:Barbara Bush               Pl:     Cape Canaveral            T:          The Super Bowl
+        Pe:King David                 Pl:     Idaho                     T:          Miss America Pageant
+        Pe:Billy the Kid              Pl:     Grenada                   T:         New Year’s Eve
+        Pe:Fawn Hall                  Pl:     Yankee Stadium            T:          The Today Show
+        Pe:Groucho Marx               Pl:     Thailand                  T:             Noah’s Ark
+        Pe:Christie Brinkley          Pl:        Hong Kong              T:            Kentucky Derby
+        Pe:Dan Quayle                 Pl:     Vermont                   T:               Mother Goose (stories)
+        Pe:Muhammad Ali               Pl:     Disneyland                T:          Time Magazine
+        Pe:John F. Kennedy            Pl:         Sweden                T:           Rorschach Ink Blot Test
+        Pe:The Pope                   Pl:        Vietnam                T:           A Tale of Two Cities
+        Pe:Edgar Allan Poe            Pl:        Eiffel Tower           T:                Doctor Zhivago
+        Pe:Willie Mays                Pl:        Texas                  T:         U.S. Constitution
+        Pe:Popeye the Sailor          Pl:          The Pentagon         T:              Dove Soap
+        Pe:Florence Nightingale       Pl:          Mars                 T:          Dumbo
+        Pe:Don Quixote                Pl:        The Orient             T:               New York Stock Exchange
+        Pe:Steve Martin               Pl:   Buffalo, New York             T:  The Olympics
+        Pe:John Denver                Pl:    Bermuda                    T:     Munity on the Bounty
+        Pe:Ervin “Magic” Johnson      Pl:     Wales                     T:    American Bandstand
+        Pe:God                        Pl:     South Africa              T:     Gone with the Wind
+        Pe:Marilyn Monroe             Pl:          The Alamo            T:     Watergate Scandal
+        Pe:Jack and Jill              Pl:     Saint Louis, Missouri     T:    Volkswagen
+        Pe:Simon and Garfunkel        Pl:     Scotland Yard             T:     Hello Dolly
+        Pe:Michael J. Fox             Pl:      Vietnam Memorial         T:        Dynasty
+        Pe:Jimmy Hoffa                Pl:   New Orleans, Louisiana       T:  Democratic Party
+        Pe:Three Stooges              Pl:     Columbia University       T:  Who Framed Roger Rabbit?
+        Pe:Barney Rubble              Pl:     Tokyo, Japan              T: July
+        Pe:Julia Child                Pl:       Palestine               T:  The Great Depression
+        Pe:Wolfgang Amadeus Mozart    Pl:           Everglades          T:       Rice Krispies
+        Pe:Stevie Wonder              Pl:         Montreal, Canada      T:        The Fountain of Youth
+        Pe:Theodore Roosevelt         Pl:         Madison Avenue        T:      Lassie
+        Pe:Abraham Lincoln            Pl:           Gettysburg          T:          High Noon
+        Pe:Karl Marx                  Pl:         Alaska                T:         Valentine’s Day
+        Pe:Chuck Berry                Pl:           Arabian Desert      T:        PTL Club
+        Pe:Clint Eastwood             Pl:          Japan                T:         Ringling Brothers Circus
+        Pe:Cupid                      Pl:     Israel                    T:    Black Beauty
+        Pe:Edgar Bergen               Pl:         Delaware              T:              Chevrolet
+        Pe:Jim Morrison               Pl:        Pacific Ocean          T:             American Top 40
+        Pe:Eddie Murphy               Pl:    Yosemite National Park     T:             Richter Scale
+        Pe:Glenn Miller               Pl:       Wimbledon               T:          Jeopardy
+        Pe:Joan Rivers                Pl:          Tahiti               T:           Bill of Rights
+        Pe:Peter Pan                  Pl:        Mississippi River      T:                Catch 22
+        Pe:Bette Midler               Pl:       Calgary, Canada         T:             Uncle Tom’s Cabin
+        Pe:Jimmy Durante              Pl:        Hiroshima              T:            Raiders of the Lost Ark
+        Pe:Ludwig von Beethoven       Pl:           Florida             T:             U.S. Navy
+        Pe:Judy Garland               Pl:    North Carolina             T:         Associated Press/AP
+        Pe:Ronald Reagan              Pl:     Venice, Italy             T:         Neiman-Marcus
+        Pe:Meryl Streep               Pl:    The Space Needle           T:           U.S. Secret Service
+        Pe:The Wright Brothers        Pl:       Jefferson Memorial      T:                Genesis
+        Pe:Sophia Loren               Pl:     West Point                T:           The Munsters
+        Pe:Fred Astaire               Pl:         El Salvador           T:                Cats
+        Pe:Whitney Houston            Pl:        Virginia               T:              Let’s Make a Deal
+        Pe:Charlie Chan               Pl:     Louvre Museum             T:          Ghostbusters
+        Pe:Soupy Sales                Pl:        Asia                   T:            Playboy Magazine
+        Pe:Thomas Edison              Pl:      Yellowstone Park         T:               Jaws
+        Pe:Johnny Carson              Pl:      Washington Monument      T:              Revlon
+        Pe:Rod Serling                Pl:         Alcatraz              T:               Vietnam War
+        Pe:Bing Crosby                Pl:        Iwo Jima               T:            Old Yeller
+        Pe:The Rolling Stones         Pl:          Massachusetts        T:              Gross National Product
+        Pe:Lee Iacocca                Pl:    New Hampshire              T:          Sgt. Pepper’s
+        Pe:Little Miss Muffet         Pl:          Brazil               T:            Apartheid
+        Pe:Janis Joplin               Pl:        Venus                  T:          Declaration of Independence
+        Pe:Willard Scott              Pl:     London Bridge             T:         ALF
+        Pe:Kareem Abdul-Jabbar        Pl:        Chile                  T:         Password
+        Pe:Santa Claus                Pl:  Boston, Massachusetts        T:          Reader’s Digest
+        Pe:Leonardo da Vinci          Pl:         Mount Everest         T:             Pepsi
+        Pe:Buster Keaton              Pl:     Libya                     T:             The Dating Game
+        Pe:Evil Knievel               Pl:    Switzerland                T:          Aesop’s Fables
+        Pe:Teddy Kennedy              Pl:     The Bible Belt            T:          The Cat in the Hat
+        Pe:Judas Iscariot             Pl:        Big Ben                T:           African Queen
+        Pe:George Bush                Pl:        Graceland              T:             Pandora’s Box
+        Pe:Whoopi Goldberg            Pl:        Argentina              T:             Battle Hymn of the Republic
+        Pe:Jackie Onassis             Pl:       Wisconsin               T:            Fantasia
+        Pe:Sam Malone                 Pl:       Cape Cod                T:           Wall Street Journal
+        Pe:Clark Gable                Pl:        Australia              T:             General Motors
+        Pe:Scarlett O’Hara            Pl:        Dachau                 T:          People Magazine
+        Pe:Mr. Spock                  Pl: Kent State University         T:          Camelot
+        Pe:Paul Bunyan                Pl:        Miami, Florida         T:       Happy Days
+        Pe:Al Jolson                  Pl:     Mexico                    T:  The Bugs Bunny Show
+        Pe:Dick Clark                 Pl:  Sicily                       T:    7-11
+        Pe:Old King Cole              Pl: The Riviera                   T:           U.S. Air Force
+        Pe:Martina Navratilova        Pl: London, England               T:            Pinocchio
+        Pe:Tom Cruise                 Pl:    Greece                     T:       Spirit of St. Louis
+        Pe:Dolly Parton               Pl:  Kremlin                      T:          Cinderella
+        Pe:Cybill Shepherd            Pl: Raleigh, North Carolina         T:      Morse Code
+        Pe:Goldie Hawn                Pl:     Nebraska                  T:     Gemini
+        Pe:W.C. Fields                Pl:    Monaco                     T:          Pizza Hut
+        Pe:Alfred Hitchcock           Pl:     Grand Canyon              T:       Old Testament
+        Pe:Margaret Thatcher          Pl:      O.K. Corral              T:         April Fools’ Day
+        Pe:James Bond                 Pl:    Panama Canal               T:     Pulitzer Prize
+        Pe:Helen Keller               Pl:      Samoa                    T:    Los Angeles Lakers
+        Pe:Neil Simon                 Pl: Oxford University              T:        The Smurfs
+        Pe:Michelangelo               Pl:    Utah                       T:     I Love Lucy
+        Pe:Charlie Brown              Pl:     Mecca                     T:          New York Yankees
+        Pe:Orson Wells                Pl:     Times Square              T:      Beverly Hillbillies
+        Pe:Jim & Tammy Bakker         Pl:     Mediterranean Sea         T:           Honda
+        Pe:Confucius                  Pl:     Rio de Janeiro            T:     Flipper
+        Pe:Elvis Presley              Pl:       Mona Lisa               T:           War and Peace
+        Pe:Willie Nelson              Pl:    Ellis Island               T:          Crest Toothpaste
+        Pe:Red Skelton                Pl:    Central Park               T:          Sixty Minutes
+        Pe:Jacques Cousteau           Pl:     Garden of Eden            T:           U.S. Army
+        Pe:Elton John                 Pl:    Puerto Rico                T:         Halloween
+        Pe:Liberace                   Pl:  Vienna, Austria              T:         Gunsmoke
+        Pe:Carl Sagan                 Pl:   Lebanon                     T:             The Natural
+        Pe:Ernest Hemmingway          Pl:    Soviet Union               T:             Mardi Gras
+        Pe:Katherine Hepburn          Pl:        Paris, France          T:           1984
+        Pe:Martin Luther King, Jr.    Pl:     Empire State Building     T:            Polaroid Camera
+        Pe:David Copperfield          Pl:    Greenland                  T:            Cosmopolitan Magazine
+        Pe:Lyndon B. Johnson          Pl:    Atlantic Ocean             T:        The World Series
+        Pe:Jimi Hendrix               Pl:       Westminster Abbey       T:               Mad Magazine
+        Pe:Dr. Seuss                  Pl:    Africa                     T:            World War II
+        Pe:Carol Burnett              Pl:     Memphis. Tennessee        T:      Roman Catholic Church
+        Pe:George Burns               Pl:     Holland                   T:     Pampers
+        Pe:Henry Ford                 Pl:     Great Britain             T:     USA Today
+        Pe:Pee-wee Herman             Pl:      Scotland                 T:       The Man from U.N.C.L.E.
+        Pe:Charles Darwin             Pl:     India                     T:     Star Spangled Banner
+        Pe:Nancy Reagan               Pl:     San Diego, California     T:     M-TV
+        Pe:Adolf Hitler               Pl:       Stonehenge              T:    The Mayflower
+        Pe:Gene Autry                 Pl:    Salmon River               T:     Cheerios
+        Pe:Betsy Ross                 Pl:    Poland                     T:  King Kong
+        Pe:Babe Ruth                  Pl:    Persian Gulf               T:  Westside Story
+        Pe:The Beatles                Pl:     Fort Knox                 T:     Masters Tournament
+        Pe:Emily Post                 Pl:         Notre Dame            T:     Dennis the Menace
+        Pe:Mother Teresa              Pl:          White House          T:   Miss Clairol Haircolor
+        Pe:Larry Bird                 Pl:         The Sun               T:    Republican Party
+        Pe:The Grateful Dead          Pl:      Arizona                  T:     T.V. Guide
+        Pe:George Washington          Pl:      Harvard University       T:      Phantom of the Opera
+        Pe:Batman                     Pl:       Great Lakes             T:    The Price is Right
+        Pe:Agatha Christie            Pl:        Carnegie Hall          T:   Saint Patrick’s Day
+        Pe:Steven Spielberg           Pl:      Lincoln Memorial         T:       The Pink Panther
+        Pe:John Belushi               Pl:      Mercury                  T:      Coca-Cola
+        Pe:Amelia Earhart             Pl:        Jamaica                T:  Loch Ness Monster
+        Pe:George Patton              Pl:     Kentucky                  T: Sound of Music
+        Pe:Michael Jackson            Pl:     Matterhorn                T:   All in the Family
+        Pe:Bob Hope                   Pl:         Nevada                T:  Old Macdonald had a Farm
+        Pe:Charles Dickens            Pl:     Beverly Hills             T: Stanley Cup Playoffs
+        Pe:Mario Andretti             Pl:            Earth              T:     Coppertone
+        Pe:Pete Rose                  Pl:            Baton Rouge        T:          Haley’s Comet
+        Pe:Tinkerbell                 Pl:      Mount Rushmore           T:    The Godfather
+        Pe:Sammy Davis, Jr.           Pl:     Maryland                  T:     Burger King
+        Pe:Benjamin Franklin          Pl:      Hong Kong                T:  Get Smart
+        Pe:Norman Rockwell            Pl:    Madagascar                 T:    Emmy Awards
+        Pe:Hugh Hefner                Pl:    Europe                     T:     Boston Marathon
+        Pe:Burt Reynolds              Pl:       Philippines             T:     General Hospital
+        Pe:Roy Rogers                 Pl:        South Pole             T:    Mother’s Day
+        Pe:Bennie Hill                Pl:       Ohio                    T:     National Enquirer
+        Pe:Lawrence Welk              Pl:       Middle Earth            T: Age of Aquarius
+        Pe:Alexander Graham Bell      Pl:   Pluto                       T:    It’s a Wonderful Life
+        Pe:Arthur Conan Doyle         Pl:    Second City                T:   Man of La Mancha 
