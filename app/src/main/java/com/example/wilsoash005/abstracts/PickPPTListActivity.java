@@ -55,6 +55,7 @@ public class PickPPTListActivity extends AppCompatActivity {
         textViewBasicFreeList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                fileNameOfListChosen = "ABSTRACTS PPT - basic";
                 startActivity(new Intent(PickPPTListActivity.this, CreateTeams.class));
             }
         });

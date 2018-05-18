@@ -16,8 +16,6 @@ import com.android.billingclient.api.SkuDetailsResponseListener;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class PurchasingActivity extends AppCompatActivity implements PurchasesUpdatedListener {
     /*
     Steps:
