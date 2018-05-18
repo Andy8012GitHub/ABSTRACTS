@@ -7,11 +7,9 @@
     <string name="action_settings">SETTINGS</string>
     <string name="pick_your_ppts">PICK YOUR PEOPLE,\nPLACES, &amp; THINGS TO PLAY WITH</string>
     <string name="lists_you_own">Lists You Own</string>
+    <string name="more_lists_coming_soon">More lists coming soon!</string>
     <string name="get_more_lists">GET MORE LISTS!</string>
     <string name="ppt_basic_free_list">Basic Free List</string>
-    <!--<string name="purchase_to_enable">You must purchase that list to access it.</string>-->
-    <!--<string name="buy_it">I\'LL BUY IT!</string>-->
-    <!--<string name="no_thanks">NOT NOW</string>-->
     <string name="you_need_g_play">You must have Google Play in order to purchase this list.</string>
     <string name="create_teams_title">CREATE YOUR TEAMS</string>
     <string name="new_clue_giver">New CLUE GIVER</string>
@@ -39,20 +37,15 @@
     <string name="weenie_message">You are a Weenie! Pass device to other team. You pushed the limits too far. Next time, don\'t be a Weenie!</string>
     <string name="first">FIRST</string>
     <string name="second">SECOND</string>
-    <!--<string name="personGameplay">person: </string>-->
-    <!--<string name="placeGameplay">place: </string>-->
-    <!--<string name="thingGameplace">thing: </string>-->
-
     <string name="see_rules">See Rules</string>
     <string name="hear_rules">Hear Rules</string>
-    <string name="text_before_audio_rules">
+
+    -
+    <string name="large_text">
         <b>Thanks for downloading the ABSTRACTS app!</b>
         \n\n ABSTRACTS is a party game. It is designed to be played with two teams.
         \n Collect all three tokens – the PERSON (da Vinci’s “Man”), the PLACE (“World”), and the THING (“All-seeing Eye”) – by correctly guessing each from clues given by Clue Givers, and your team wins!
         \n Players tap “Play,” and select PEOPLE, PLACES, &amp; THINGs to use or purchase from Google Play.
-    </string>
-    -
-    <string name="large_text">
         <b>BEGINNING THE GAME</b>
         \n\n <b>Two teams</b> with two or more players each (we’ve tested it with forty people) sit apart to discreetly discuss possible answers. <b>Both teams are trying to guess the same PERSON, PLACE, or THING (PPT),</b> so listen carefully to all clues as they will often build upon each other.
         \n <b>Clue Givers share one device</b> even though they change during the game. Team members may also download the ABSTRACTS app to review rules, remind the team of definitions of PEOPLE, PLACES &amp; THINGS, and to keep score.
