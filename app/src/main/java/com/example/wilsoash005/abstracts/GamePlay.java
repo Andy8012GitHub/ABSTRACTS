@@ -32,7 +32,6 @@ public class GamePlay extends AppCompatActivity {
     TextView clueChosenTextView;
     TextView teamOneScore, teamTwoScore;
     RadioButton personRadioButton,placeRadioButton,thingRadioButton;
-    RadioGroup radioGroup;
     String person,place,thing;
     Button newSetPeoplePlaceThingButton,newSetClueButton, rightButton, wrongButton;
     String otherTeamName = "";
@@ -88,7 +87,6 @@ public class GamePlay extends AppCompatActivity {
         personRadioButton = (RadioButton)findViewById(R.id.personRadioButton);
         placeRadioButton = (RadioButton)findViewById(R.id.placeRadioButton);
         thingRadioButton = (RadioButton)findViewById(R.id.thingRadioButton);
-        radioGroup = (RadioGroup)findViewById(R.id.radioGroup);
         newSetPeoplePlaceThingButton = (Button)findViewById(R.id.newSetPeoplePlaceThingButton);
         newSetClueButton = (Button)findViewById(R.id.getAClueButton);
         rightButton = (Button)findViewById(R.id.rightButton);
@@ -337,7 +335,7 @@ public class GamePlay extends AppCompatActivity {
                     animateCoin(teamTwoPlaceToken, R.drawable.place_token_dark, R.drawable.back_of_dark);
                     animateCoin(teamTwoThingToken, R.drawable.thing_token_dark, R.drawable.back_of_dark);
                 }
-                radioGroup.clearCheck();
+                radioButtonsClearCheck();
                 newSetClueButton.setVisibility(GONE);
                 clue1TextView.setVisibility(GONE);
                 clue2TextView.setVisibility(GONE);
@@ -346,7 +344,7 @@ public class GamePlay extends AppCompatActivity {
                 personPlaceThingTextView.setVisibility(GONE);
                 rightButton.setVisibility(GONE);
                 wrongButton.setVisibility(GONE);
-                radioGroup.setVisibility(VISIBLE);
+                radioButtonSetVisibilities();
                 newSetPeoplePlaceThingButton.setVisibility(VISIBLE);
                 teamOneScore.setVisibility(VISIBLE);
                 teamTwoScore.setVisibility(VISIBLE);
@@ -413,7 +411,7 @@ public class GamePlay extends AppCompatActivity {
             public void onAnimationEnd(Animation animation) {
                 if (teamOnePersonTokenEnabled && teamOnePlaceTokenEnabled && teamOneThingTokenEnabled){
                     textViewTeamName.setText(CreateTeams.teamOneName + " Wins!!!");
-                    radioGroup.setVisibility(GONE);
+                    radioButtonGone();
                     newSetPeoplePlaceThingButton.setVisibility(GONE);
                     teamOneScore.setVisibility(GONE);
                     placeImage.setVisibility(GONE);
@@ -425,7 +423,7 @@ public class GamePlay extends AppCompatActivity {
                     teamTwoThingToken.setVisibility(GONE);
                 }else if (teamTwoThingTokenEnabled && teamTwoPlaceTokenEnabled && teamTwoPersonTokenEnabled){
                     textViewTeamName.setText(CreateTeams.teamTwoName + " Wins!!!");
-                    radioGroup.setVisibility(GONE);
+                    radioButtonGone();
                     newSetPeoplePlaceThingButton.setVisibility(GONE);
                     teamOneScore.setVisibility(GONE);
                     placeImage.setVisibility(GONE);
@@ -459,7 +457,7 @@ public class GamePlay extends AppCompatActivity {
         thingImage.setVisibility(GONE);
         teamOneScore.setVisibility(GONE);
         teamTwoScore.setVisibility(GONE);
-        radioGroup.setVisibility(View.GONE);
+        radioButtonGone();
         newSetPeoplePlaceThingButton.setVisibility(View.GONE);
         personPlaceThingTextView.setVisibility(VISIBLE);
         teamOnePersonToken.setVisibility(GONE);
@@ -471,7 +469,7 @@ public class GamePlay extends AppCompatActivity {
         rightButton.setVisibility(VISIBLE);
         wrongButton.setVisibility(VISIBLE);
         newSetClueButton.setVisibility(VISIBLE);
-        radioGroup.clearCheck();
+        radioButtonsClearCheck();
     }
 
     public void showSelectClueGiverDialog(final Dialog dialog, View dialogView) {
@@ -595,6 +593,22 @@ public class GamePlay extends AppCompatActivity {
             clueChosenTextView.setVisibility(VISIBLE);
             clueChosenTextView.setText("If you were a " + abstractsFileReadClues.getClueOrClues() + ", what would you be?");
         }
+    }
+
+    public void radioButtonsClearCheck(){
+        personRadioButton.clearAnimation();
+        placeRadioButton.clearAnimation();
+        thingRadioButton.clearAnimation();
+    }
+    public void radioButtonVisible(){
+        personRadioButton.setVisibility(VISIBLE);
+        placeRadioButton.setVisibility(VISIBLE);
+        thingRadioButton.setVisibility(VISIBLE);
+    }
+    public void radioButtonGone(){
+        personRadioButton.setVisibility(GONE);
+        placeRadioButton.setVisibility(GONE);
+        thingRadioButton.setVisibility(GONE);
     }
 
 }
