@@ -40,12 +40,14 @@
     <string name="see_rules">See Rules</string>
     <string name="hear_rules">Hear Rules</string>
 
-    -
-    <string name="large_text">
+    <string name="text_before_audio">
         <b>Thanks for downloading the ABSTRACTS app!</b>
         \n\n ABSTRACTS is a party game. It is designed to be played with two teams.
         \n Collect all three tokens – the PERSON (da Vinci’s “Man”), the PLACE (“World”), and the THING (“All-seeing Eye”) – by correctly guessing each from clues given by Clue Givers, and your team wins!
         \n Players tap “Play,” and select PEOPLE, PLACES, &amp; THINGs to use or purchase from Google Play.
+    </string>
+    -
+    <string name="large_text">
         <b>BEGINNING THE GAME</b>
         \n\n <b>Two teams</b> with two or more players each (we’ve tested it with forty people) sit apart to discreetly discuss possible answers. <b>Both teams are trying to guess the same PERSON, PLACE, or THING (PPT),</b> so listen carefully to all clues as they will often build upon each other.
         \n <b>Clue Givers share one device</b> even though they change during the game. Team members may also download the ABSTRACTS app to review rules, remind the team of definitions of PEOPLE, PLACES &amp; THINGS, and to keep score.

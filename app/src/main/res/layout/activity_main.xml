@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,9 +13,15 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
         android:backgroundTint="@color/colorAccent"
         android:onClick="playButtonHandler"
-        android:text="@string/play" />
+        android:text="@string/play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSubtitle" />
 
     <Button
         android:id="@+id/rulesButton"
@@ -23,10 +29,15 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/button"
         android:layout_below="@+id/button"
-        android:layout_marginTop="38dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
         android:backgroundTint="@color/colorAccent"
         android:onClick="rulesButtonHandler"
-        android:text="@string/rules" />
+        android:text="@string/rules"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <TextView
         android:id="@+id/textViewSubtitle"
@@ -34,12 +45,16 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="96dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:padding="8dp"
         android:text="The Game of Absurd Logic - Connecting People, Places and Things"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btnDefinitions"
@@ -47,34 +62,50 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/rulesButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
         android:backgroundTint="@color/colorAccent"
         android:onClick="scoreKeeperButtonHandler"
-        android:text="@string/definitions" />
-
-    <ImageView
-        android:id="@+id/imgViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        app:srcCompat="@drawable/title" />
+        android:text="@string/definitions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rulesButton" />
 
     <ImageView
         android:id="@+id/imageViewLogoLeft"
-        android:layout_width="200dp"
-        android:layout_height="470dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textViewSubtitle"
-        android:layout_below="@+id/imgViewTitle"
+        android:layout_below="@+id/textViewSubtitle"
+        android:layout_marginTop="2dp"
         android:layout_toStartOf="@+id/btnDefinitions"
-        android:src="@drawable/logo_left" />
+        android:src="@drawable/logo_left"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSubtitle" />
 
     <ImageView
         android:id="@+id/imageViewLogoRight"
-        android:layout_width="200dp"
-        android:layout_height="470dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textViewSubtitle"
         android:layout_toEndOf="@+id/btnDefinitions"
-        android:src="@drawable/logo_right" />
+        android:src="@drawable/logo_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSubtitle" />
 
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="103dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/title" />
+
+</android.support.constraint.ConstraintLayout>

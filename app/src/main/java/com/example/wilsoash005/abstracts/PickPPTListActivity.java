@@ -31,7 +31,6 @@ public class PickPPTListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pick_pptlist);
 
         lists.clear();
-        fileNameOfListChosen = "";
 
 //        btnGetMoreLists = (Button) findViewById(R.id.btnGetMoreLists);
         textViewBasicFreeList = (TextView) findViewById(R.id.textViewBasicFreeList);

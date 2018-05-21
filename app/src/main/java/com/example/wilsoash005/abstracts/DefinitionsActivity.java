@@ -100,16 +100,16 @@ public class DefinitionsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int selectedId = radioGroupPPT.getCheckedRadioButtonId();
-//                switch (selectedId) {
-//                    case R.id.radioButtonPerson:
-//                        imgPersonTokenLight.setImageResource(R.drawable.check_mark);
-//                        break;
-//                    case R.id.radioButtonPlace:
-//                        imgPlaceTokenLight.setImageResource(R.drawable.check_mark);
-//                        break;
-//                    case R.id.radioButtonThing:
-//                        imgThingTokenLight.setImageResource(R.drawable.check_mark);
-//                }
+                switch (selectedId) {
+                    case R.id.radioButtonPerson:
+                        imgPersonTokenLight.setImageResource(R.drawable.check_mark);
+                        break;
+                    case R.id.radioButtonPlace:
+                        imgPlaceTokenLight.setImageResource(R.drawable.check_mark);
+                        break;
+                    case R.id.radioButtonThing:
+                        imgThingTokenLight.setImageResource(R.drawable.check_mark);
+                }
                 radioGroupPPT.clearCheck();
             }
         });
@@ -117,16 +117,16 @@ public class DefinitionsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int selectedId = radioGroupPPT.getCheckedRadioButtonId();
-//                switch (selectedId) {
-//                    case R.id.radioButtonPerson:
-//                        imgPersonTokenDark.setImageResource(R.drawable.check_mark);
-//                        break;
-//                    case R.id.radioButtonPlace:
-//                        imgPlaceTokenDark.setImageResource(R.drawable.check_mark);
-//                        break;
-//                    case R.id.radioButtonThing:
-//                        imgThingTokenDark.setImageResource(R.drawable.check_mark);
-//                }
+                switch (selectedId) {
+                    case R.id.radioButtonPerson:
+                        imgPersonTokenDark.setImageResource(R.drawable.check_mark);
+                        break;
+                    case R.id.radioButtonPlace:
+                        imgPlaceTokenDark.setImageResource(R.drawable.check_mark);
+                        break;
+                    case R.id.radioButtonThing:
+                        imgThingTokenDark.setImageResource(R.drawable.check_mark);
+                }
                 radioGroupPPT.clearCheck();
             }
         });

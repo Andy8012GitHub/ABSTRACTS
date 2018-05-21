@@ -70,7 +70,7 @@ public class GamePlay extends AppCompatActivity {
 
         backgroundColor.setBackgroundResource(R.color.colorPrimary);//changes color layout
 
-        final ABSTRACTSFileRead abstractsFileRead = new ABSTRACTSFileRead(this, "ABSTRACTS PPT - 2018 basic");
+        final ABSTRACTSFileRead abstractsFileRead = new ABSTRACTSFileRead(this, PickPPTListActivity.fileNameOfListChosen);
         abstractsFileRead.newFileLine();
 
 
@@ -578,7 +578,7 @@ public class GamePlay extends AppCompatActivity {
         dialog.show();
     }
     public void showingClues(){
-        ABSTRACTSFileRead abstractsFileReadClues = new ABSTRACTSFileRead(this,"Clues - basic");
+        ABSTRACTSFileRead abstractsFileReadClues = new ABSTRACTSFileRead(this,"Clues");
         int wildCard = random.nextInt(5);
         if (wildCard == 1) {
             clueChosenTextView.setVisibility(GONE);
