@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_alignParentEnd="false"
     android:background="@color/colorPrimary"
-    tools:context="com.example.wilsoash005.abstracts.GamePlay"
+    tools:context=".GamePlay"
     tools:ignore="ContentDescription">
 
     <Button

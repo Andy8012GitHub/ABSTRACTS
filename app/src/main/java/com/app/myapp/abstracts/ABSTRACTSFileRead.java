@@ -1,4 +1,4 @@
-package com.example.wilsoash005.abstracts; /**
+package com.app.myapp.abstracts; /**
  * Created by wilsoash005 on 4/16/2018.
  */
 import android.content.Context;

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="com.example.wilsoash005.abstracts.MainActivity">
+    tools:context=".MainActivity">
 
     <Button
         android:id="@+id/button"
@@ -54,7 +54,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imgViewTitle" />
 
     <Button
         android:id="@+id/btnDefinitions"
@@ -95,14 +95,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewSubtitle" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgViewTitle"
         android:layout_width="wrap_content"
-        android:layout_height="103dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSubtitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -1,4 +1,4 @@
-package com.example.wilsoash005.abstracts;
+package com.app.myapp.abstracts;
 
 /**
  * Created by rileyand000 on 5/9/2018.

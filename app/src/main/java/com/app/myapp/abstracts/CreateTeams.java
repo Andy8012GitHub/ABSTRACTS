@@ -1,4 +1,4 @@
-package com.example.wilsoash005.abstracts;
+package com.app.myapp.abstracts;
 import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -29,18 +29,18 @@ public class CreateTeams extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_teams);
+        setContentView(com.app.myapp.abstracts.R.layout.activity_create_teams);
         LayoutInflater inflater = LayoutInflater.from(this);
-        final View dialogView = inflater.inflate(R.layout.dialog_skip_create_teams, null);
+        final View dialogView = inflater.inflate(com.app.myapp.abstracts.R.layout.dialog_skip_create_teams, null);
 
-        playersName = (EditText)findViewById(R.id.playersName);
-        playerList = (TextView)findViewById(R.id.playerList);
-        teamTextView = (TextView)findViewById(R.id.textViewTeamName);
-        enterTeam = (EditText)findViewById(R.id.enterTeam);
-        submitTeam = (Button)findViewById(R.id.submitTeam);
-        submitButton = (Button)findViewById(R.id.submitButton);
-        nextTeamButton = (Button)findViewById(R.id.nextTeamButton);
-        startButton = (Button)findViewById(R.id.startButton);
+        playersName = (EditText)findViewById(com.app.myapp.abstracts.R.id.playersName);
+        playerList = (TextView)findViewById(com.app.myapp.abstracts.R.id.playerList);
+        teamTextView = (TextView)findViewById(com.app.myapp.abstracts.R.id.textViewTeamName);
+        enterTeam = (EditText)findViewById(com.app.myapp.abstracts.R.id.enterTeam);
+        submitTeam = (Button)findViewById(com.app.myapp.abstracts.R.id.submitTeam);
+        submitButton = (Button)findViewById(com.app.myapp.abstracts.R.id.submitButton);
+        nextTeamButton = (Button)findViewById(com.app.myapp.abstracts.R.id.nextTeamButton);
+        startButton = (Button)findViewById(com.app.myapp.abstracts.R.id.startButton);
         submitButton.setVisibility(View.GONE);
         playersName.setVisibility(View.GONE);
         nextTeamButton.setVisibility(View.GONE);
@@ -49,9 +49,9 @@ public class CreateTeams extends AppCompatActivity {
 
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(dialogView);
-        textViewChooseYourOwnClueGiver = (TextView) dialogView.findViewById(R.id.textViewChooseYourOwnClueGivers);
-        btnYes = (Button) dialogView.findViewById(R.id.btnYes);
-        btnNo = (Button) dialogView.findViewById(R.id.btnNo);
+        textViewChooseYourOwnClueGiver = (TextView) dialogView.findViewById(com.app.myapp.abstracts.R.id.textViewChooseYourOwnClueGivers);
+        btnYes = (Button) dialogView.findViewById(com.app.myapp.abstracts.R.id.btnYes);
+        btnNo = (Button) dialogView.findViewById(com.app.myapp.abstracts.R.id.btnNo);
         btnYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

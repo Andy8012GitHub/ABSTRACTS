@@ -1,19 +1,14 @@
-package com.example.wilsoash005.abstracts;
+package com.app.myapp.abstracts;
 
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
 
 public class PickPPTListActivity extends AppCompatActivity {
 //    Button btnGetMoreLists;
@@ -28,12 +23,12 @@ public class PickPPTListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pick_pptlist);
+        setContentView(com.app.myapp.abstracts.R.layout.activity_pick_pptlist);
 
         lists.clear();
 
 //        btnGetMoreLists = (Button) findViewById(R.id.btnGetMoreLists);
-        textViewBasicFreeList = (TextView) findViewById(R.id.textViewBasicFreeList);
+        textViewBasicFreeList = (TextView) findViewById(com.app.myapp.abstracts.R.id.textViewBasicFreeList);
 
 //        btnGetMoreLists.setOnClickListener(new View.OnClickListener() {
 //            @Override

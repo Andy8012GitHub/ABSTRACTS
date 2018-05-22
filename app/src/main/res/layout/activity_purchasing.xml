@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="com.example.wilsoash005.abstracts.PurchasingActivity">
+    tools:context=".PurchasingActivity">
 
 </android.support.constraint.ConstraintLayout>
