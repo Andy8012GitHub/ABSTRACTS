@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">ABSTRACTS</string>
+    <string name="app_subtitle">The Game of Absurd Logic</string>
     <string name="play">PLAY</string>
     <string name="rules">RULES</string>
     <string name="definitions">DEFINITIONS</string>
+    <string name="note_beta_version">NOTE: This is a beta version that will undergo updates in the near future. Please give feedback at abstractsgame@gmail.com.</string>
     <string name="main_menu">Main Menu</string>
     <string name="action_settings">SETTINGS</string>
     <string name="pick_your_ppts">PICK YOUR PEOPLE,\nPLACES, &amp; THINGS TO PLAY WITH</string>
@@ -12,13 +14,14 @@
     <string name="ppt_basic_free_list">Basic Free List</string>
     <string name="you_need_g_play">You must have Google Play in order to purchase this list.</string>
     <string name="create_teams_title">CREATE YOUR TEAMS</string>
-    <string name="new_clue_giver">New CLUE GIVERs</string>
-    <string name="team_is_guessing_a">Teams are guessing a...</string>
+    <string name="new_clue_giver">New CLUE GIVERS</string>
+    <string name="now_choose_your_own_clue_givers">Now, each team, choose your own new CLUE GIVERS.</string>
+    <string name="team_is_guessing_a">Teams are guessing a…</string>
     <string name="what_is_a_person">What is a PERSON?</string>
     <string name="what_is_a_place">What is a PLACE?</string>
     <string name="what_is_a_thing">What is a THING?</string>
-    <string name="person_def">PEOPLE are specific, real or fictional, single or small groups. EXAMPLES: “THE BEATLES” would be a person, as would “Bruno Mars,” and even “Bugs Bunny.”</string>
-    <string name="place_def">PLACES are tangible, historical or sometimes fictional places. They often are cities, countries, monuments or tourist attractions. EXAMPLES: “Little Big Horn,” the “Eiffel Tower,” and “Disneyland” would be PLACES and not THINGS.</string>
+    <string name="person_def">PEOPLE are specific, real or fictional, single or small groups. EXAMPLES: “THE BEATLES” would be a person, as would “Taylor Swift,” and even “Bugs Bunny.”</string>
+    <string name="place_def">PLACES are tangible, historical or sometimes fictional places. They often are cities, countries, monuments or tourist attractions. EXAMPLES: “The White House,” the “Eiffel Tower,” and “Disneyland” would be PLACES and not THINGS.</string>
     <string name="thing_def">THINGS are hardest to wrap your head around because they are a weird catch-all category. They are often products, companies, organizations, titles of books, movies, TV shows, songs, etc. EXAMPLES: “Kentucky Fried Chicken,” “Gone with the Wind,” and “Google.”</string>
     <string name="person">PERSON</string>
     <string name="place">PLACE</string>
@@ -29,12 +32,12 @@
     <string name="no">NO</string>
     <string name="ok">OK</string>
     <string name="done">DONE</string>
-    <string name="get_a_clue">Get a Clue</string>
+    <string name="get_a_clue">Get New Clue</string>
     <string name="correct">Got It!</string>
     <string name="incorrect">Missed It</string>
     <string name="title_activity_weenie">Weenie</string>
     <string name="weenie">WEENIE!</string>
-    <string name="weenie_message">You are a Weenie! Pass device to other team. You pushed the limits too far. Next time, don\'t be a Weenie!</string>
+    <string name="weenie_message">You are a Weenie! Pass device to the other CLUE GIVER. You pushed the limits too far. Next time, don\'t be a Weenie!</string>
     <string name="first">FIRST</string>
     <string name="second">SECOND</string>
     <string name="see_rules">See Rules</string>
@@ -53,7 +56,7 @@
         \n <b>Clue Givers share one device</b> even though they change during the game. Team members may also download the ABSTRACTS app to review rules, remind the team of definitions of PEOPLE, PLACES &amp; THINGS, and to keep score.
         \n If players choose to <b>enter their team names and members, Clue Givers will be chosen randomly by the game.</b>
         \n When one of the Clue Givers <b>pushes the “PPT Start” button,</b> a choice of a PERSON, PLACE, or THING will appear on the device. The first team’s <b>Clue Giver picks one of the PPTs.</b> That Clue Giver announces which category the Clue Givers are giving clues for (PERSON, PLACE, or THING). The <b>other Clue Giver then decides if he/she wants to give clues first or second.</b>
-        \n Whoever gives a clue first <b>presses “Get a Clue,”</b> and either uses the clue (or one of the three clues in the case of a Wild Card) or presses the button again. As soon as the Clue Giver selects an option and gives the clue, his or her team has <b>60 seconds</b> to come up with a guess of the famous PERSON, PLACE, or THING.
+        \n Whoever gives a clue first <b>presses “Get New Clue,”</b> and either uses the clue (or one of the three clues in the case of a Wild Card) or presses the button again. As soon as the Clue Giver selects an option and gives the clue, his or her team has <b>60 seconds</b> to come up with a guess of the famous PERSON, PLACE, or THING.
         \n\n NOTE: If the Clue Givers are unfamiliar with the PERSON, PLACE, or THING, they can press the “New PPT” button, or <b>they may use the Internet to get information.</b> This is a battle of wits and wisdom, but it’s also just a game – so <b>have fun, and make up whatever “house” rules work for your group.</b>
         \n\n <b>THREE THINGS TO REMEMBER WHEN GIVING CLUES</b>
         \n\n 1.

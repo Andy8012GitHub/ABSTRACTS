@@ -353,10 +353,6 @@ public class GamePlay extends AppCompatActivity {
                 personImage.setVisibility(VISIBLE);
                 placeImage.setVisibility(VISIBLE);
                 thingImage.setVisibility(VISIBLE);
-                abstractsFileRead.newFileLine();
-                person = abstractsFileRead.getPerson();
-                place = abstractsFileRead.getPlace();
-                thing = abstractsFileRead.getThing();
                 personRadioButton.setText(person);
                 placeRadioButton.setText(place);
                 thingRadioButton.setText(thing);
@@ -517,7 +513,7 @@ public class GamePlay extends AppCompatActivity {
         else{
                 btnNewClueGiver.setVisibility(GONE);
                 btnDone.setVisibility(VISIBLE);
-                textViewClueGiverName.setText("Your choice!");
+                textViewWhoIsClueGiverOrWhoIsPlaying.setText(R.string.now_choose_your_own_clue_givers);
             }
             dialog.show();
         }

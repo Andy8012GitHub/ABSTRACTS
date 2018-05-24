@@ -7,21 +7,12 @@
     android:background="@color/colorPrimary"
     tools:context=".PickPPTListActivity">
 
-    <!--<GridView-->
-        <!--android:id="@+id/grdViewPPTImgBtns"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_marginTop="60dp"-->
-        <!--android:gravity="center"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"></GridView>-->
     <TextView
         android:id="@+id/textViewTitlePickPPTs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:padding="4dp"
         android:text="@string/pick_your_ppts"
         android:textAlignment="center"
@@ -29,7 +20,7 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnPPTToMain" />
 
     <TextView
         android:id="@+id/textViewTheListsYouOwn"
@@ -71,6 +62,7 @@
                 android:clickable="true"
                 android:padding="4dp"
                 android:text="@string/ppt_basic_free_list"
+                android:textAlignment="center"
                 android:textColor="@color/colorAccent"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -91,6 +83,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnPPTToMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/main_menu"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--<Button-->
         <!--android:id="@+id/btnGetMoreLists"-->
