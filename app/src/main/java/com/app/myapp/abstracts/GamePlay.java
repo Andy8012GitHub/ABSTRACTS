@@ -35,12 +35,15 @@ public class GamePlay extends AppCompatActivity {
     RadioGroup radioGroup;
     String person,place,thing;
     Button newSetPeoplePlaceThingButton,newSetClueButton, rightButton, wrongButton;
+    TextView textViewWhoIsClueGiverOrWhoIsPlaying, textViewClueGiverName,weenieTextView;
+    Button btnNewClueGiver, btnFirst, btnSecond, btnDone,weenieButton;
+
     String otherTeamName = "";
+    int team1Color = getResources().getColor(R.color.white);
+    int team2Color = getResources().getColor(R.color.black);
     ImageView teamOnePersonToken, teamOnePlaceToken, teamOneThingToken, teamTwoPersonToken, teamTwoPlaceToken, teamTwoThingToken, personImage, placeImage, thingImage;
     Boolean teamOnePersonTokenEnabled = false, teamOnePlaceTokenEnabled = false, teamOneThingTokenEnabled = false, teamTwoPersonTokenEnabled = false, teamTwoPlaceTokenEnabled = false, teamTwoThingTokenEnabled = false;
 
-    TextView textViewWhoIsClueGiverOrWhoIsPlaying, textViewClueGiverName,weenieTextView;
-    Button btnNewClueGiver, btnFirst, btnSecond, btnDone,weenieButton;
     ArrayList<String> teamOnePlayers = CreateTeams.teamOnePlayers;
     ArrayList<String> teamTwoPlayers = CreateTeams.teamTwoPlayers;
     ConstraintLayout backgroundColor;
@@ -369,12 +372,7 @@ public class GamePlay extends AppCompatActivity {
                 while (randint <= 1){
                     randint = random.nextInt(10);
                 }
-                whichTeamHadTheLastTurn = textViewTeamName.getText().toString();
-                if(whichTeamHadTheLastTurn.equals(CreateTeams.teamOneName))
-                    otherTeamName = CreateTeams.teamTwoName;
-                else
-                    otherTeamName = CreateTeams.teamOneName;
-                textViewTeamName.setText(otherTeamName);
+                switchTeamNameInTextView();
                 showingClues();
             }
         });
@@ -386,6 +384,19 @@ public class GamePlay extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void switchTeamNameInTextView() {
+        whichTeamHadTheLastTurn = textViewTeamName.getText().toString();
+        if(whichTeamHadTheLastTurn.equals(CreateTeams.teamOneName)) {
+            otherTeamName = CreateTeams.teamTwoName;
+            textViewTeamName.setTextColor(team2Color);
+        }
+        else {
+            otherTeamName = CreateTeams.teamOneName;
+            textViewTeamName.setTextColor(team1Color);
+        }
+        textViewTeamName.setText(otherTeamName);
     }
 
     private void animateCoin(final ImageView imageView, final int drawableFile, int darkOrLightBackground) {
@@ -407,7 +418,8 @@ public class GamePlay extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                if (teamOnePersonTokenEnabled && teamOnePlaceTokenEnabled && teamOneThingTokenEnabled){
+                if (teamOnePersonTokenEnabled && teamOnePlaceTokenEnabled && teamOneThingTokenEnabled) {
+                    textViewTeamName.setTextColor(team1Color);
                     textViewTeamName.setText(CreateTeams.teamOneName + " Wins!!!");
                     radioGroup.setVisibility(GONE);
                     newSetPeoplePlaceThingButton.setVisibility(GONE);
@@ -419,7 +431,8 @@ public class GamePlay extends AppCompatActivity {
                     teamTwoPersonToken.setVisibility(GONE);
                     teamTwoPlaceToken.setVisibility(GONE);
                     teamTwoThingToken.setVisibility(GONE);
-                }else if (teamTwoThingTokenEnabled && teamTwoPlaceTokenEnabled && teamTwoPersonTokenEnabled){
+                }else if (teamTwoThingTokenEnabled && teamTwoPlaceTokenEnabled && teamTwoPersonTokenEnabled) {
+                    textViewTeamName.setTextColor(team2Color);
                     textViewTeamName.setText(CreateTeams.teamTwoName + " Wins!!!");
                     radioGroup.setVisibility(GONE);
                     newSetPeoplePlaceThingButton.setVisibility(GONE);
@@ -511,12 +524,12 @@ public class GamePlay extends AppCompatActivity {
         }
 
         else{
-                btnNewClueGiver.setVisibility(GONE);
-                btnDone.setVisibility(VISIBLE);
-                textViewWhoIsClueGiverOrWhoIsPlaying.setText(R.string.now_choose_your_own_clue_givers);
-            }
-            dialog.show();
+            btnNewClueGiver.setVisibility(GONE);
+            btnDone.setVisibility(VISIBLE);
+            textViewWhoIsClueGiverOrWhoIsPlaying.setText(R.string.now_choose_your_own_clue_givers);
         }
+        dialog.show();
+    }
 
     public void showWhoseTurnIsItDialog(final Dialog dialog, View dialogView) {
         dialog.setContentView(dialogView);
@@ -528,13 +541,7 @@ public class GamePlay extends AppCompatActivity {
         textViewWhoIsClueGiverOrWhoIsPlaying.setVisibility(VISIBLE);
         btnFirst.setVisibility(VISIBLE);
         btnSecond.setVisibility(VISIBLE);
-        whichTeamHadTheLastTurn = textViewTeamName.getText().toString();
-        if(whichTeamHadTheLastTurn.matches(CreateTeams.teamOneName)) {
-            otherTeamName = CreateTeams.teamTwoName;
-        } else {
-            otherTeamName = CreateTeams.teamOneName;
-        }
-
+        switchTeamNameInTextView();
         textViewWhoIsClueGiverOrWhoIsPlaying.setText(otherTeamName + ", do you want to give clues first, or second?");
         btnFirst.setOnClickListener(new View.OnClickListener() {
             @Override
