@@ -39,8 +39,8 @@ public class GamePlay extends AppCompatActivity {
     Button btnNewClueGiver, btnFirst, btnSecond, btnDone,weenieButton;
 
     String otherTeamName = "";
-    int team1Color = getResources().getColor(R.color.white);
-    int team2Color = getResources().getColor(R.color.black);
+    int team1Color;
+    int team2Color;
     ImageView teamOnePersonToken, teamOnePlaceToken, teamOneThingToken, teamTwoPersonToken, teamTwoPlaceToken, teamTwoThingToken, personImage, placeImage, thingImage;
     Boolean teamOnePersonTokenEnabled = false, teamOnePlaceTokenEnabled = false, teamOneThingTokenEnabled = false, teamTwoPersonTokenEnabled = false, teamTwoPlaceTokenEnabled = false, teamTwoThingTokenEnabled = false;
 
@@ -72,6 +72,8 @@ public class GamePlay extends AppCompatActivity {
         dialogView = inflater.inflate(com.app.myapp.abstracts.R.layout.dialog_select_clue_giver, null);
 
         backgroundColor.setBackgroundResource(com.app.myapp.abstracts.R.color.colorPrimary);//changes color layout
+        team1Color = getResources().getColor(R.color.white);
+        team2Color = getResources().getColor(R.color.black);
 
         final ABSTRACTSFileRead abstractsFileRead = new ABSTRACTSFileRead(this, PickPPTListActivity.fileNameOfListChosen);
         abstractsFileRead.newFileLine();

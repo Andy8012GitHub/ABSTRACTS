@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
@@ -27,6 +28,8 @@ public class PurchasingActivity extends AppCompatActivity implements PurchasesUp
     - Make process secure
     - Test on alpha/beta channel
      */
+    TextView textViewMessageAboutGPlay;
+
     private BillingClient mBillingClient;
     private Activity mActivity = this;
 
@@ -35,12 +38,33 @@ public class PurchasingActivity extends AppCompatActivity implements PurchasesUp
         super.onCreate(savedInstanceState);
         setContentView(com.app.myapp.abstracts.R.layout.activity_purchasing);
 
+        textViewMessageAboutGPlay = (TextView) findViewById(R.id.textViewMessageAboutGPlay);
+
         mBillingClient = BillingClient.newBuilder(mActivity).setListener(this).build();
         mBillingClient.startConnection(new BillingClientStateListener() {
             @Override
             public void onBillingSetupFinished(@BillingClient.BillingResponse int billingResponseCode) {
                 if (billingResponseCode == BillingClient.BillingResponse.OK) {
                     // The billing client is ready. You can query purchases here.
+                    System.out.println("Billing client is ready! :)");
+                }
+                switch(billingResponseCode) {
+                    case BillingClient.BillingResponse.BILLING_UNAVAILABLE:
+                        textViewMessageAboutGPlay.setText(R.string.g_play_unavailable);
+                        break;
+                    case BillingClient.BillingResponse.OK:
+                        List skuList = new ArrayList<>();
+                        skuList.add("ppt_full");
+                        skuList.add("ppt_1988");
+                        SkuDetailsParams.Builder params = SkuDetailsParams.newBuilder();
+                        params.setSkusList(skuList).setType(BillingClient.SkuType.INAPP);
+                        mBillingClient.querySkuDetailsAsync(params.build(),
+                                new SkuDetailsResponseListener() {
+                                    @Override
+                                    public void onSkuDetailsResponse(int responseCode, List skuDetailsList) {
+                                        // Process the result.
+                                    }
+                                });
                 }
             }
             @Override
@@ -49,22 +73,6 @@ public class PurchasingActivity extends AppCompatActivity implements PurchasesUp
                 // app Play by calling the startConnection() method.
             }
         });
-        List<String> skuList = new ArrayList<>();
-        SkuDetailsParams.Builder params = SkuDetailsParams.newBuilder();
-        params.setSkusList(skuList).setType(BillingClient.SkuType.INAPP);
-        mBillingClient.querySkuDetailsAsync(params.build(),
-                new SkuDetailsResponseListener() {
-            @Override
-            public void onSkuDetailsResponse(int responseCode, List skuDetailsList) {
-                if(responseCode == BillingClient.BillingResponse.OK) {
-
-                }
-                else {
-
-                }
-            }
-        });
-
     }
 
     @Override

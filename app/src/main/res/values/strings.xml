@@ -12,7 +12,6 @@
     <string name="more_lists_coming_soon">More lists coming soon!</string>
     <string name="get_more_lists">GET MORE LISTS!</string>
     <string name="ppt_basic_free_list">Basic Free List</string>
-    <string name="you_need_g_play">You must have Google Play in order to purchase this list.</string>
     <string name="create_teams_title">CREATE YOUR TEAMS</string>
     <string name="new_clue_giver">New CLUE GIVERS</string>
     <string name="now_choose_your_own_clue_givers">Now, each team, choose your own new CLUE GIVERS.</string>
@@ -42,6 +41,7 @@
     <string name="second">SECOND</string>
     <string name="see_rules">See Rules</string>
     <string name="hear_rules">Hear Rules</string>
+    <string name="g_play_unavailable">Sorry. Google Play purchasing is not available on your device.</string>
 
     <string name="text_before_audio">
         <b>Thanks for downloading the ABSTRACTS app!</b>
