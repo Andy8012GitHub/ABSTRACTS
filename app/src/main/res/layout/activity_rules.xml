@@ -75,6 +75,14 @@
             android:textAlignment="center"
             app:srcCompat="@drawable/play_arrow" />
 
+        <Button
+            android:id="@+id/btnRewind15Sec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/rewind" />
+
         <include
             android:id="@+id/NestedScroll"
             layout="@layout/content_rules"

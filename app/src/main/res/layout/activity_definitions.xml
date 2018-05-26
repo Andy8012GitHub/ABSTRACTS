@@ -9,63 +9,63 @@
 
     <ImageView
         android:id="@+id/imgPersonTokenLight"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="160dp"
         android:src="@drawable/person_token_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imgPlaceTokenLight"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="170dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/place_token_light"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imgPersonTokenLight" />
 
     <ImageView
         android:id="@+id/imgThingTokenLight"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="260dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/thing_token_light"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imgPlaceTokenLight" />
 
     <ImageView
         android:id="@+id/imgPersonTokenDark"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="160dp"
         android:src="@drawable/person_token_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imgPlaceTokenDark"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="170dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/place_token_dark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imgPersonTokenDark" />
 
     <ImageView
         android:id="@+id/imgThingTokenDark"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="260dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/thing_token_dark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imgPlaceTokenDark" />
 
     <TextView
         android:id="@+id/textViewTeamsAreGuessingA"
@@ -86,25 +86,25 @@
         android:id="@+id/textViewTeamName1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
         android:text="teamName1"
         android:textColor="@android:color/background_light"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnDefToMain" />
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imgPersonTokenLight"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewTeamName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="48dp"
         android:text="teamName2"
-        android:textColor="@android:color/background_light"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imgPersonTokenDark"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textViewWhatIsAPerson"
@@ -112,7 +112,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="160dp"
         android:clickable="true"
         android:text="@string/what_is_a_person"
         android:textColor="@android:color/background_light"
@@ -125,16 +125,14 @@
         android:id="@+id/textViewWhatIsAPlace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="45dp"
         android:clickable="true"
         android:text="@string/what_is_a_place"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewWhatIsAPerson" />
 
     <TextView
         android:id="@+id/textViewWhatIsAThing"
@@ -142,14 +140,14 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="45dp"
         android:clickable="true"
         android:text="@string/what_is_a_thing"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewWhatIsAPlace" />
 
     <TextView
         android:id="@+id/textViewDefinitionsTitle"
@@ -157,8 +155,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:text="@string/definitions"
+        android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -254,7 +253,49 @@
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/radioButtonPlace"
             tools:layout_editor_absoluteY="399dp" />
-
     </RadioGroup>
+
+    <Button
+        android:id="@+id/btnWeenieSoundEffect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/weenie_sound_fx"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewPressIfRulesAreViolated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="4dp"
+        android:paddingRight="8dp"
+        android:text="@string/if_rules_violated"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/btnWeenieSoundEffect"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgViewArrow"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewPressIfRulesAreViolated"
+        app:layout_constraintEnd_toEndOf="@+id/textViewPressIfRulesAreViolated"
+        app:srcCompat="@drawable/play_arrow" />
+
+    <TextView
+        android:id="@+id/textViewForNonClueGivers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/for_non_clue_givers"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDefinitionsTitle" />
 
 </android.support.constraint.ConstraintLayout>

@@ -16,7 +16,7 @@ public class CreateTeams extends AppCompatActivity {
     TextView playerList;
     static String teamOneName = "Team 1";
     static String teamTwoName = "Team 2";
-    TextView teamTextView;
+    TextView textViewTeamName;
     Button submitTeam,submitButton,nextTeamButton,startButton;
     TextView textViewChooseYourOwnClueGiver;
     Button btnYes;
@@ -35,7 +35,7 @@ public class CreateTeams extends AppCompatActivity {
 
         playersName = (EditText)findViewById(com.app.myapp.abstracts.R.id.playersName);
         playerList = (TextView)findViewById(com.app.myapp.abstracts.R.id.playerList);
-        teamTextView = (TextView)findViewById(com.app.myapp.abstracts.R.id.textViewTeamName);
+        textViewTeamName = (TextView)findViewById(com.app.myapp.abstracts.R.id.textViewTeamName);
         enterTeam = (EditText)findViewById(com.app.myapp.abstracts.R.id.enterTeam);
         submitTeam = (Button)findViewById(com.app.myapp.abstracts.R.id.submitTeam);
         submitButton = (Button)findViewById(com.app.myapp.abstracts.R.id.submitButton);
@@ -45,7 +45,7 @@ public class CreateTeams extends AppCompatActivity {
         playersName.setVisibility(View.GONE);
         nextTeamButton.setVisibility(View.GONE);
         startButton.setVisibility(View.GONE);
-        teamTextView.setText("Team 1");
+        textViewTeamName.setText("Team 1");
 
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(dialogView);
@@ -71,7 +71,7 @@ public class CreateTeams extends AppCompatActivity {
     }
 
 
-    public void submitButtonHandler (View view){
+    public void submitPlayerNameButtonHandler (View view){
         if (i == 0) {
             teamOnePlayers.add(playersName.getText().toString());
             playerList.append(playersName.getText().toString() + "   ");
@@ -79,21 +79,22 @@ public class CreateTeams extends AppCompatActivity {
             if(teamOnePlayers.size() > 1){
                 nextTeamButton.setVisibility(View.VISIBLE);
             }else nextTeamButton.setVisibility(View.GONE);
-        }else{
+        } else {
             teamTwoPlayers.add(playersName.getText().toString());
+            playerList.setTextColor(getResources().getColor(R.color.black));
             playerList.append(playersName.getText().toString() + "   ");
             playersName.setText("");
             if(teamTwoPlayers.size() > 1){
                 startButton.setVisibility(View.VISIBLE);
-            }else startButton.setVisibility(View.GONE);
+            } else startButton.setVisibility(View.GONE);
 
         }
     }
 
-    public void submitTeamButtonHandler (View view){
+    public void submitTeamNameButtonHandler (View view){
         if (i == 0) {
             teamOneName = enterTeam.getText().toString();
-            teamTextView.setText(teamOneName);
+            textViewTeamName.setText(teamOneName);
             enterTeam.setText("");
             enterTeam.setVisibility(View.GONE);
             submitTeam.setVisibility(View.GONE);
@@ -101,7 +102,7 @@ public class CreateTeams extends AppCompatActivity {
             playersName.setVisibility(View.VISIBLE);
         } else {
             teamTwoName = enterTeam.getText().toString();
-            teamTextView.setText(teamTwoName);
+            textViewTeamName.setText(teamTwoName);
             enterTeam.setText("");
             enterTeam.setVisibility(View.GONE);
             submitTeam.setVisibility(View.GONE);
@@ -111,7 +112,8 @@ public class CreateTeams extends AppCompatActivity {
     }
 
     public void nextTeamButtonHandler (View view){
-        teamTextView.setText("Team 2");
+        textViewTeamName.setText("Team 2");
+        textViewTeamName.setTextColor(getResources().getColor(R.color.black));
         playerList.setText("");
         playersName.setVisibility(View.GONE);
         submitButton.setVisibility(View.GONE);

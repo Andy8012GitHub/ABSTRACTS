@@ -12,12 +12,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class PickPPTListActivity extends AppCompatActivity {
-    Button btnGetMoreLists;
+//    Button btnGetMoreLists;
+    Button btnPPTToMain;
     TextView textViewBasicFreeList;
 
     static ArrayList<PPTList> lists = new ArrayList<>();
     static String fileNameOfListChosen = "ABSTRACTS PPT - basic";
-    boolean gPlayEnabled = false;
 
     //in place of boolean value isEnabled, call method to check whether user has made a purchase
 
@@ -28,16 +28,24 @@ public class PickPPTListActivity extends AppCompatActivity {
 
         lists.clear();
 
-        btnGetMoreLists = (Button) findViewById(R.id.btnGetMoreLists);
+//        btnGetMoreLists = (Button) findViewById(R.id.btnGetMoreLists);
         textViewBasicFreeList = (TextView) findViewById(com.app.myapp.abstracts.R.id.textViewBasicFreeList);
+        btnPPTToMain = (Button) findViewById(R.id.btnPPTToMain);
 
-        btnGetMoreLists.setOnClickListener(new View.OnClickListener() {
+        btnPPTToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PickPPTListActivity.this, PurchasingActivity.class);
+                Intent intent = new Intent(PickPPTListActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
+//        btnGetMoreLists.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(PickPPTListActivity.this, PurchasingActivity.class);
+//                startActivity(intent);
+//            }
+//        });
         textViewBasicFreeList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,29 +54,6 @@ public class PickPPTListActivity extends AppCompatActivity {
         });
 
     }
-
-//    public void handleListPurchasedOrNot(Dialog dialog, ImageButton imgBtn, String fileNameOfList, boolean isEnabled) {
-//        if (!fileNameOfList.equals("ABSTRACTS PPT - basic")) {
-//        if(!gPlayEnabled) {
-//            textViewPurchaseToEnable.setText(R.string.you_need_g_play);
-//            dialog.show();
-//        }
-//        else {
-//            int id = imgBtn.getId();
-//            lists.add(new PPTList(id, fileNameOfList, isEnabled));
-//            int index = 0;
-//            while (lists.get(index).id != id) {
-//                index++;
-//            }
-//            if (!lists.get(index).isEnabled) {
-//                dialog.show();
-//                return;
-//            }
-//        }
-//        }
-//        fileNameOfListChosen = fileNameOfList;
-//        startActivity(new Intent(PickPPTListActivity.this, CreateTeams.class));
-//    }
 }
 
 

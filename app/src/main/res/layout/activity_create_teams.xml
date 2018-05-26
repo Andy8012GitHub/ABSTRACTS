@@ -67,7 +67,7 @@
         android:layout_toEndOf="@id/enterTeam"
         android:layout_toRightOf="@id/enterTeam"
         android:backgroundTint="@color/colorAccent"
-        android:onClick="submitTeamButtonHandler"
+        android:onClick="submitTeamNameButtonHandler"
         android:text="Submit" />
 
     <Button
@@ -79,7 +79,7 @@
         android:layout_toRightOf="@id/playersName"
         android:backgroundTint="@color/colorAccent"
 
-        android:onClick="submitButtonHandler"
+        android:onClick="submitPlayerNameButtonHandler"
         android:text="Submit" />
 
     <Button

@@ -45,11 +45,11 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnGetMoreLists">
-        <!--app:layout_constraintBottom_toTopOf="@+id/textViewMoreListsComingSoon"-->
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTheListsYouOwn">
+        app:layout_constraintTop_toBottomOf="@+id/textViewTheListsYouOwn"
+        app:layout_constraintBottom_toTopOf="@+id/textViewMoreListsComingSoon">
+        <!--app:layout_constraintBottom_toTopOf="@+id/ibtnGetMoreLists"-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -71,19 +71,19 @@
         </LinearLayout>
     </ScrollView>
 
-    <!--<TextView-->
-        <!--android:id="@+id/textViewMoreListsComingSoon"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginBottom="16dp"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:text="@string/more_lists_coming_soon"-->
-        <!--android:textColor="@android:color/background_light"-->
-        <!--android:textSize="30sp"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent" />-->
+    <TextView
+        android:id="@+id/textViewMoreListsComingSoon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/more_lists_coming_soon"
+        android:textColor="@android:color/background_light"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnPPTToMain"
@@ -97,17 +97,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnGetMoreLists"
-        android:layout_width="154dp"
-        android:layout_height="69dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:backgroundTint="@color/colorAccent"
-        android:text="@string/get_more_lists"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <!--<Button-->
+        <!--android:id="@+id/btnGetMoreLists"-->
+        <!--android:layout_width="154dp"-->
+        <!--android:layout_height="69dp"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:backgroundTint="@color/colorAccent"-->
+        <!--android:text="@string/get_more_lists"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent" />-->
 
 </android.support.constraint.ConstraintLayout>

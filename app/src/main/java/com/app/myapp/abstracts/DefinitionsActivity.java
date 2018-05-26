@@ -1,6 +1,7 @@
 package com.app.myapp.abstracts;
 import android.app.Dialog;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,7 +24,7 @@ public class DefinitionsActivity extends AppCompatActivity {
     ImageView imgPersonTokenDark;
     ImageView imgPlaceTokenDark;
     ImageView imgThingTokenDark;
-    Button btnDefToMain;
+    Button btnDefToMain, btnWeenieSoundFX;
     RadioGroup radioGroupPPT;
     Button btnTeam1GotIt;
     Button btnTeam2GotIt;
@@ -47,6 +48,7 @@ public class DefinitionsActivity extends AppCompatActivity {
         imgPlaceTokenDark = (ImageView) findViewById(com.app.myapp.abstracts.R.id.imgPlaceTokenDark);
         imgThingTokenDark = (ImageView) findViewById(com.app.myapp.abstracts.R.id.imgThingTokenDark);
         btnDefToMain = (Button) findViewById(com.app.myapp.abstracts.R.id.btnDefToMain);
+        btnWeenieSoundFX = (Button) findViewById(R.id.btnWeenieSoundEffect);
         radioGroupPPT = (RadioGroup) findViewById(com.app.myapp.abstracts.R.id.radioGroupPPT);
         btnTeam1GotIt = (Button) findViewById(com.app.myapp.abstracts.R.id.btnTeam1GotIt);
         btnTeam2GotIt = (Button) findViewById(com.app.myapp.abstracts.R.id.btnTeam2GotIt);
@@ -54,6 +56,8 @@ public class DefinitionsActivity extends AppCompatActivity {
         textViewTeamName2.setText(CreateTeams.teamTwoName);
         btnTeam1GotIt.setText(CreateTeams.teamOneName + " GOT IT!");
         btnTeam2GotIt.setText(CreateTeams.teamTwoName + " GOT IT!");
+
+        final MediaPlayer mediaPlayer = MediaPlayer.create(DefinitionsActivity.this, R.raw.weenie);
 
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(dialogView);
@@ -65,6 +69,27 @@ public class DefinitionsActivity extends AppCompatActivity {
             }
         });
 
+        btnDefToMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DefinitionsActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnWeenieSoundFX.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mediaPlayer.start();
+                btnWeenieSoundFX.setText(R.string.stop_weenie_sound);
+                btnWeenieSoundFX.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mediaPlayer.stop();
+                        btnWeenieSoundFX.setText(R.string.weenie_sound_fx);
+                    }
+                });
+            }
+        });
         textViewWhatIsAPerson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,13 +112,6 @@ public class DefinitionsActivity extends AppCompatActivity {
                 textViewDef = (TextView) dialogView.findViewById(com.app.myapp.abstracts.R.id.textViewInstructionsForCorrectOrIncorrect);
                 dialog.show();
                 textViewDef.setText(com.app.myapp.abstracts.R.string.thing_def);
-            }
-        });
-        btnDefToMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(DefinitionsActivity.this, MainActivity.class);
-                startActivity(intent);
             }
         });
         btnTeam1GotIt.setOnClickListener(new View.OnClickListener() {
