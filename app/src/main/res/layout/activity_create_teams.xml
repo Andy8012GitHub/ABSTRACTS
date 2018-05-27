@@ -42,44 +42,23 @@
         android:textSize="25sp" />
 
     <EditText
-        android:id="@+id/playersName"
-        android:layout_width="250dp"
+        android:id="@+id/enterTeamOrPlayerName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="450dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:layout_toLeftOf="@+id/submitButton"
         android:ems="10"
-        android:hint="Add player."
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/enterTeam"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="450dp"
-        android:ems="10"
-        android:hint="Enter Team Name"
-        android:inputType="textPersonName" />
-
-    <Button
-        android:id="@+id/submitTeam"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/enterTeam"
-        android:layout_toEndOf="@id/enterTeam"
-        android:layout_toRightOf="@id/enterTeam"
-        android:backgroundTint="@color/colorAccent"
-        android:onClick="submitTeamNameButtonHandler"
-        android:text="Submit" />
+        android:inputType="textPersonName"
+        android:hint="@string/enter_team_name" />
 
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/playersName"
-        android:layout_toEndOf="@id/playersName"
-        android:layout_toRightOf="@id/playersName"
+        android:layout_alignBaseline="@+id/enterTeamOrPlayerName"
+        android:layout_alignParentRight="true"
         android:backgroundTint="@color/colorAccent"
-
-        android:onClick="submitPlayerNameButtonHandler"
         android:text="Submit" />
 
     <Button
@@ -87,6 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/colorAccent"
         android:onClick="nextTeamButtonHandler"
@@ -96,8 +76,9 @@
         android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
         android:backgroundTint="@color/colorAccent"
         android:onClick="startButtonHandler"
         android:text="Start" />

@@ -3,7 +3,7 @@
     <string name="app_subtitle">The Game of Absurd Logic</string>
     <string name="play">PLAY</string>
     <string name="rules">RULES</string>
-    <string name="definitions">Definitions &amp;\n Score Keeping</string>
+    <string name="definitions">DEFINITIONS &amp;\n SCORE KEEPING</string>
     <string name="for_non_clue_givers">for non-Clue Givers</string>
     <string name="note_beta_version">NOTE: This is a beta version that will undergo updates in the near future. Please give feedback at abstractsgame@gmail.com.</string>
     <string name="main_menu">Main Menu</string>
@@ -14,6 +14,12 @@
     <string name="get_more_lists">GET MORE LISTS!</string>
     <string name="ppt_basic_free_list">Basic Free List</string>
     <string name="create_teams_title">CREATE YOUR TEAMS</string>
+    <string name="skip_creating_teams">Skip creating teams?</string>
+    <string name="choose_your_own_clue_giver">You will have to choose your own Clue Givers for each round.</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="enter_team_name">Enter team name</string>
+    <string name="enter_player_name">Enter a player name</string>
     <string name="new_clue_giver">New Clue Givers</string>
     <string name="now_choose_your_own_clue_givers">Now, each team, choose your own new Clue Givers.</string>
     <string name="team_is_guessing_a">Teams are guessing a…</string>
@@ -26,10 +32,6 @@
     <string name="person">PERSON</string>
     <string name="place">PLACE</string>
     <string name="thing">THING</string>
-    <string name="skip_creating_teams">Skip creating teams?</string>
-    <string name="choose_your_own_clue_giver">You will have to choose your own Clue Givers for each round.</string>
-    <string name="yes">YES</string>
-    <string name="no">NO</string>
     <string name="ok">OK</string>
     <string name="done">DONE</string>
     <string name="get_a_clue">Get New Clue</string>
