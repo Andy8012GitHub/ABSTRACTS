@@ -47,7 +47,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:padding="8dp"
+        android:padding="0dp"
         android:text="@string/app_subtitle"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
@@ -109,19 +109,20 @@
         app:srcCompat="@drawable/title" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewBetaVersionNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:padding="4dp"
+        android:layout_marginTop="16dp"
+        android:padding="2dp"
         android:text="@string/note_beta_version"
         android:textAlignment="center"
-        android:textColor="@android:color/background_light"
+        android:textColor="@color/darkGray"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLogoLeft"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

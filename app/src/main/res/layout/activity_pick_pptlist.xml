@@ -79,6 +79,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/more_lists_coming_soon"
+        android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"

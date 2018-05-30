@@ -32,6 +32,7 @@
 //
 //    private BillingClient mBillingClient;
 //    private Activity mActivity = this;
+//    private boolean mServiceIsConnected = false;
 //
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
@@ -39,32 +40,37 @@
 //        setContentView(com.app.myapp.abstracts.R.layout.activity_purchasing);
 //
 //        textViewMessageAboutGPlay = (TextView) findViewById(R.id.textViewMessageAboutGPlay);
-//
 //        mBillingClient = BillingClient.newBuilder(mActivity).setListener(this).build();
+//
+//        queryPurchases();
+//    }
+//
+//    public void queryPurchases() {
+//        Runnable queryToExecute = new Runnable() {
+//            @Override
+//            public void run() {
+//                Purchase.PurchasesResult purchasesResult = mBillingClient.queryPurchases(BillingClient.SkuType.INAPP);
+//                for(Purchase p : purchasesResult.getPurchasesList()) {
+//
+//                }
+//            }
+//        }
+//    }
+//
+//    public void startConnection(final Runnable runnable) {
 //        mBillingClient.startConnection(new BillingClientStateListener() {
 //            @Override
 //            public void onBillingSetupFinished(@BillingClient.BillingResponse int billingResponseCode) {
 //                if (billingResponseCode == BillingClient.BillingResponse.OK) {
 //                    // The billing client is ready. You can query purchases here.
-//                    System.out.println("Billing client is ready! :)");
+//                    mServiceIsConnected = true;
+//                    runnable.run();
 //                }
 //                switch(billingResponseCode) {
 //                    case BillingClient.BillingResponse.BILLING_UNAVAILABLE:
 //                        textViewMessageAboutGPlay.setText(R.string.g_play_unavailable);
 //                        break;
-//                    case BillingClient.BillingResponse.OK:
-//                        List skuList = new ArrayList<>();
-//                        skuList.add("ppt_full");
-//                        skuList.add("ppt_1988");
-//                        SkuDetailsParams.Builder params = SkuDetailsParams.newBuilder();
-//                        params.setSkusList(skuList).setType(BillingClient.SkuType.INAPP);
-//                        mBillingClient.querySkuDetailsAsync(params.build(),
-//                                new SkuDetailsResponseListener() {
-//                                    @Override
-//                                    public void onSkuDetailsResponse(int responseCode, List skuDetailsList) {
-//                                        // Process the result.
-//                                    }
-//                                });
+//
 //                }
 //            }
 //            @Override

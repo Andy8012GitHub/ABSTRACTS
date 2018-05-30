@@ -373,6 +373,7 @@ public class GamePlay extends AppCompatActivity {
                 }
                 radioGroup.clearCheck();
                 btnGetNewClue.setVisibility(GONE);
+                btnChangePPT.setVisibility(GONE);
                 clue1TextView.setVisibility(GONE);
                 clue2TextView.setVisibility(GONE);
                 clue3TextView.setVisibility(GONE);
@@ -509,14 +510,14 @@ public class GamePlay extends AppCompatActivity {
     public void showSelectClueGiverDialog(final Dialog dialog, View dialogView) {
         dialog.setContentView(dialogView);
         weenieTextView.setVisibility(GONE);
-//        weenieDoneBtn.setVisibility(GONE);
         btnFirst.setVisibility(GONE);
         btnSecond.setVisibility(GONE);
+        textViewWhoIsClueGiverOrWhoIsPlaying.setVisibility(VISIBLE);
         if (!CreateTeams.skippedCreatingTeams) {
             btnDone.setVisibility(GONE);
             btnSpinForNewClueGiver.setVisibility(VISIBLE);
             textViewWhoIsClueGiverOrWhoIsPlaying.setText(R.string.new_clue_giver);
-            textViewClueGiverName.setText("");
+            textViewClueGiverName.setVisibility(GONE);
             btnSpinForNewClueGiver.setText("Spin for " + CreateTeams.teamOneName);
             btnSpinForNewClueGiver.setOnClickListener(new View.OnClickListener() {
                 @Override
