@@ -2,6 +2,7 @@
 //
 //import android.app.Activity;
 //import android.content.Context;
+//import android.net.wifi.aware.PublishConfig;
 //import android.support.annotation.Nullable;
 //import android.support.v7.app.AppCompatActivity;
 //import android.os.Bundle;
@@ -14,6 +15,7 @@
 //import com.android.billingclient.api.SkuDetailsParams;
 //import com.android.billingclient.api.SkuDetailsResponseListener;
 //
+//import java.io.IOException;
 //import java.util.ArrayList;
 //import java.util.List;
 //
@@ -33,6 +35,8 @@
 //    private BillingClient mBillingClient;
 //    private Activity mActivity = this;
 //    private boolean mServiceIsConnected = false;
+//    public final List<Purchase> mPurchases = new ArrayList<>();
+//    private String base64EncodedPublicKey;
 //
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +50,22 @@
 //    }
 //
 //    public void queryPurchases() {
+//        mPurchases.clear();
 //        Runnable queryToExecute = new Runnable() {
 //            @Override
 //            public void run() {
-//                Purchase.PurchasesResult purchasesResult = mBillingClient.queryPurchases(BillingClient.SkuType.INAPP);
-//                for(Purchase p : purchasesResult.getPurchasesList()) {
-//
-//                }
+//                Purchase.PurchasesResult purchases = mBillingClient.queryPurchases(BillingClient.SkuType.INAPP);
+//                mPurchases.addAll(purchases.getPurchasesList());
 //            }
-//        }
+//        };
+//        executeServiceRequest(queryToExecute);
+//    }
+//
+//    public void executeServiceRequest(Runnable runnable) {
+//        if(mServiceIsConnected)
+//            runnable.run();
+//        else
+//            startConnection(runnable);
 //    }
 //
 //    public void startConnection(final Runnable runnable) {
@@ -62,7 +73,6 @@
 //            @Override
 //            public void onBillingSetupFinished(@BillingClient.BillingResponse int billingResponseCode) {
 //                if (billingResponseCode == BillingClient.BillingResponse.OK) {
-//                    // The billing client is ready. You can query purchases here.
 //                    mServiceIsConnected = true;
 //                    runnable.run();
 //                }
@@ -75,14 +85,27 @@
 //            }
 //            @Override
 //            public void onBillingServiceDisconnected() {
-//                // Try to restart the connection on the next request to
-//                // app Play by calling the startConnection() method.
+//                mServiceIsConnected = false;
 //            }
 //        });
 //    }
 //
 //    @Override
 //    public void onPurchasesUpdated(int responseCode, @Nullable List<Purchase> purchases) {
+//        if(responseCode == BillingClient.BillingResponse.OK) {
+//            for(Purchase p : purchases) {
+//                try {
+//                    if(verifyPurchase(base64EncodedPublicKey, p.getOriginalJson(), p.getSignature()))
+//                    mPurchases.add(p);
+//                } catch(IOException e) {
+//
+//                }
+//            }
+//        }
+//    }
+//
+//    public void endConn() {
+//        mBillingClient.endConnection();
 //
 //    }
 //}

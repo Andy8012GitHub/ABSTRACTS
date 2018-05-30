@@ -85,7 +85,7 @@ public class DefinitionsActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         mediaPlayer.stop();
-                        btnWeenieSoundFX.setText(R.string.weenie_sound_fx);
+                        btnWeenieSoundFX.setText(R.string.weenie_sound);
                     }
                 });
             }

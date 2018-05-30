@@ -68,6 +68,31 @@
                 android:textSize="24sp"
                 android:textStyle="bold"
                 tools:text="@string/ppt_basic_free_list" />
+
+            <TextView
+                android:id="@+id/textViewExpandedList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ppt_expanded_list"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:clickable="true" />
+
+            <TextView
+                android:id="@+id/textView1988OriginalList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ppt_1988_original_list"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:clickable="true" />
+
         </LinearLayout>
     </ScrollView>
 
