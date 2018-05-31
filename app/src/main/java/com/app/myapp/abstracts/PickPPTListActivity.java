@@ -62,7 +62,15 @@ public class PickPPTListActivity extends AppCompatActivity {
                 startActivity(new Intent(PickPPTListActivity.this, CreateTeams.class));
             }
         });
+//        btnGetMoreLists.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(PickPPTListActivity.this, PurchasingActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
+//        purchasingActivity.queryPurchases();
 //        for(Purchase p : purchasingActivity.mPurchases) {
 //            switch (p.getSku()) {
 //                case "ppt_expanded_list":
@@ -72,15 +80,6 @@ public class PickPPTListActivity extends AppCompatActivity {
 //                    textView1988Original.setVisibility(View.VISIBLE);
 //            }
 //        }
-
-
-//        btnGetMoreLists.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(PickPPTListActivity.this, PurchasingActivity.class);
-//                startActivity(intent);
-//            }
-//        });
     }
 }
 

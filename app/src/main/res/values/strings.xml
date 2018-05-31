@@ -57,7 +57,8 @@
     <string name="sku_1988_original_list">1988_original_list</string>
     <string name="g_play_unavailable">Sorry. Google Play purchasing is not available on your device.</string>
     <string name="g_play_item_already_owned">That item is already owned.</string>
-    <string name="g_play_purchase_not_verified">Something went wrong. Your purchase could not be verified.</string>
+    <string name="g_play_error">Something went wrong. Your purchase could not be verified.</string>
+    <string name="g_play_user_canceled">Canceled purchase.</string>
 
     <string name="text_before_audio">
         <b>Thanks for downloading the ABSTRACTS app!</b>
