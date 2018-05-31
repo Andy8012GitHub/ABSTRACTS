@@ -19,13 +19,6 @@ android {
             renderscriptDebuggable false
         }
     }
-    signingConfigs {
-        release {
-            storePassword 'pw4Key$tore'
-            keyAlias 'abstracts'
-            keyPassword '!ncredibleGameCo'
-        }
-    }
 }
 
 dependencies {

@@ -7,17 +7,132 @@
     android:background="@color/colorPrimary"
     tools:context=".PurchasingActivity">
 
+    <Button
+        android:id="@+id/btnBackToPickPPTs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/back_to_picking_list"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textViewMessageAboutGPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="TextView"
+        android:layout_marginTop="16dp"
+        android:text="Describing billing response code"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPurchasingTitle" />
+
+    <TextView
+        android:id="@+id/textViewPurchasingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/purchasing_title"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBackToPickPPTs" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMessageAboutGPlay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:background="@color/colorAccent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewExpandedListTitleAndPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp"
+                android:text="@string/ppt_expanded_list"
+                android:textAlignment="viewStart"
+                android:textColor="@color/darkGray"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewExpandedListDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:text="getDescription()"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnBuyExpandedList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="4dp"
+                android:layout_marginRight="8dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/buy"
+                android:textAlignment="center" />
+
+            <ImageView
+                android:id="@+id/imgViewLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/line_color_primary" />
+
+            <TextView
+                android:id="@+id/textView1988OriginalListTitleAndPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp"
+                android:text="@string/ppt_1988_original_list"
+                android:textAlignment="viewStart"
+                android:textColor="@color/darkGray"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView1988OriginalListDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:text="getDescription()"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnBuy1988OriginalList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="4dp"
+                android:layout_marginRight="8dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/buy"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>

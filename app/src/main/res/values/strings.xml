@@ -7,7 +7,6 @@
     <string name="for_non_clue_givers">for non-Clue Givers</string>
     <string name="note_beta_version">NOTE: This is a beta version that will undergo updates in the near future. Please give feedback at abstractsgame@gmail.com.</string>
     <string name="main_menu">Main Menu</string>
-    <string name="action_settings">SETTINGS</string>
     <string name="pick_your_ppts">PICK YOUR PEOPLE,\nPLACES, &amp; THINGS TO PLAY WITH</string>
     <string name="lists_you_own">Lists You Own</string>
     <string name="more_lists_coming_soon">More lists coming soon!</string>
@@ -51,7 +50,14 @@
     <string name="see_rules">See Rules</string>
     <string name="hear_rules">Hear Rules</string>
     <string name="rewind">Rewind 15 sec.</string>
+    <string name="back_to_picking_list">Back to Your Lists</string>
+    <string name="purchasing_title">SHOP FOR LISTS</string>
+    <string name="buy">BUY</string>
+    <string name="sku_expanded_list">expanded_list</string>
+    <string name="sku_1988_original_list">1988_original_list</string>
     <string name="g_play_unavailable">Sorry. Google Play purchasing is not available on your device.</string>
+    <string name="g_play_item_already_owned">That item is already owned.</string>
+    <string name="g_play_purchase_not_verified">Something went wrong. Your purchase could not be verified.</string>
 
     <string name="text_before_audio">
         <b>Thanks for downloading the ABSTRACTS app!</b>

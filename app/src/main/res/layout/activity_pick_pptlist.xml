@@ -7,6 +7,18 @@
     android:background="@color/colorPrimary"
     tools:context=".PickPPTListActivity">
 
+    <Button
+        android:id="@+id/btnPPTToMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/main_menu"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textViewTitlePickPPTs"
         android:layout_width="wrap_content"
@@ -110,18 +122,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnPPTToMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:backgroundTint="@color/colorAccent"
-        android:text="@string/main_menu"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <!--<Button-->
         <!--android:id="@+id/btnGetMoreLists"-->
