@@ -17,24 +17,21 @@ public class PickPPTListActivity extends AppCompatActivity {
     TextView textViewBasicFree;
     TextView textViewExpanded;
     TextView textView1988Original;
-//    Button btnGetMoreLists;
+    Button btnGetMoreLists;
 
-//    static ArrayList<PPTList> lists = new ArrayList<>();
     static String fileNameOfListChosen = "ABSTRACTS PPT - basic";
-//    PurchasingActivity purchasingActivity = new PurchasingActivity();
+    PurchasingActivity purchasingActivity = new PurchasingActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.app.myapp.abstracts.R.layout.activity_pick_pptlist);
 
-//        lists.clear();
-
         btnPPTToMain = (Button) findViewById(R.id.btnPPTToMain);
         textViewBasicFree = (TextView) findViewById(com.app.myapp.abstracts.R.id.textViewBasicFreeList);
         textViewExpanded = (TextView) findViewById(R.id.textViewExpandedList);
         textView1988Original = (TextView) findViewById(R.id.textView1988OriginalList);
-//        btnGetMoreLists = (Button) findViewById(R.id.btnGetMoreLists);
+        btnGetMoreLists = (Button) findViewById(R.id.btnGetMoreLists);
 
         btnPPTToMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,52 +59,23 @@ public class PickPPTListActivity extends AppCompatActivity {
                 startActivity(new Intent(PickPPTListActivity.this, CreateTeams.class));
             }
         });
-//        btnGetMoreLists.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(PickPPTListActivity.this, PurchasingActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        btnGetMoreLists.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PickPPTListActivity.this, PurchasingActivity.class);
+                startActivity(intent);
+            }
+        });
 
-//        purchasingActivity.queryPurchases();
-//        for(Purchase p : purchasingActivity.mPurchases) {
-//            switch (p.getSku()) {
-//                case "ppt_expanded_list":
-//                    textViewExpanded.setVisibility(View.VISIBLE);
-//                    break;
-//                case "ppt_1988_original_list":
-//                    textView1988Original.setVisibility(View.VISIBLE);
-//            }
-//        }
+        purchasingActivity.queryPurchases();
+        for(Purchase p : purchasingActivity.mPurchases) {
+            switch (p.getSku()) {
+                case "ppt_expanded_list":
+                    textViewExpanded.setVisibility(View.VISIBLE);
+                    break;
+                case "ppt_1988_original_list":
+                    textView1988Original.setVisibility(View.VISIBLE);
+            }
+        }
     }
 }
-
-
-
-//class PPTList {
-//    Integer id;
-//    String fileNameOfList = "";
-////    String sku = "";
-//    boolean isEnabled;
-//
-//    public Integer getImgBtnId() {
-//        return id;
-//    }
-//    public String getFileNameOfList() {
-//        return fileNameOfList;
-//    }
-////    public String getSKU() {
-////        return sku;
-////    }
-//    public boolean isEnabled() {
-//        return isEnabled;
-//    }
-//
-//    public PPTList(int id, String fileNameOfList,/* String sku,*/ boolean isEnabled) {
-//        this.id = id;
-//        this.fileNameOfList = fileNameOfList;
-////        this.sku = sku;
-//        this.isEnabled = isEnabled;
-//    }
-//}
