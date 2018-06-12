@@ -204,7 +204,7 @@ public class PurchasingActivity extends AppCompatActivity implements PurchasesUp
                 break;
         }
     }
-    
+
     public void constructPublicKey() {
         String wrongKey = "HDD=Dj<I=gkqhkiB4w+=<Q@A<<J><Q3<HDD=>gF><Q@<hjUFu02*yqGUQFpe,ZjAm<R*g>.-qqr-d+&T0hglYZXDkireepmknqyK1yyz.*Fy0Gpl4.>?cl&?1qw@4&TdA1b/qSFDQUh/giq&+UuBtAo0SFTB2WdmdB@wru4fwrpDgzQ4cm4SdUfmUkWmq-kg,1KYIik2Q2a4kb/wud2krfSAomYqar.=-JIVIAQcUv2Apaty-k/EQpDGXyGUofqlhrDvi=nhK*+hRXTI0nQqwKtShjhG&jSVso1Eh,/vTv+pJTgd&SK.pJcCZa&ch/y02@FEb?0R*>qQlyfkZYD3S4j/J/fD?CE0ygXTk<JjHm?11WGomr4chHRjYe?A=rwS-wD?<Q<=";
         StringBuilder stringBuilder = new StringBuilder();

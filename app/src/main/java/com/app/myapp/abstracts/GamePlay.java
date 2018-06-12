@@ -52,7 +52,7 @@ public class GamePlay extends AppCompatActivity {
     int team1Color;
     int team2Color;
     Rotate3dAnimation animation;
-
+    boolean weenieButtonIsOnStart = true;
 
 
     @Override
@@ -119,18 +119,19 @@ public class GamePlay extends AppCompatActivity {
         btnWeenieSoundFX.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaPlayer.start();
-                btnWeenieSoundFX.setText(R.string.stop_weenie_sound);
-                btnWeenieSoundFX.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        mediaPlayer.stop();
-                        btnWeenieSoundFX.setText(R.string.weenie_sound);
-                    }
-                });
+                if(weenieButtonIsOnStart) {
+                    mediaPlayer.start();
+                    btnWeenieSoundFX.setText(R.string.stop_weenie_sound);
+                    weenieButtonIsOnStart = false;
+                }
+                else {
+                    mediaPlayer.stop();
+                    mediaPlayer.prepareAsync();
+                    btnWeenieSoundFX.setText(R.string.weenie_sound);
+                    weenieButtonIsOnStart = true;
+                }
             }
         });
-
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

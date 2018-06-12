@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.io.IOException;
+
 public class DefinitionsActivity extends AppCompatActivity {
     TextView textViewTeamName1;
     TextView textViewTeamName2;
@@ -28,6 +30,8 @@ public class DefinitionsActivity extends AppCompatActivity {
     RadioGroup radioGroupPPT;
     Button btnTeam1GotIt;
     Button btnTeam2GotIt;
+
+    boolean weenieButtonIsOnStart = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,15 +83,17 @@ public class DefinitionsActivity extends AppCompatActivity {
         btnWeenieSoundFX.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaPlayer.start();
-                btnWeenieSoundFX.setText(R.string.stop_weenie_sound);
-                btnWeenieSoundFX.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        mediaPlayer.stop();
-                        btnWeenieSoundFX.setText(R.string.weenie_sound);
-                    }
-                });
+                if(weenieButtonIsOnStart) {
+                    mediaPlayer.start();
+                    btnWeenieSoundFX.setText(R.string.stop_weenie_sound);
+                    weenieButtonIsOnStart = false;
+                }
+                else {
+                    mediaPlayer.stop();
+                    mediaPlayer.prepareAsync();
+                    btnWeenieSoundFX.setText(R.string.weenie_sound);
+                    weenieButtonIsOnStart = true;
+                }
             }
         });
         textViewWhatIsAPerson.setOnClickListener(new View.OnClickListener() {
