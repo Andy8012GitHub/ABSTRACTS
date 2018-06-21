@@ -74,7 +74,8 @@
                 android:text="@string/ppt_expanded_list"
                 android:textAlignment="viewStart"
                 android:textColor="@color/darkGray"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewExpandedListDescription"
@@ -110,7 +111,8 @@
                 android:text="@string/ppt_1988_original_list"
                 android:textAlignment="viewStart"
                 android:textColor="@color/darkGray"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView1988OriginalListDescription"

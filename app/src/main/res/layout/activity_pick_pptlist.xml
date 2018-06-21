@@ -34,39 +34,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPPTToMain" />
 
-    <TextView
-        android:id="@+id/textViewTheListsYouOwn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="18dp"
-        android:text="@string/lists_you_own"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textColor="@android:color/background_light"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitlePickPPTs" />
-
     <ScrollView
         android:id="@+id/scrollViewListsYouOwn"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTheListsYouOwn"
-        app:layout_constraintBottom_toTopOf="@+id/btnGetMoreLists" />
-        <!--app:layout_constraintBottom_toTopOf="@+id/textViewMoreListsComingSoon">-->
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitlePickPPTs">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="355dp">
 
             <TextView
                 android:id="@+id/textViewBasicFreeList"
@@ -78,39 +61,67 @@
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                tools:text="@string/ppt_basic_free_list" />
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewBasicFreeListSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="@string/ppt_basic_free_list_subtitle"
+                android:textAlignment="center"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/textViewExpandedList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
                 android:text="@string/ppt_expanded_list"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:visibility="gone"
-                android:clickable="true" />
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/textViewExpandedListSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="@string/ppt_expanded_list_subtitle"
+                android:textAlignment="center"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/textView1988OriginalList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
                 android:text="@string/ppt_1988_original_list"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:visibility="gone"
-                android:clickable="true" />
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/textView1988OriginalListSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="@string/ppt_1988_original_list_subtitle"
+                android:textAlignment="center"
+                android:textSize="16sp" />
 
         </LinearLayout>
+    </ScrollView>
+        <!--app:layout_constraintBottom_toTopOf="@+id/textViewMoreListsComingSoon">-->
 
     <Button
         android:id="@+id/btnGetMoreLists"
-        android:layout_width="154dp"
-        android:layout_height="69dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -120,7 +131,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>
 
     <!--<TextView-->
     <!--android:id="@+id/textViewMoreListsComingSoon"-->
