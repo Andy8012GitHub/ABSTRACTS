@@ -14,8 +14,6 @@ import android.widget.TextView;
 import java.io.IOException;
 
 public class DefinitionsActivity extends AppCompatActivity {
-    TextView textViewTeamName1;
-    TextView textViewTeamName2;
     TextView textViewWhatIsAPerson;
     TextView textViewWhatIsAPlace;
     TextView textViewWhatIsAThing;
@@ -40,8 +38,6 @@ public class DefinitionsActivity extends AppCompatActivity {
         LayoutInflater inflater = LayoutInflater.from(this);
         final View dialogView = inflater.inflate(com.app.myapp.abstracts.R.layout.dialog_what_is_a____, null);
 
-        textViewTeamName1 = (TextView) findViewById(com.app.myapp.abstracts.R.id.textViewTeamName1);
-        textViewTeamName2 = (TextView) findViewById(com.app.myapp.abstracts.R.id.textViewTeamName2);
         textViewWhatIsAPerson  = (TextView) findViewById(com.app.myapp.abstracts.R.id.textViewWhatIsAPerson);
         textViewWhatIsAPlace = (TextView) findViewById(com.app.myapp.abstracts.R.id.textViewWhatIsAPlace);
         textViewWhatIsAThing = (TextView) findViewById(com.app.myapp.abstracts.R.id.textViewWhatIsAThing);
@@ -56,8 +52,6 @@ public class DefinitionsActivity extends AppCompatActivity {
         radioGroupPPT = (RadioGroup) findViewById(com.app.myapp.abstracts.R.id.radioGroupPPT);
         btnTeam1GotIt = (Button) findViewById(com.app.myapp.abstracts.R.id.btnTeam1GotIt);
         btnTeam2GotIt = (Button) findViewById(com.app.myapp.abstracts.R.id.btnTeam2GotIt);
-        textViewTeamName1.setText(CreateTeams.teamOneName);
-        textViewTeamName2.setText(CreateTeams.teamTwoName);
         btnTeam1GotIt.setText(CreateTeams.teamOneName + " GOT IT!");
         btnTeam2GotIt.setText(CreateTeams.teamTwoName + " GOT IT!");
 

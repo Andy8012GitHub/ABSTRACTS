@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">ABSTRACTS</string>
     <string name="app_subtitle">The Game of Absurd Logic</string>
-    <string name="play">PLAY</string>
-    <string name="rules">RULES</string>
-    <string name="definitions">DEFINITIONS &amp;\n SCORE KEEPING</string>
-    <string name="for_non_clue_givers">for non-Clue Givers</string>
+    <string name="play">Play</string>
+    <string name="rules">Rules</string>
+    <string name="definitions">Definitions &amp; Score Keeping</string>
     <string name="note_beta_version">NOTE: This is a beta version that will undergo updates in the near future. Please give feedback at abstractsgame@gmail.com.</string>
     <string name="main_menu">Main Menu</string>
-    <string name="pick_your_ppts">PICK YOUR PEOPLE,\nPLACES, &amp; THINGS TO PLAY WITH</string>
+    <string name="get_ready_to_play">Get ready to play…</string>
+    <string name="pick_your_ppts">Pick a list of PPTs to play with.</string>
     <string name="you_must_buy">You must buy that list to play with it.</string>
     <string name="not_now">Not Now</string>
     <string name="more_lists_coming_soon">More lists coming soon!</string>
@@ -18,15 +18,14 @@
     <string name="ppt_expanded_list_subtitle">With more than 1,400 PPTs</string>
     <string name="ppt_1988_original_list"><b>1988 Original List</b></string>
     <string name="ppt_1988_original_list_subtitle">From the 1988 board game with 960 PPTs</string>
-    <string name="create_teams_title">CREATE YOUR TEAMS</string>
-    <string name="skip_creating_teams">Skip creating teams?</string>
-    <string name="choose_your_own_clue_giver">You will have to choose your own Clue Givers for each round.</string>
-    <string name="yes">YES</string>
-    <string name="no">NO</string>
+    <string name="create_teams_title">Name Your Teams</string>
     <string name="enter_team_name">Enter team name</string>
-    <string name="enter_player_name">Enter a player name</string>
-    <string name="new_clue_giver">New Clue Givers</string>
-    <string name="now_choose_your_own_clue_givers">Now, each team, choose your own new Clue Givers.</string>
+    <string name="too_many_chars">Team names cannot exceed 12 characters.</string>
+    <string name="next_team">Next Team</string>
+    <string name="submit">Submit</string>
+    <string name="for_non_clue_givers">for non-Clue Givers</string>
+    <string name="team1">Team 1</string>
+    <string name="team2">Team 2</string>
     <string name="team_is_guessing_a">Teams are guessing a…</string>
     <string name="what_is_a_person">What is a PERSON?</string>
     <string name="what_is_a_place">What is a PLACE?</string>
@@ -41,21 +40,26 @@
     <string name="done">DONE</string>
     <string name="get_a_clue">Get New Clue</string>
     <string name="change_ppt">Change PPT</string>
+    <string name="wild_card">WILD CARD!\n\n</string>
+    <string name="if_i_were_a">If I were a</string>
+    <string name="i_would_be_a">,\nI would be a…</string>
     <string name="correct">Got It!</string>
     <string name="incorrect">Missed It</string>
+    <string name="congrats">CONGRATS, </string>
     <string name="title_activity_weenie">Weenie</string>
     <string name="weenie_sound">WEENIE Sound</string>
     <string name="stop_weenie_sound">Stop Sound</string>
     <string name="if_rules_violated">Press if Rules\nare violated</string>
     <string name="weenie">WEENIE!</string>
-    <string name="weenie_message">You are a Weenie! Pass device to the other CLUE GIVER. You pushed the limits too far. Next time, don\'t be a Weenie!</string>
-    <string name="first">FIRST</string>
-    <string name="second">SECOND</string>
+    <string name="weenie_message">You are a Weenie! Pass device to the other Clue Giver. You pushed the limits too far. Next time, don\'t be a Weenie!</string>
+    <string name="first_or_second">, do you want to give clues first, or second?</string>
+    <string name="first">First</string>
+    <string name="second">Second</string>
     <string name="see_rules">See Rules</string>
     <string name="hear_rules">Hear Rules</string>
     <string name="rewind">Rewind 15 sec.</string>
     <string name="back_to_picking_list">Back to Your Lists</string>
-    <string name="purchasing_title">SHOP FOR LISTS</string>
+    <string name="purchasing_title">Shop for Lists</string>
     <string name="buy">BUY</string>
     <string name="sku_expanded_list">expanded_list</string>
     <string name="sku_1988_original_list">1988_original_list</string>
@@ -64,14 +68,12 @@
     <string name="g_play_error">Something went wrong. Your purchase could not be verified.</string>
     <string name="g_play_user_canceled">Canceled purchase.</string>
 
-    <string name="text_before_audio">
+    -
+    <string name="large_text">
         <b>Thanks for downloading the ABSTRACTS app!</b>
         \n\n ABSTRACTS is a party game. It is designed to be played with two teams.
         \n Collect all three tokens – the PERSON (da Vinci’s “Man”), the PLACE (“World”), and the THING (“All-seeing Eye”) – by correctly guessing each from clues given by Clue Givers, and your team wins!
         \n Players tap “Play,” and select PEOPLE, PLACES, &amp; THINGs to use or purchase from Google Play.
-    </string>
-    -
-    <string name="large_text">
         <b>BEGINNING THE GAME</b>
         \n\n <b>Two teams</b> with two or more players each (we’ve tested it with forty people) sit apart to discreetly discuss possible answers. <b>Both teams are trying to guess the same PERSON, PLACE, or THING (PPT),</b> so listen carefully to all clues as they will often build upon each other.
         \n <b>Clue Givers share one device</b> even though they change during the game. Team members may also download the ABSTRACTS app to review rules, remind the team of definitions of PEOPLE, PLACES &amp; THINGS, and to keep score.

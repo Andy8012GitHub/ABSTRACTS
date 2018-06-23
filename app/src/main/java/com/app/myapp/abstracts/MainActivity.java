@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void playButtonHandler (View view) {
-        Intent intent = new Intent(MainActivity.this, PickPPTListActivity.class);
+        Intent intent = new Intent(MainActivity.this, CreateTeams.class);
         startActivity(intent);
     }
 

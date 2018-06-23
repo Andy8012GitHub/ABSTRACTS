@@ -8,7 +8,7 @@
     tools:context=".CreateTeams">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textViewNameYourTeams"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/create_teams_title"
@@ -20,66 +20,45 @@
         android:id="@+id/textViewTeamName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView5"
+        android:layout_below="@+id/textViewNameYourTeams"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Team 1"
+        android:text="@string/team1"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@android:color/background_light"
         android:textSize="35sp" />
 
-    <TextView
-        android:id="@+id/playerList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewTeamName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text=""
-        android:textAlignment="center"
-        android:textColor="@android:color/background_light"
-        android:textSize="25sp" />
-
     <EditText
-        android:id="@+id/enterTeamOrPlayerName"
-        android:layout_width="match_parent"
+        android:id="@+id/enterTeamName"
+        android:layout_width="272dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="16dp"
-        android:layout_toLeftOf="@+id/submitButton"
+        android:layout_marginRight="24dp"
+        android:layout_toLeftOf="@+id/btnNext"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/enter_team_name" />
+        android:hint="@string/enter_team_name"
+        android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/submitButton"
+        android:id="@+id/btnNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/enterTeamOrPlayerName"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/enterTeamName"
         android:backgroundTint="@color/colorAccent"
-        android:text="Submit" />
+        android:text="@string/next_team" />
 
-    <Button
-        android:id="@+id/nextTeamButton"
+    <TextView
+        android:id="@+id/textViewTooManyCharacters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="70dp"
+        android:layout_above="@+id/enterTeamName"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/colorAccent"
-        android:onClick="nextTeamButtonHandler"
-        android:text="Next team" />
+        android:layout_marginBottom="16dp"
+        android:text="@string/too_many_chars"
+        android:textColor="@color/warning"
+        android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/startButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="70dp"
-        android:backgroundTint="@color/colorAccent"
-        android:onClick="startButtonHandler"
-        android:text="Start" />
 </RelativeLayout>

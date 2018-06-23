@@ -5,4 +5,5 @@
     <color name="darkGray">#2d323b</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
+    <color name="warning">#ff80ae</color>
 </resources>

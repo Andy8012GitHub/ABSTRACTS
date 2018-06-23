@@ -8,14 +8,14 @@
     tools:context=".GamePlay">
 
     <TextView
-        android:id="@+id/textViewWhoIsClueGiverOrWhoIsPlaying"
+        android:id="@+id/textViewWhoIsPlaying"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:fontFamily="text"
-        android:text="@string/new_clue_giver"
+        android:text=""
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
@@ -24,31 +24,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewClueGiverName"
+        android:id="@+id/textViewWeenieTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Clue Giver Name"
+        android:text="@string/weenie"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewWhoIsClueGiverOrWhoIsPlaying" />
-
-    <Button
-        android:id="@+id/btnNewClueGiver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewClueGiverName" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewWhoIsPlaying" />
 
     <Button
         android:id="@+id/btnDone"
@@ -72,7 +60,7 @@
         android:backgroundTint="@color/colorAccent"
         android:text="@string/first"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewWhoIsClueGiverOrWhoIsPlaying" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewWhoIsPlaying" />
 
     <Button
         android:id="@+id/btnSecond"
@@ -83,7 +71,7 @@
         android:backgroundTint="@color/colorAccent"
         android:text="@string/second"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewWhoIsClueGiverOrWhoIsPlaying" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewWhoIsPlaying" />
 
     <TextView
         android:id="@+id/weenieTextView"
@@ -92,12 +80,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        android:text="TextView"
+        android:text="@string/weenie_message"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewClueGiverName" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewWeenieTitle" />
 
 </android.support.constraint.ConstraintLayout>
