@@ -21,29 +21,34 @@ import java.util.Random;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
+import static com.app.myapp.abstracts.GamePlay.PPTLastChosen.PERSON;
+import static com.app.myapp.abstracts.GamePlay.PPTLastChosen.PLACE;
+import static com.app.myapp.abstracts.GamePlay.PPTLastChosen.THING;
 
 public class GamePlay extends AppCompatActivity {
     Dialog dialog;
     LayoutInflater inflater;
     View dialogView;
 
-    Button btnToMain;
-    TextView textViewTeamName, personPlaceThingChosenTextView, clue1TextView, clue2TextView, clue3TextView, clueChosenTextView, teamOneScore, teamTwoScore, textViewWhoIsPlaying, textViewWeenieTitle, textViewWeenieMessage;
+    Button btnToMain, btnWeenieSoundFX;
+    TextView textViewTeamName, personPlaceThingChosenTextView, clue1TextView, clue2TextView, clue3TextView, clueChosenTextView, teamOneScore, teamTwoScore, textViewWhoIsPlaying, textViewBigTitle, textViewSubtitle;
     RadioButton personRadioButton,placeRadioButton,thingRadioButton;
     RadioGroup radioGroup;
-    Button newSetPeoplePlaceThingButton, btnChangePPT, btnGetNewClue, btnGotIt, btnMissedIt, btnFirst, btnSecond, btnWeenieSoundFX, btnDone/*, weenieDoneBtn*/;
+    Button newSetPeoplePlaceThingButton, btnChangePPT, btnGetNewClue, btnGotIt, btnMissedIt, btnUndoLastScore, btnFirst, btnSecond, btnContinue;
     ImageView teamOnePersonToken, teamOnePlaceToken, teamOneThingToken, teamTwoPersonToken, teamTwoPlaceToken, teamTwoThingToken, personImage, placeImage, thingImage;
     Boolean teamOnePersonTokenEnabled = false, teamOnePlaceTokenEnabled = false, teamOneThingTokenEnabled = false, teamTwoPersonTokenEnabled = false, teamTwoPlaceTokenEnabled = false, teamTwoThingTokenEnabled = false;
 
     ConstraintLayout backgroundColor;
     Context context;
-    String person,place,thing;
-    String whichTeamHadTheLastTurn = "";
     int setCounter = 0;
     int randint = 0;
     int personPlaceThingNumber = 0; //person = 1 place = 2 thing = 3, helps with the tokens
     Random random = new Random();
-    String otherTeamName = "";
+    String otherTeamName = "", whichTeamHadTheLastTurn = "", person, place, thing, team1Name = CreateTeams.teamOneName, team2Name = CreateTeams.teamTwoName;
+    enum PPTLastChosen {
+        PERSON, PLACE, THING
+    }
+    PPTLastChosen whichPPTLastChosen;
     int team1Color;
     int team2Color;
     Rotate3dAnimation animation;
@@ -56,7 +61,7 @@ public class GamePlay extends AppCompatActivity {
         setContentView(com.app.myapp.abstracts.R.layout.activity_game_play);
         dialog = new Dialog(this);
         inflater = LayoutInflater.from(this);
-        dialogView = inflater.inflate(com.app.myapp.abstracts.R.layout.dialog_weenie_and_who_goes_first, null);
+        dialogView = inflater.inflate(com.app.myapp.abstracts.R.layout.dialog_all_game_play_dialogs, null);
 
         btnToMain = (Button) findViewById(R.id.btnToMain);
         btnWeenieSoundFX = (Button) findViewById(R.id.btnWeenieSoundEffect);
@@ -72,17 +77,18 @@ public class GamePlay extends AppCompatActivity {
         placeRadioButton = (RadioButton)findViewById(R.id.placeRadioButton);
         thingRadioButton = (RadioButton)findViewById(R.id.thingRadioButton);
         radioGroup = (RadioGroup)findViewById(R.id.radioGroup);
-        newSetPeoplePlaceThingButton = (Button)findViewById(R.id.newSetPeoplePlaceThingButton);
+        newSetPeoplePlaceThingButton = (Button)findViewById(R.id.btnNewSetPPTs);
         btnGetNewClue = (Button)findViewById(R.id.btnGetNewClue);
         btnChangePPT = (Button) findViewById(R.id.btnChangePPT);
         btnGotIt = (Button)findViewById(R.id.btnGotIt);
         btnMissedIt = (Button)findViewById(R.id.btnMissedIt);
+        btnUndoLastScore = (Button) findViewById(R.id.btnUndoLastScore);
         textViewWhoIsPlaying = (TextView) dialogView.findViewById(R.id.textViewWhoIsPlaying);
-        textViewWeenieTitle = (TextView) dialogView.findViewById(R.id.textViewWeenieTitle);
-        textViewWeenieMessage = (TextView) dialogView.findViewById(R.id.weenieTextView);
+        textViewBigTitle = (TextView) dialogView.findViewById(R.id.textViewBigTitle);
+        textViewSubtitle = (TextView) dialogView.findViewById(R.id.textViewSubtitle);
         btnFirst = (Button) dialogView.findViewById(R.id.btnFirst);
         btnSecond = (Button) dialogView.findViewById(R.id.btnSecond);
-        btnDone = (Button) dialogView.findViewById(R.id.btnDone);
+        btnContinue = (Button) dialogView.findViewById(R.id.btnContinue);
         teamOnePersonToken = (ImageView)findViewById(R.id.teamOnePersonToken);
         teamOnePlaceToken = (ImageView)findViewById(R.id.teamOnePlaceToken);
         teamOneThingToken = (ImageView)findViewById(R.id.teamOneThingToken);
@@ -92,6 +98,29 @@ public class GamePlay extends AppCompatActivity {
         personImage = (ImageView)findViewById(R.id.personImage);
         placeImage = (ImageView)findViewById(R.id.placeImage);
         thingImage = (ImageView)findViewById(R.id.thingImage);
+
+        personPlaceThingChosenTextView.setVisibility(View.GONE);
+        textViewTeamName.setText(team1Name);
+        whichTeamHadTheLastTurn = team1Name;
+        clue1TextView.setVisibility(View.GONE);
+        clue2TextView.setVisibility(View.GONE);
+        clue3TextView.setVisibility(View.GONE);
+        btnGetNewClue.setVisibility(View.GONE);
+        btnChangePPT.setVisibility(View.GONE);
+        clueChosenTextView.setVisibility(GONE);
+        textViewBigTitle.setVisibility(GONE);
+        textViewSubtitle.setVisibility(GONE);
+        btnGotIt.setVisibility(View.GONE);
+        btnMissedIt.setVisibility(View.GONE);
+        teamOnePersonToken.setVisibility(GONE);
+        teamOnePlaceToken.setVisibility(GONE);
+        teamOneThingToken.setVisibility(GONE);
+        teamTwoPersonToken.setVisibility(GONE);
+        teamTwoPlaceToken.setVisibility(GONE);
+        teamTwoThingToken.setVisibility(GONE);
+        teamOneScore.setText(team1Name + " Score");
+        teamTwoScore.setText(team2Name + " Score");
+        newSetPeoplePlaceThingButton.setText("PPT Start");
 
         backgroundColor = (ConstraintLayout)findViewById(R.id.container);
         backgroundColor.setBackgroundResource(com.app.myapp.abstracts.R.color.colorPrimary);//changes color layout
@@ -125,35 +154,12 @@ public class GamePlay extends AppCompatActivity {
                 }
             }
         });
-        btnDone.setOnClickListener(new View.OnClickListener() {
+        btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
             }
         });
-
-        personPlaceThingChosenTextView.setVisibility(View.GONE);
-        textViewTeamName.setText(CreateTeams.teamOneName);
-        whichTeamHadTheLastTurn = CreateTeams.teamOneName;
-        clue1TextView.setVisibility(View.GONE);
-        clue2TextView.setVisibility(View.GONE);
-        clue3TextView.setVisibility(View.GONE);
-        btnGetNewClue.setVisibility(View.GONE);
-        btnChangePPT.setVisibility(View.GONE);
-        clueChosenTextView.setVisibility(GONE);
-        textViewWeenieTitle.setVisibility(GONE);
-        textViewWeenieMessage.setVisibility(GONE);
-        btnGotIt.setVisibility(View.GONE);
-        btnMissedIt.setVisibility(View.GONE);
-        teamOnePersonToken.setVisibility(GONE);
-        teamOnePlaceToken.setVisibility(GONE);
-        teamOneThingToken.setVisibility(GONE);
-        teamTwoPersonToken.setVisibility(GONE);
-        teamTwoPlaceToken.setVisibility(GONE);
-        teamTwoThingToken.setVisibility(GONE);
-        teamOneScore.setText(CreateTeams.teamOneName + " Score");
-        teamTwoScore.setText(CreateTeams.teamTwoName + " Score");
-        newSetPeoplePlaceThingButton.setText("PPT Start");
 
         context = this;
 
@@ -192,9 +198,9 @@ public class GamePlay extends AppCompatActivity {
                 btnChangePPT.setVisibility(VISIBLE);
                 radioButtonSetVisibilities();
                 personPlaceThingChosenTextView.setText(person);
-                personPlaceThingNumber = 1;
+                whichPPTLastChosen = PERSON;
                 showingClues(abstractsFileReadClues);
-                showWhoseTurnIsItDialog(dialog, dialogView);
+                showGoFirstOrSecondDialog(dialog, dialogView);
                 setCounter = 0;
             }
         });
@@ -204,9 +210,9 @@ public class GamePlay extends AppCompatActivity {
                 btnChangePPT.setVisibility(VISIBLE);
                 radioButtonSetVisibilities();
                 personPlaceThingChosenTextView.setText(place);
-                personPlaceThingNumber = 2;
+                whichPPTLastChosen = PLACE;
                 showingClues(abstractsFileReadClues);
-                showWhoseTurnIsItDialog(dialog, dialogView);
+                showGoFirstOrSecondDialog(dialog, dialogView);
                 setCounter = 0;
             }
         });
@@ -216,9 +222,9 @@ public class GamePlay extends AppCompatActivity {
                 btnChangePPT.setVisibility(VISIBLE);
                 radioButtonSetVisibilities();
                 personPlaceThingChosenTextView.setText(thing);
-                personPlaceThingNumber = 3;
+                whichPPTLastChosen = THING;
                 showingClues(abstractsFileReadClues);
-                showWhoseTurnIsItDialog(dialog, dialogView);
+                showGoFirstOrSecondDialog(dialog, dialogView);
                 setCounter = 0;
             }
         });
@@ -229,7 +235,7 @@ public class GamePlay extends AppCompatActivity {
             public void onClick(View v) {
                 setCounter++;
                 if (setCounter == randint){
-                    weenieDialog(dialog,dialogView);
+                    weenieDialog(dialog, dialogView);
                     randint = 0;
                     setCounter = 0;
                     while (randint <= 1){
@@ -271,6 +277,191 @@ public class GamePlay extends AppCompatActivity {
         btnGotIt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                showCongratsAndNewClueGiversDialog(dialog, dialogView);
+            }
+        });
+
+        btnMissedIt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                randint = 0;
+                setCounter = 0;
+                while (randint <= 1){
+                    randint = random.nextInt(10);
+                }
+                switchTeamNameInTextView();
+                showingClues(abstractsFileReadClues);
+            }
+        });
+        
+        btnUndoLastScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(whichTeamHadTheLastTurn.equals(team1Name)) {
+                    switch(whichPPTLastChosen) {
+                        case PERSON:
+                            teamOnePersonToken.setVisibility(GONE);
+                            teamOnePersonTokenEnabled = false;
+                            break;
+                        case PLACE:
+                            teamOnePlaceToken.setVisibility(GONE);
+                            teamOnePlaceTokenEnabled = false;
+                            break;
+                        case THING:
+                            teamOneThingToken.setVisibility(GONE);
+                            teamOneThingTokenEnabled = false;
+                    }
+                } else {
+                    switch(whichPPTLastChosen) {
+                        case PERSON:
+                            teamTwoPersonToken.setVisibility(GONE);
+                            teamTwoPersonTokenEnabled = false;
+                            break;
+                        case PLACE:
+                            teamTwoPlaceToken.setVisibility(GONE);
+                            teamTwoPlaceTokenEnabled = false;
+                            break;
+                        case THING:
+                            teamTwoThingToken.setVisibility(GONE);
+                            teamTwoThingTokenEnabled = false;
+                    }
+                }
+            }
+        });
+    }
+
+    private void switchTeamNameInTextView() {
+        whichTeamHadTheLastTurn = textViewTeamName.getText().toString();
+        if(whichTeamHadTheLastTurn.equals(team1Name)) {
+            otherTeamName = team2Name;
+            textViewTeamName.setTextColor(team2Color);
+        }
+        else {
+            otherTeamName = team1Name;
+            textViewTeamName.setTextColor(team1Color);
+        }
+        textViewTeamName.setText(otherTeamName);
+    }
+
+    private void animateCoin(final ImageView imageView, final int drawableFile, int darkOrLightBackground) {
+
+        animation = new Rotate3dAnimation(imageView, drawableFile, darkOrLightBackground, 0, 180, 0, 0, 0, 0);
+
+        animation.setRepeatCount(5); // must be odd (5+1 = 6 flips so the side will stay the same)
+
+        animation.setDuration(110);
+        animation.setInterpolator(new LinearInterpolator());
+
+        imageView.startAnimation(animation);
+
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                if (teamOnePersonTokenEnabled && teamOnePlaceTokenEnabled && teamOneThingTokenEnabled) {
+                    textViewTeamName.setTextColor(team1Color);
+                    textViewTeamName.setText(team1Name + R.string.won);
+                    radioGroup.setVisibility(GONE);
+                    newSetPeoplePlaceThingButton.setVisibility(GONE);
+                    teamOneScore.setVisibility(GONE);
+                    placeImage.setVisibility(GONE);
+                    personImage.setVisibility(GONE);
+                    thingImage.setVisibility(GONE);
+                    teamTwoScore.setVisibility(GONE);
+                    teamTwoPersonToken.setVisibility(GONE);
+                    teamTwoPlaceToken.setVisibility(GONE);
+                    teamTwoThingToken.setVisibility(GONE);
+                } else if (teamTwoThingTokenEnabled && teamTwoPlaceTokenEnabled && teamTwoPersonTokenEnabled) {
+                    textViewTeamName.setTextColor(team2Color);
+                    textViewTeamName.setText(team2Name + R.string.won);
+                    radioGroup.setVisibility(GONE);
+                    newSetPeoplePlaceThingButton.setVisibility(GONE);
+                    teamOneScore.setVisibility(GONE);
+                    placeImage.setVisibility(GONE);
+                    personImage.setVisibility(GONE);
+                    thingImage.setVisibility(GONE);
+                    teamTwoScore.setVisibility(GONE);
+                    teamOnePersonToken.setVisibility(GONE);
+                    teamOnePlaceToken.setVisibility(GONE);
+                    teamOneThingToken.setVisibility(GONE);
+                }
+                else {
+                    imageView.setImageResource(drawableFile);
+                }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+
+    }
+
+    public void radioButtonSetVisibilities(){
+        personImage.setVisibility(GONE);
+        placeImage.setVisibility(GONE);
+        thingImage.setVisibility(GONE);
+        teamOneScore.setVisibility(GONE);
+        teamTwoScore.setVisibility(GONE);
+        radioGroup.setVisibility(View.GONE);
+        newSetPeoplePlaceThingButton.setVisibility(View.GONE);
+        personPlaceThingChosenTextView.setVisibility(VISIBLE);
+        teamOnePersonToken.setVisibility(GONE);
+        teamOnePlaceToken.setVisibility(GONE);
+        teamOneThingToken.setVisibility(GONE);
+        teamTwoPersonToken.setVisibility(GONE);
+        teamTwoPlaceToken.setVisibility(GONE);
+        teamTwoThingToken.setVisibility(GONE);
+        btnGotIt.setVisibility(VISIBLE);
+        btnMissedIt.setVisibility(VISIBLE);
+        btnGetNewClue.setVisibility(VISIBLE);
+        radioGroup.clearCheck();
+    }
+
+    public void showGoFirstOrSecondDialog(final Dialog dialog, View dialogView) {
+        dialog.setContentView(dialogView);
+        textViewSubtitle.setVisibility(GONE);
+        btnContinue.setVisibility(GONE);
+        textViewWhoIsPlaying.setVisibility(VISIBLE);
+        btnFirst.setVisibility(VISIBLE);
+        btnSecond.setVisibility(VISIBLE);
+        switchTeamNameInTextView();
+        textViewWhoIsPlaying.setText(otherTeamName + R.string.first_or_second);
+        btnFirst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnFirst.setVisibility(GONE);
+                btnSecond.setVisibility(GONE);
+                textViewWhoIsPlaying.setVisibility(GONE);
+                dialog.dismiss();
+            }
+        });
+        btnSecond.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchTeamNameInTextView();
+                btnFirst.setVisibility(GONE);
+                btnSecond.setVisibility(GONE);
+                textViewWhoIsPlaying.setVisibility(GONE);
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
+    public void showCongratsAndNewClueGiversDialog(final Dialog dialog, View dialogView) {
+        dialog.setContentView(dialogView);
+        textViewBigTitle.setText(R.string.congrats + whichTeamHadTheLastTurn);
+        textViewSubtitle.setText(R.string.new_cg);
+        btnContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 randint = 0;
                 while (randint <= 1){
                     randint = random.nextInt(10);
@@ -293,8 +484,8 @@ public class GamePlay extends AppCompatActivity {
                 if (teamTwoThingTokenEnabled){
                     teamTwoThingToken.setVisibility(VISIBLE);
                 }
-                if (textViewTeamName.getText().equals(CreateTeams.teamOneName)){
-                    if (personPlaceThingNumber == 1 || teamOnePersonTokenEnabled){
+                if (textViewTeamName.getText().equals(team1Name)){
+                    if (whichPPTLastChosen == PERSON || teamOnePersonTokenEnabled){
                         if(teamOnePersonTokenEnabled) {
                             teamOnePersonToken.setVisibility(VISIBLE);
                         }else {
@@ -303,7 +494,7 @@ public class GamePlay extends AppCompatActivity {
                         }
                         teamOnePersonTokenEnabled = true;
                     }
-                    if (personPlaceThingNumber == 2 || teamOnePlaceTokenEnabled){
+                    if (whichPPTLastChosen == PLACE || teamOnePlaceTokenEnabled){
                         if (teamOnePlaceTokenEnabled) {
                             teamOnePlaceToken.setVisibility(VISIBLE);
                         }
@@ -313,7 +504,7 @@ public class GamePlay extends AppCompatActivity {
                         }
                         teamOnePlaceTokenEnabled = true;
                     }
-                    if (personPlaceThingNumber == 3 || teamOneThingTokenEnabled){
+                    if (whichPPTLastChosen == THING || teamOneThingTokenEnabled){
                         if (teamOneThingTokenEnabled){
                             teamOneThingToken.setVisibility(VISIBLE);
                         }
@@ -324,8 +515,8 @@ public class GamePlay extends AppCompatActivity {
                         teamOneThingTokenEnabled = true;
                     }
                 }
-                if(textViewTeamName.getText().equals(CreateTeams.teamTwoName)){
-                    if(personPlaceThingNumber == 1 || teamTwoPersonTokenEnabled){
+                if(textViewTeamName.getText().equals(team2Name)){
+                    if(whichPPTLastChosen == PERSON || teamTwoPersonTokenEnabled){
                         if (teamTwoPersonTokenEnabled) {
                             teamTwoPersonToken.setVisibility(VISIBLE);
                         }
@@ -335,7 +526,7 @@ public class GamePlay extends AppCompatActivity {
                         }
                         teamTwoPersonTokenEnabled = true;
                     }
-                    if (personPlaceThingNumber == 2 || teamTwoPlaceTokenEnabled){
+                    if (whichPPTLastChosen == PLACE || teamTwoPlaceTokenEnabled){
                         if (teamTwoPlaceTokenEnabled) {
                             teamTwoPlaceToken.setVisibility(VISIBLE);
                         }
@@ -345,7 +536,7 @@ public class GamePlay extends AppCompatActivity {
                         }
                         teamTwoPlaceTokenEnabled = true;
                     }
-                    if (personPlaceThingNumber == 3 || teamTwoThingTokenEnabled){
+                    if (whichPPTLastChosen == THING || teamTwoThingTokenEnabled){
                         if (teamTwoThingTokenEnabled) {
                             teamTwoThingToken.setVisibility(VISIBLE);
                         }
@@ -387,138 +578,6 @@ public class GamePlay extends AppCompatActivity {
                 placeRadioButton.setText(R.string.place);
                 thingRadioButton.setText(R.string.thing);
                 whichTeamHadTheLastTurn = textViewTeamName.getText().toString();
-            }
-        });
-
-        btnMissedIt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                randint = 0;
-                setCounter = 0;
-                while (randint <= 1){
-                    randint = random.nextInt(10);
-                }
-                switchTeamNameInTextView();
-                showingClues(abstractsFileReadClues);
-            }
-        });
-    }
-
-    private void switchTeamNameInTextView() {
-        whichTeamHadTheLastTurn = textViewTeamName.getText().toString();
-        if(whichTeamHadTheLastTurn.equals(CreateTeams.teamOneName)) {
-            otherTeamName = CreateTeams.teamTwoName;
-            textViewTeamName.setTextColor(team2Color);
-        }
-        else {
-            otherTeamName = CreateTeams.teamOneName;
-            textViewTeamName.setTextColor(team1Color);
-        }
-        textViewTeamName.setText(otherTeamName);
-    }
-
-    private void animateCoin(final ImageView imageView, final int drawableFile, int darkOrLightBackground) {
-
-        animation = new Rotate3dAnimation(imageView, drawableFile, darkOrLightBackground, 0, 180, 0, 0, 0, 0);
-
-        animation.setRepeatCount(5); // must be odd (5+1 = 6 flips so the side will stay the same)
-
-        animation.setDuration(110);
-        animation.setInterpolator(new LinearInterpolator());
-
-        imageView.startAnimation(animation);
-
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                if (teamOnePersonTokenEnabled && teamOnePlaceTokenEnabled && teamOneThingTokenEnabled) {
-                    textViewTeamName.setTextColor(team1Color);
-                    textViewTeamName.setText(R.string.congrats + CreateTeams.teamOneName);
-                    radioGroup.setVisibility(GONE);
-                    newSetPeoplePlaceThingButton.setVisibility(GONE);
-                    teamOneScore.setVisibility(GONE);
-                    placeImage.setVisibility(GONE);
-                    personImage.setVisibility(GONE);
-                    thingImage.setVisibility(GONE);
-                    teamTwoScore.setVisibility(GONE);
-                    teamTwoPersonToken.setVisibility(GONE);
-                    teamTwoPlaceToken.setVisibility(GONE);
-                    teamTwoThingToken.setVisibility(GONE);
-                } else if (teamTwoThingTokenEnabled && teamTwoPlaceTokenEnabled && teamTwoPersonTokenEnabled) {
-                    textViewTeamName.setTextColor(team2Color);
-                    textViewTeamName.setText(R.string.congrats + CreateTeams.teamTwoName);
-                    radioGroup.setVisibility(GONE);
-                    newSetPeoplePlaceThingButton.setVisibility(GONE);
-                    teamOneScore.setVisibility(GONE);
-                    placeImage.setVisibility(GONE);
-                    personImage.setVisibility(GONE);
-                    thingImage.setVisibility(GONE);
-                    teamTwoScore.setVisibility(GONE);
-                    teamOnePersonToken.setVisibility(GONE);
-                    teamOnePlaceToken.setVisibility(GONE);
-                    teamOneThingToken.setVisibility(GONE);
-                }
-                else {
-                    imageView.setImageResource(drawableFile);
-                }
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
-
-
-
-    }
-
-    public void radioButtonSetVisibilities(){
-        personImage.setVisibility(GONE);
-        placeImage.setVisibility(GONE);
-        thingImage.setVisibility(GONE);
-        teamOneScore.setVisibility(GONE);
-        teamTwoScore.setVisibility(GONE);
-        radioGroup.setVisibility(View.GONE);
-        newSetPeoplePlaceThingButton.setVisibility(View.GONE);
-        personPlaceThingChosenTextView.setVisibility(VISIBLE);
-        teamOnePersonToken.setVisibility(GONE);
-        teamOnePlaceToken.setVisibility(GONE);
-        teamOneThingToken.setVisibility(GONE);
-        teamTwoPersonToken.setVisibility(GONE);
-        teamTwoPlaceToken.setVisibility(GONE);
-        teamTwoThingToken.setVisibility(GONE);
-        btnGotIt.setVisibility(VISIBLE);
-        btnMissedIt.setVisibility(VISIBLE);
-        btnGetNewClue.setVisibility(VISIBLE);
-        radioGroup.clearCheck();
-    }
-
-    public void showWhoseTurnIsItDialog(final Dialog dialog, View dialogView) {
-        dialog.setContentView(dialogView);
-        textViewWeenieMessage.setVisibility(GONE);
-        btnDone.setVisibility(GONE);
-        textViewWhoIsPlaying.setVisibility(VISIBLE);
-        btnFirst.setVisibility(VISIBLE);
-        btnSecond.setVisibility(VISIBLE);
-        switchTeamNameInTextView();
-        textViewWhoIsPlaying.setText(otherTeamName + R.string.first_or_second);
-        btnFirst.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-        btnSecond.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switchTeamNameInTextView();
                 dialog.dismiss();
             }
         });
@@ -527,12 +586,11 @@ public class GamePlay extends AppCompatActivity {
 
     public void weenieDialog(final Dialog dialog, View dialogView){
         dialog.setContentView(dialogView);
-        textViewWhoIsPlaying.setVisibility(GONE);
-        btnFirst.setVisibility(GONE);
-        btnSecond.setVisibility(GONE);
-        btnDone.setVisibility(VISIBLE);
-        textViewWeenieTitle.setVisibility(VISIBLE);
-        textViewWeenieMessage.setVisibility(VISIBLE);
+        btnContinue.setVisibility(VISIBLE);
+        textViewBigTitle.setVisibility(VISIBLE);
+        textViewSubtitle.setVisibility(VISIBLE);
+        textViewBigTitle.setText(R.string.weenie);
+        textViewSubtitle.setText(R.string.weenie_message);
         dialog.show();
     }
     public void showingClues(ABSTRACTSFileRead abstractsFileReadClues){

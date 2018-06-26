@@ -26,6 +26,8 @@
     <string name="for_non_clue_givers">for non-Clue Givers</string>
     <string name="team1">Team 1</string>
     <string name="team2">Team 2</string>
+    <string name="team1_got_it">Team 1 Got It!</string>
+    <string name="team2_got_it">Team 2 Got It!</string>
     <string name="team_is_guessing_a">Teams are guessing a…</string>
     <string name="what_is_a_person">What is a PERSON?</string>
     <string name="what_is_a_place">What is a PLACE?</string>
@@ -37,7 +39,7 @@
     <string name="place">PLACE</string>
     <string name="thing">THING</string>
     <string name="ok">OK</string>
-    <string name="done">DONE</string>
+    <string name="cont">Continue</string>
     <string name="get_a_clue">Get New Clue</string>
     <string name="change_ppt">Change PPT</string>
     <string name="wild_card">WILD CARD!\n\n</string>
@@ -45,7 +47,10 @@
     <string name="i_would_be_a">,\nI would be a…</string>
     <string name="correct">Got It!</string>
     <string name="incorrect">Missed It</string>
+    <string name="undo_last">Undo Last Score</string>
     <string name="congrats">CONGRATS, </string>
+    <string name="new_cg">Winners of this round get to choose the new Person, Place, or Thing (PPT). Welcome new Clue Givers.</string>
+    <string name="won"> WON!!!</string>
     <string name="title_activity_weenie">Weenie</string>
     <string name="weenie_sound">WEENIE Sound</string>
     <string name="stop_weenie_sound">Stop Sound</string>
@@ -87,7 +92,7 @@
         \n 2.
         <b>You can only use up to five words</b> in your clue (you have up to five words after saying “If I were a ______, I would be . . .”).
         \n 3.
-        \n <b>Clues must be based on the clue you chose.</b> You can be creative with your clues, use voice inflections, almost say a word and then say “blank,” etc.
+        <b>Clues must be based on the clue you chose.</b> You can be creative with your clues, use voice inflections, almost say a word and then say “blank,” etc.
         \n\n NOTE: The <b>violation</b> of any of these rules results in the other Clue Giver or a score keeper pressing the “WEENIE Sound” button and calling the offending Clue Giver a “WEENIE.” The <b>WEENIE’s team forfeits their guess, and play passes to the other team.</b>
         \n\n <b>FOUR THINGS TO REMEMBER IN MAKING GUESSES</b>
         \n\n 1.

@@ -20,19 +20,44 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewTitlePickPPTs"
+        android:id="@+id/textViewGetReady"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:padding="4dp"
-        android:text="@string/pick_your_ppts"
+        android:text="@string/get_ready_to_play"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
-        android:textSize="30sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPPTToMain" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewAbstracts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:cropToPadding="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewGetReady"
+        app:srcCompat="@drawable/title" />
+
+    <TextView
+        android:id="@+id/textViewPickYourPPTs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/pick_your_ppts"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAbstracts" />
 
     <ScrollView
         android:id="@+id/scrollViewListsYouOwn"
@@ -40,14 +65,18 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitlePickPPTs">
+        app:layout_constraintTop_toBottomOf="@+id/textViewPickYourPPTs"
+        app:layout_constraintBottom_toTopOf="@+id/textViewMoreListsComingSoon" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
             android:orientation="vertical"
+            android:padding="0dp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="355dp">
 
@@ -59,7 +88,7 @@
                 android:padding="4dp"
                 android:text="@string/ppt_basic_free_list"
                 android:textAlignment="center"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/darkGray"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -67,10 +96,17 @@
                 android:id="@+id/textViewBasicFreeListSubtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="0dp"
                 android:text="@string/ppt_basic_free_list_subtitle"
                 android:textAlignment="center"
+                android:textColor="@color/darkGray"
                 android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/line_color_primary" />
 
             <TextView
                 android:id="@+id/textViewExpandedList"
@@ -79,7 +115,7 @@
                 android:clickable="true"
                 android:text="@string/ppt_expanded_list"
                 android:textAlignment="center"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/darkGray"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:visibility="visible" />
@@ -88,10 +124,17 @@
                 android:id="@+id/textViewExpandedListSubtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="0dp"
                 android:text="@string/ppt_expanded_list_subtitle"
                 android:textAlignment="center"
+                android:textColor="@color/darkGray"
                 android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/line_color_primary" />
 
             <TextView
                 android:id="@+id/textView1988OriginalList"
@@ -100,7 +143,7 @@
                 android:clickable="true"
                 android:text="@string/ppt_1988_original_list"
                 android:textAlignment="center"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/darkGray"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:visibility="visible" />
@@ -109,41 +152,30 @@
                 android:id="@+id/textView1988OriginalListSubtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="0dp"
                 android:text="@string/ppt_1988_original_list_subtitle"
                 android:textAlignment="center"
+                android:textColor="@color/darkGray"
                 android:textSize="16sp" />
 
         </LinearLayout>
     </ScrollView>
-        <!--app:layout_constraintBottom_toTopOf="@+id/textViewMoreListsComingSoon">-->
 
-    <Button
-        android:id="@+id/btnGetMoreLists"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:backgroundTint="@color/colorAccent"
-        android:text="@string/get_more_lists"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+    android:id="@+id/textViewMoreListsComingSoon"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:text="@string/more_lists_coming_soon"
+    android:textAlignment="center"
+    android:textColor="@android:color/background_light"
+    android:textSize="30sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
 
-    <!--<TextView-->
-    <!--android:id="@+id/textViewMoreListsComingSoon"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginBottom="16dp"-->
-    <!--android:layout_marginEnd="8dp"-->
-    <!--android:layout_marginStart="8dp"-->
-    <!--android:text="@string/more_lists_coming_soon"-->
-    <!--android:textAlignment="center"-->
-    <!--android:textColor="@android:color/background_light"-->
-    <!--android:textSize="30sp"-->
-    <!--app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--app:layout_constraintEnd_toEndOf="parent"-->
-    <!--app:layout_constraintStart_toStartOf="parent" />-->
+

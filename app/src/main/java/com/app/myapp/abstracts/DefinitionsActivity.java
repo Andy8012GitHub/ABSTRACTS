@@ -11,7 +11,9 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import java.io.IOException;
+import static com.app.myapp.abstracts.DefinitionsActivity.PPTLastChosen.PERSON;
+import static com.app.myapp.abstracts.DefinitionsActivity.PPTLastChosen.PLACE;
+import static com.app.myapp.abstracts.DefinitionsActivity.PPTLastChosen.THING;
 
 public class DefinitionsActivity extends AppCompatActivity {
     TextView textViewWhatIsAPerson;
@@ -28,8 +30,14 @@ public class DefinitionsActivity extends AppCompatActivity {
     RadioGroup radioGroupPPT;
     Button btnTeam1GotIt;
     Button btnTeam2GotIt;
+    Button btnUndo;
 
     boolean weenieButtonIsOnStart = true;
+    int teamThatHadLastTurn;
+    enum PPTLastChosen {
+        PERSON, PLACE, THING
+    }
+    PPTLastChosen pptLastChosen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +60,8 @@ public class DefinitionsActivity extends AppCompatActivity {
         radioGroupPPT = (RadioGroup) findViewById(com.app.myapp.abstracts.R.id.radioGroupPPT);
         btnTeam1GotIt = (Button) findViewById(com.app.myapp.abstracts.R.id.btnTeam1GotIt);
         btnTeam2GotIt = (Button) findViewById(com.app.myapp.abstracts.R.id.btnTeam2GotIt);
+        btnUndo = (Button) findViewById(R.id.btnUndo);
+
         btnTeam1GotIt.setText(CreateTeams.teamOneName + " GOT IT!");
         btnTeam2GotIt.setText(CreateTeams.teamTwoName + " GOT IT!");
 
@@ -94,7 +104,7 @@ public class DefinitionsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.show();
-                textViewDef = (TextView) dialogView.findViewById(com.app.myapp.abstracts.R.id.textViewInstructionsForCorrectOrIncorrect);
+                textViewDef = (TextView) dialogView.findViewById(com.app.myapp.abstracts.R.id.textViewDefinition);
                 textViewDef.setText(com.app.myapp.abstracts.R.string.person_def);
             }
         });
@@ -102,14 +112,14 @@ public class DefinitionsActivity extends AppCompatActivity {
              @Override
              public void onClick(View v) {
                  dialog.show();
-                 textViewDef = (TextView) dialogView.findViewById(com.app.myapp.abstracts.R.id.textViewInstructionsForCorrectOrIncorrect);
+                 textViewDef = (TextView) dialogView.findViewById(com.app.myapp.abstracts.R.id.textViewDefinition);
                  textViewDef.setText(com.app.myapp.abstracts.R.string.place_def);
              }
          });
         textViewWhatIsAThing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textViewDef = (TextView) dialogView.findViewById(com.app.myapp.abstracts.R.id.textViewInstructionsForCorrectOrIncorrect);
+                textViewDef = (TextView) dialogView.findViewById(com.app.myapp.abstracts.R.id.textViewDefinition);
                 dialog.show();
                 textViewDef.setText(com.app.myapp.abstracts.R.string.thing_def);
             }
@@ -117,15 +127,19 @@ public class DefinitionsActivity extends AppCompatActivity {
         btnTeam1GotIt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                teamThatHadLastTurn = 1;
                 int selectedId = radioGroupPPT.getCheckedRadioButtonId();
                 switch (selectedId) {
                     case com.app.myapp.abstracts.R.id.radioButtonPerson:
+                        pptLastChosen = PERSON;
                         imgPersonTokenLight.setImageResource(com.app.myapp.abstracts.R.drawable.check_mark);
                         break;
                     case com.app.myapp.abstracts.R.id.radioButtonPlace:
+                        pptLastChosen = PLACE;
                         imgPlaceTokenLight.setImageResource(com.app.myapp.abstracts.R.drawable.check_mark);
                         break;
                     case com.app.myapp.abstracts.R.id.radioButtonThing:
+                        pptLastChosen = THING;
                         imgThingTokenLight.setImageResource(com.app.myapp.abstracts.R.drawable.check_mark);
                 }
                 radioGroupPPT.clearCheck();
@@ -134,18 +148,50 @@ public class DefinitionsActivity extends AppCompatActivity {
         btnTeam2GotIt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                teamThatHadLastTurn = 2;
                 int selectedId = radioGroupPPT.getCheckedRadioButtonId();
                 switch (selectedId) {
                     case com.app.myapp.abstracts.R.id.radioButtonPerson:
+                        pptLastChosen = PERSON;
                         imgPersonTokenDark.setImageResource(com.app.myapp.abstracts.R.drawable.check_mark);
                         break;
                     case com.app.myapp.abstracts.R.id.radioButtonPlace:
+                        pptLastChosen = PLACE;
                         imgPlaceTokenDark.setImageResource(com.app.myapp.abstracts.R.drawable.check_mark);
                         break;
                     case com.app.myapp.abstracts.R.id.radioButtonThing:
+                        pptLastChosen = THING;
                         imgThingTokenDark.setImageResource(com.app.myapp.abstracts.R.drawable.check_mark);
                 }
                 radioGroupPPT.clearCheck();
+            }
+        });
+        btnUndo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(teamThatHadLastTurn == 1) {
+                    switch(pptLastChosen) {
+                        case PERSON:
+                            imgPersonTokenLight.setImageResource(R.drawable.person_token_light);
+                            break;
+                        case PLACE:
+                            imgPlaceTokenLight.setImageResource(R.drawable.place_token_light);
+                            break;
+                        case THING:
+                            imgThingTokenLight.setImageResource(R.drawable.thing_token_light);
+                    }
+                } else {
+                    switch(pptLastChosen) {
+                        case PERSON:
+                            imgPersonTokenDark.setImageResource(R.drawable.person_token_dark);
+                            break;
+                        case PLACE:
+                            imgPlaceTokenDark.setImageResource(R.drawable.place_token_dark);
+                            break;
+                        case THING:
+                            imgThingTokenDark.setImageResource(R.drawable.thing_token_dark);
+                    }
+                }
             }
         });
     }

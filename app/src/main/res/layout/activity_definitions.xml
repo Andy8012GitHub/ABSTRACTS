@@ -179,12 +179,10 @@
         android:id="@+id/btnTeam1GotIt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/colorAccent"
-        android:text="TEAM 1 GOT IT!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/team1_got_it"
+        android:textColor="@color/darkerPrimary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupPPT"
         tools:ignore="NotSibling" />
@@ -193,12 +191,10 @@
         android:id="@+id/btnTeam2GotIt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/colorAccent"
-        android:text="TEAM 2 GOT IT!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/darkerPrimary"
+        android:text="@string/team2_got_it"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupPPT"
         tools:ignore="NotSibling" />
@@ -297,5 +293,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewDefinitionsTitle" />
+
+    <Button
+        android:id="@+id/btnUndo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/undo_last"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTeam2GotIt" />
 
 </android.support.constraint.ConstraintLayout>

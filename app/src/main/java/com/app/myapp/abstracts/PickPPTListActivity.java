@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.android.billingclient.api.Purchase;
 
@@ -15,10 +16,11 @@ import java.util.ArrayList;
 
 public class PickPPTListActivity extends AppCompatActivity {
     Button btnPPTToMain;
+    TextView textViewGetReady;
     TextView textViewBasicFree;
     TextView textViewExpanded;
     TextView textView1988Original;
-    Button btnGetMoreLists;
+    ImageView imageViewAbstracts;
 
     Dialog dialog;
     LayoutInflater inflater;
@@ -39,12 +41,15 @@ public class PickPPTListActivity extends AppCompatActivity {
         dialogView = inflater.inflate(R.layout.dialog_purchase_to_enable, null);
 
         btnPPTToMain = (Button) findViewById(R.id.btnPPTToMain);
+        textViewGetReady = (TextView) findViewById(R.id.textViewGetReady);
         textViewBasicFree = (TextView) findViewById(com.app.myapp.abstracts.R.id.textViewBasicFreeList);
         textViewExpanded = (TextView) findViewById(R.id.textViewExpandedList);
         textView1988Original = (TextView) findViewById(R.id.textView1988OriginalList);
-        btnGetMoreLists = (Button) findViewById(R.id.btnGetMoreLists);
+        imageViewAbstracts = (ImageView) findViewById(R.id.imageViewAbstracts);
         btnDialogGetMoreLists = (Button) dialogView.findViewById(R.id.btnDialogGetMoreLists);
         btnNotNow = (Button) dialogView.findViewById(R.id.btnNotNow);
+
+        imageViewAbstracts.setMaxHeight(textViewGetReady.getHeight() * 2);
 
         btnPPTToMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,13 +87,6 @@ public class PickPPTListActivity extends AppCompatActivity {
                     startActivity(new Intent(PickPPTListActivity.this, CreateTeams.class));
                 } else
                     showYouMustBuyDialog(dialog, dialogView);
-            }
-        });
-        btnGetMoreLists.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(PickPPTListActivity.this, PurchasingActivity.class);
-                startActivity(intent);
             }
         });
         btnDialogGetMoreLists.setOnClickListener(new View.OnClickListener() {

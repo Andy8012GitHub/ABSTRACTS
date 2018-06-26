@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewWeenieTitle"
+        android:id="@+id/textViewBigTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -39,14 +39,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewWhoIsPlaying" />
 
     <Button
-        android:id="@+id/btnDone"
+        android:id="@+id/btnContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="250dp"
         android:backgroundTint="@color/colorAccent"
-        android:text="@string/done"
+        android:text="@string/cont"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -74,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewWhoIsPlaying" />
 
     <TextView
-        android:id="@+id/weenieTextView"
+        android:id="@+id/textViewSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -86,6 +86,6 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewWeenieTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewBigTitle" />
 
 </android.support.constraint.ConstraintLayout>
