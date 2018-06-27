@@ -231,7 +231,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="48dp"
-        android:text="TextView"
+        android:text="@string/clue_with_placeholder"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="30sp"
@@ -293,21 +293,21 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="@color/colorAccent"
         android:text="@string/incorrect"
-        app:layout_constraintBottom_toTopOf="@+id/btnGetNewClue"
+        app:layout_constraintBottom_toTopOf="@id/btnGetNewClue"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/teamOneScore"
         android:layout_width="wrap_content"
         android:layout_height="33dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="80dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="teamOneScore"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/teamOnePlaceToken"
+        app:layout_constraintBottom_toTopOf="@+id/teamTwoScore"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -315,14 +315,14 @@
         android:id="@+id/teamTwoScore"
         android:layout_width="wrap_content"
         android:layout_height="33dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="80dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="teamTwoScore"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/teamTwoPlaceToken"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -339,12 +339,12 @@
         android:id="@+id/teamOnePlaceToken"
         android:layout_width="70dp"
         android:layout_height="76dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/teamTwoPlaceToken"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/teamOneScore"
         app:srcCompat="@drawable/place_token_light" />
 
     <ImageView
@@ -375,6 +375,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/teamTwoScore"
         app:srcCompat="@drawable/place_token_dark" />
 
     <ImageView

@@ -110,7 +110,7 @@ Pe: Seth Rogen			        Pl:Toronto				                T: Big Bang Theory
 Pe:  Jim Carrey			        Pl: Tijuana				            T:  The Hangover
 Pe:  Justin Bieber		        Pl: Calgary				            T:  Les Miserables
 Pe:  Kirsten Dunst		        Pl: Calvary				            T:  The Great Gatsby
-Pe:  James Bond		            Pl: Vancouver				            T:  American Pie
+Pe:  James Bond		            Pl: Winnipeg				            T:  American Pie
 Pe:  Martin Luther King, Jr.	Pl: Alberta				            T:  Pawn Stars
 Pe:  Robert Kennedy		        Pl: Lake Michigan			            T:  Visa
 Pe:  John Kennedy		        Pl: Heaven				                T:  American Express
@@ -235,7 +235,7 @@ Pe:  Cleopatra			        Pl: Tonga				                T:  Wilson Sporting Goods
 Pe:  Rosa Parks			        Pl: Waterton				            T:  Tesla
 Pe:  James Taylor		        Pl: Banff				                T:  American Express
 Pe:  Jude Law			        Pl: British Columbia			        T:  Pirates of the Caribbean
-Pe:  Kate Winslet		        Pl: Nova Scotia				        T:  String Theory
+Pe:  Kate Winslet		        Pl: Saskatchewan				        T:  String Theory
 Pe:  Leonardo DiCaprio 	        Pl: Vancouver				            T:  Ramadan
 Pe:  Jeff Foxworthy		        Pl: Boardwalk				            T:  The Mummy
 Pe: Susan B. Anthony	        Pl:Ottawa				                T: Fast & Furious
@@ -467,11 +467,11 @@ Pe:  John Legend                Pl: Montenegro                          T: Wells
 Pe:  Chrissy Teigen             Pl: Pyeongchang                         T: Oracle
 Pe:  Quest Love                 Pl: The Peloponnese                     T: The Incredibles
 Pe:  Benedict Cumberbatch       Pl: Tribeca                             T: Forbes
-Pe:  Benedict Arnold                                                    T: Fortune 500
-Pe:  Chelsea Clinton                                                    T: Whole Foods
-Pe:  Charlize Theron                                                    T: Banana Republic
-                                                                        T: Jet Blue
-                                                                        T: Nestle
+Pe:  Benedict Arnold            Pl: Yukon                               T: Fortune 500
+Pe:  Chelsea Clinton            Pl: Edmonton                            T: Whole Foods
+Pe:  Charlize Theron            Pl: Lake Louise                         T: Banana Republic
+                                Pl: Quebec                              T: Jet Blue
+                               		                                T: Nestle
                                                                         T: Yamaha
                                                                         T: Yahoo
                                                                         T: Little Mermaid

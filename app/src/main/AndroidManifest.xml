@@ -31,7 +31,7 @@
         <activity android:name=".DefinitionsActivity"/>
         <activity android:name=".GamePlay"/>
         <activity android:name=".PickPPTListActivity" />
-        <activity android:name=".PurchasingActivity"/>
+        <!--<activity android:name=".PurchasingActivity"/>-->
         <activity android:name=".RulesActivity"/>
     </application>
 

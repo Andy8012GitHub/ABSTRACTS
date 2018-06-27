@@ -11,6 +11,7 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 public class CreateTeams extends AppCompatActivity {
+    Button btnCreateTeamsToMain;
     EditText editTextEnterTeamName;
     static String teamOneName = "Team 1";
     static String teamTwoName = "Team 2";
@@ -22,6 +23,7 @@ public class CreateTeams extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(com.app.myapp.abstracts.R.layout.activity_create_teams);
 
+        btnCreateTeamsToMain = (Button) findViewById(R.id.btnCreateTeamsToMain);
         textViewTeamName = (TextView) findViewById(com.app.myapp.abstracts.R.id.textViewTeamName);
         editTextEnterTeamName = (EditText) findViewById(R.id.enterTeamName);
         textViewTooManyCharacters = (TextView) findViewById(R.id.textViewTooManyCharacters);
@@ -29,6 +31,12 @@ public class CreateTeams extends AppCompatActivity {
 
         textViewTooManyCharacters.setVisibility(GONE);
 
+        btnCreateTeamsToMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CreateTeams.this, MainActivity.class));
+            }
+        });
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +62,7 @@ public class CreateTeams extends AppCompatActivity {
                             return;
                         }
                         textViewTeamName.setText(teamTwoName);
-                        editTextEnterTeamName.setText("");
+                        editTextEnterTeamName.setVisibility(GONE);
                         btnNext.setText(R.string.play);
                         btnNext.setOnClickListener(new View.OnClickListener() {
                             @Override

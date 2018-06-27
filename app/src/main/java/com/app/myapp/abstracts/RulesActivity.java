@@ -59,10 +59,12 @@ public class RulesActivity extends AppCompatActivity {
                 int selectedId = radioGroup.getCheckedRadioButtonId();
                 switch (selectedId) {
                     case com.app.myapp.abstracts.R.id.radioBtnSeeRules:
-                        textViewRulesContent.setText(R.string.large_text);
+                        imgBtnPlayPause.setVisibility(GONE);
+                        btnRewind15Sec.setVisibility(GONE);
+                        textViewRulesContent.setVisibility(VISIBLE);
                         break;
                     case com.app.myapp.abstracts.R.id.radioBtnHearRules:
-                        textViewRulesContent.setText("");
+                        textViewRulesContent.setVisibility(GONE);
                         btnRewind15Sec.setVisibility(VISIBLE);
                         imgBtnPlayPause.setVisibility(VISIBLE);
                         imgBtnPlayPause.setOnClickListener(new View.OnClickListener() {

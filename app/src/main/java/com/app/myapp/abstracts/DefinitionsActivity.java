@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import static android.view.View.VISIBLE;
 import static com.app.myapp.abstracts.DefinitionsActivity.PPTLastChosen.PERSON;
 import static com.app.myapp.abstracts.DefinitionsActivity.PPTLastChosen.PLACE;
 import static com.app.myapp.abstracts.DefinitionsActivity.PPTLastChosen.THING;
@@ -20,6 +21,7 @@ public class DefinitionsActivity extends AppCompatActivity {
     TextView textViewWhatIsAPlace;
     TextView textViewWhatIsAThing;
     TextView textViewDef;
+    TextView textViewTeamsAreGuessingA;
     ImageView imgPersonTokenLight;
     ImageView imgPlaceTokenLight;
     ImageView imgThingTokenLight;
@@ -49,6 +51,8 @@ public class DefinitionsActivity extends AppCompatActivity {
         textViewWhatIsAPerson  = (TextView) findViewById(com.app.myapp.abstracts.R.id.textViewWhatIsAPerson);
         textViewWhatIsAPlace = (TextView) findViewById(com.app.myapp.abstracts.R.id.textViewWhatIsAPlace);
         textViewWhatIsAThing = (TextView) findViewById(com.app.myapp.abstracts.R.id.textViewWhatIsAThing);
+        textViewTeamsAreGuessingA = (TextView) findViewById(R.id.textViewTeamsAreGuessingA);
+        textViewDef = (TextView) dialogView.findViewById(com.app.myapp.abstracts.R.id.textViewDefinition);
         imgPersonTokenLight = (ImageView) findViewById(com.app.myapp.abstracts.R.id.imgPersonTokenLight);
         imgPlaceTokenLight = (ImageView) findViewById(com.app.myapp.abstracts.R.id.imgPlaceTokenLight);
         imgThingTokenLight = (ImageView) findViewById(com.app.myapp.abstracts.R.id.imgThingTokenLight);
@@ -104,7 +108,6 @@ public class DefinitionsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.show();
-                textViewDef = (TextView) dialogView.findViewById(com.app.myapp.abstracts.R.id.textViewDefinition);
                 textViewDef.setText(com.app.myapp.abstracts.R.string.person_def);
             }
         });
@@ -112,14 +115,12 @@ public class DefinitionsActivity extends AppCompatActivity {
              @Override
              public void onClick(View v) {
                  dialog.show();
-                 textViewDef = (TextView) dialogView.findViewById(com.app.myapp.abstracts.R.id.textViewDefinition);
                  textViewDef.setText(com.app.myapp.abstracts.R.string.place_def);
              }
          });
         textViewWhatIsAThing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textViewDef = (TextView) dialogView.findViewById(com.app.myapp.abstracts.R.id.textViewDefinition);
                 dialog.show();
                 textViewDef.setText(com.app.myapp.abstracts.R.string.thing_def);
             }
@@ -127,8 +128,14 @@ public class DefinitionsActivity extends AppCompatActivity {
         btnTeam1GotIt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                textViewTeamsAreGuessingA.setText(R.string.teams_are_guessing_a);
                 teamThatHadLastTurn = 1;
                 int selectedId = radioGroupPPT.getCheckedRadioButtonId();
+                if(selectedId == -1) {
+                    textViewTeamsAreGuessingA.setText(R.string.specify_ppt);
+                    return;
+                }
+                btnUndo.setVisibility(VISIBLE);
                 switch (selectedId) {
                     case com.app.myapp.abstracts.R.id.radioButtonPerson:
                         pptLastChosen = PERSON;
@@ -148,8 +155,14 @@ public class DefinitionsActivity extends AppCompatActivity {
         btnTeam2GotIt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                textViewTeamsAreGuessingA.setText(R.string.teams_are_guessing_a);
                 teamThatHadLastTurn = 2;
                 int selectedId = radioGroupPPT.getCheckedRadioButtonId();
+                if(selectedId == -1) {
+                    textViewTeamsAreGuessingA.setText(R.string.specify_ppt);
+                    return;
+                }
+                btnUndo.setVisibility(VISIBLE);
                 switch (selectedId) {
                     case com.app.myapp.abstracts.R.id.radioButtonPerson:
                         pptLastChosen = PERSON;
