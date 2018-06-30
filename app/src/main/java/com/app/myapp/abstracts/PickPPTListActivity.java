@@ -68,6 +68,7 @@ public class PickPPTListActivity extends AppCompatActivity {
         for (Purchase p : purchasingActivity.mPurchases) {
             skus.add(p.getSku());
         }
+        purchasingActivity.endConn();
 
         textViewExpanded.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -18,6 +18,8 @@
     <string name="ppt_expanded_list_subtitle">With more than 1,400 PPTs</string>
     <string name="ppt_1988_original_list"><b>1988 Original List</b></string>
     <string name="ppt_1988_original_list_subtitle">From the 1988 board game with 960 PPTs</string>
+    <string name="ppt_sports_list">Sports List</string>
+    <string name="ppt_kiddie_list">Kiddie List</string>
     <string name="create_teams_title">Name Your Teams</string>
     <string name="enter_team_name">Enter team name</string>
     <string name="too_many_chars">Team names cannot exceed 12 characters.</string>
@@ -68,12 +70,14 @@
     <string name="back_to_picking_list">Back to Your Lists</string>
     <string name="purchasing_title">Shop for Lists</string>
     <string name="buy">BUY</string>
+    <string name="price_and_title_with_placeholders">%1$s \t %2$s</string>
     <string name="sku_expanded_list">expanded_list</string>
     <string name="sku_1988_original_list">1988_original_list</string>
-    <string name="g_play_unavailable">Sorry. Google Play purchasing is not available on your device.</string>
+    <string name="g_play_unavailable">Sorry. Google Play purchasing is not available on your device at this time.</string>
     <string name="g_play_item_already_owned">That item is already owned.</string>
-    <string name="g_play_error">Something went wrong. Your purchase could not be verified.</string>
+    <string name="g_play_not_verified">Your purchase could not be verified.</string>
     <string name="g_play_user_canceled">Canceled purchase.</string>
+    <string name="g_play_error">Something went wrong. Try again later.</string>
 
     -
     <string name="large_text">

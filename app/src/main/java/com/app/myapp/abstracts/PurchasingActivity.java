@@ -1,9 +1,7 @@
 package com.app.myapp.abstracts;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.net.wifi.aware.PublishConfig;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,9 +19,6 @@ import com.android.billingclient.api.SkuDetails;
 import com.android.billingclient.api.SkuDetailsParams;
 import com.android.billingclient.api.SkuDetailsResponseListener;
 
-import java.io.IOException;
-import java.security.PublicKey;
-import java.security.Signature;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,10 +35,14 @@ public class PurchasingActivity extends AppCompatActivity implements PurchasesUp
      */
     Button btnBackToYourLists;
     TextView textViewMessageAboutGPlay;
-    TextView textViewExpandedListTitleAndPrice;
+    TextView textViewExpandedListPriceAndTitle;
     TextView textViewExpandedListDescription;
-    TextView textView1988OriginalListTitleAndPrice;
+    TextView textView1988OriginalListPriceAndTitle;
     TextView textView1988OriginalListDescription;
+    TextView textViewSportsListPriceAndTitle;
+    TextView textViewSportsListDescription;
+    TextView textViewKiddieListPriceAndTitle;
+    TextView textViewKiddieListDescription;
     Button btnBuyExpandedList;
     Button btnBuy1988OriginalList;
 
@@ -60,16 +59,21 @@ public class PurchasingActivity extends AppCompatActivity implements PurchasesUp
 
         btnBackToYourLists = (Button) findViewById(R.id.btnBackToPickPPTs);
         textViewMessageAboutGPlay = (TextView) findViewById(R.id.textViewMessageAboutGPlay);
-        textViewExpandedListTitleAndPrice = (TextView) findViewById(R.id.textViewExpandedListTitleAndPrice);
+        textViewExpandedListPriceAndTitle = (TextView) findViewById(R.id.textViewExpandedListPriceAndTitle);
         textViewExpandedListDescription = (TextView) findViewById(R.id.textViewExpandedListDescription);
-        textView1988OriginalListTitleAndPrice = (TextView) findViewById(R.id.textView1988OriginalListTitleAndPrice);
+        textView1988OriginalListPriceAndTitle = (TextView) findViewById(R.id.textView1988OriginalListPriceAndTitle);
         textView1988OriginalListDescription = (TextView) findViewById(R.id.textView1988OriginalListDescription);
+        textViewSportsListPriceAndTitle = (TextView) findViewById(R.id.textViewSportsListPriceAndTitle);
+        textViewSportsListPriceAndTitle = (TextView) findViewById(R.id.textViewSportsListDescription);
+        textViewKiddieListPriceAndTitle = (TextView) findViewById(R.id.textViewKiddieListPriceAndTitle);
+        textViewKiddieListPriceAndTitle = (TextView) findViewById(R.id.textViewKiddieListDescription);
         btnBuyExpandedList = (Button) findViewById(R.id.btnBuyExpandedList);
         btnBuy1988OriginalList = (Button) findViewById(R.id.btnBuy1988OriginalList);
 
         btnBackToYourLists.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                endConn();
                 startActivity(new Intent(PurchasingActivity.this, PickPPTListActivity.class));
             }
         });
@@ -112,16 +116,15 @@ public class PurchasingActivity extends AppCompatActivity implements PurchasesUp
 
     public void startConnection(final Runnable runnable) {
         textViewMessageAboutGPlay.setText("");
+        mBillingClient = BillingClient.newBuilder(mActivity).setListener(this).build();
         mBillingClient.startConnection(new BillingClientStateListener() {
             @Override
             public void onBillingSetupFinished(@BillingClient.BillingResponse int billingResponseCode) {
                 if (billingResponseCode == BillingClient.BillingResponse.OK) {
                     mServiceIsConnected = true;
                     runnable.run();
-                }
-                switch(billingResponseCode) {
-                    case BillingClient.BillingResponse.BILLING_UNAVAILABLE:
-                        textViewMessageAboutGPlay.setText(R.string.g_play_unavailable);
+                } else { //case BillingClient.BillingResponse.BILLING_UNAVAILABLE: case BillingClient.BillingResponse.SERVICE_DISCONNECTED: default:
+                    textViewMessageAboutGPlay.setText(R.string.g_play_unavailable);
                 }
             }
             @Override
@@ -139,6 +142,8 @@ public class PurchasingActivity extends AppCompatActivity implements PurchasesUp
                 List<String> skuList = new ArrayList<>();
                 skuList.add("expanded_list");
                 skuList.add("1988_original_list");
+                skuList.add("sports_list");
+                skuList.add("kiddie_list");
                 SkuDetailsParams.Builder params = SkuDetailsParams.newBuilder();
                 params.setSkusList(skuList).setType(BillingClient.SkuType.INAPP);
                 mBillingClient.querySkuDetailsAsync(params.build(),
@@ -151,13 +156,21 @@ public class PurchasingActivity extends AppCompatActivity implements PurchasesUp
                                         String price = skuDetails.getPrice();
                                         String description = skuDetails.getDescription();
                                         if ("expanded_list".equals(sku)) {
-                                            textViewExpandedListTitleAndPrice.setText(textViewExpandedListTitleAndPrice.getText() + "\t" + price);
+                                            textViewExpandedListPriceAndTitle.setText(getString(R.string.price_and_title_with_placeholders, price, textViewExpandedListPriceAndTitle.getText()));
                                             textView1988OriginalListDescription.setText(description);
                                         } else if ("1988_original_list".equals(sku)) {
-                                            textView1988OriginalListTitleAndPrice.setText(textView1988OriginalListTitleAndPrice.getText() + "\t" + price);
+                                            textView1988OriginalListPriceAndTitle.setText(getString(R.string.price_and_title_with_placeholders, price, textView1988OriginalListPriceAndTitle.getText()));
                                             textView1988OriginalListDescription.setText(description);
+                                        } else if ("sports_list".equals(sku)) {
+                                            textViewSportsListPriceAndTitle.setText(getString(R.string.price_and_title_with_placeholders, price, textViewSportsListPriceAndTitle.getText()));
+                                            textViewSportsListDescription.setText(description);
+                                        } else if("kiddie_list".equals(sku)) {
+                                            textViewKiddieListPriceAndTitle.setText(getString(R.string.price_and_title_with_placeholders, price, textViewKiddieListPriceAndTitle.getText()));
+                                            textViewKiddieListDescription.setText(description);
                                         }
                                     }
+                                } else {
+                                    textViewMessageAboutGPlay.setText(R.string.g_play_error);
                                 }
                             }
                         });
@@ -187,7 +200,7 @@ public class PurchasingActivity extends AppCompatActivity implements PurchasesUp
                 if (verifyPurchase(base64EncodedPublicKey, p.getOriginalJson(), p.getSignature()))
                     mPurchases.add(p);
                 else {
-                    textViewMessageAboutGPlay.setText(R.string.g_play_error);
+                    textViewMessageAboutGPlay.setText(R.string.g_play_not_verified);
                     return;
                 }
             }
@@ -200,7 +213,7 @@ public class PurchasingActivity extends AppCompatActivity implements PurchasesUp
                 textViewMessageAboutGPlay.setText(R.string.g_play_user_canceled);
                 break;
             default:
-                textViewMessageAboutGPlay.setText(R.string.g_play_error);
+                textViewMessageAboutGPlay.setText(R.string.g_play_not_verified);
                 break;
         }
     }
