@@ -31,7 +31,7 @@ public class GamePlay extends AppCompatActivity {
     View dialogView;
 
     Button btnToMain, btnWeenieSoundFX;
-    TextView textViewTeamName, personPlaceThingChosenTextView, clue1TextView, clue2TextView, clue3TextView, clueChosenTextView, teamOneScore, teamTwoScore, textViewWhoIsPlaying, textViewBigTitle, textViewSubtitle;
+    TextView textViewTeamName, personPlaceThingChosenTextView, clue1TextView, clue2TextView, clue3TextView, textViewCluePart1, textViewCluePart2, textViewClueChosen, teamOneScore, teamTwoScore, textViewWhoIsPlaying, textViewBigTitle, textViewSubtitle;
     RadioButton personRadioButton,placeRadioButton,thingRadioButton;
     RadioGroup radioGroup;
     Button newSetPeoplePlaceThingButton, btnChangePPT, btnGetNewClue, btnGotIt, btnMissedIt, btnUndoLastScore, btnFirst, btnSecond, btnContinue;
@@ -71,7 +71,9 @@ public class GamePlay extends AppCompatActivity {
         clue3TextView = (TextView)findViewById(R.id.clue3TextView);
         teamOneScore = (TextView)findViewById(R.id.teamOneScore);
         teamTwoScore = (TextView)findViewById(R.id.teamTwoScore);
-        clueChosenTextView = (TextView)findViewById(R.id.clueChosenTextView);
+        textViewCluePart1 = (TextView) findViewById(R.id.textViewCluePart1);
+        textViewCluePart2 = (TextView) findViewById(R.id.textViewCluePart2);
+        textViewClueChosen = (TextView)findViewById(R.id.textViewClueChosen);
         personRadioButton = (RadioButton)findViewById(R.id.personRadioButton);
         placeRadioButton = (RadioButton)findViewById(R.id.placeRadioButton);
         thingRadioButton = (RadioButton)findViewById(R.id.thingRadioButton);
@@ -104,7 +106,7 @@ public class GamePlay extends AppCompatActivity {
         clue3TextView.setVisibility(View.GONE);
         btnGetNewClue.setVisibility(View.GONE);
         btnChangePPT.setVisibility(View.GONE);
-        clueChosenTextView.setVisibility(GONE);
+        textViewClueChosen.setVisibility(GONE);
         textViewBigTitle.setVisibility(GONE);
         textViewSubtitle.setVisibility(GONE);
         btnGotIt.setVisibility(View.GONE);
@@ -256,12 +258,14 @@ public class GamePlay extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 personPlaceThingChosenTextView.setVisibility(GONE);
+                textViewCluePart1.setVisibility(GONE);
+                textViewCluePart2.setVisibility(GONE);
                 clue1TextView.setVisibility(View.GONE);
                 clue2TextView.setVisibility(View.GONE);
                 clue3TextView.setVisibility(View.GONE);
                 btnGetNewClue.setVisibility(View.GONE);
                 btnChangePPT.setVisibility(View.GONE);
-                clueChosenTextView.setVisibility(View.GONE);
+                textViewClueChosen.setVisibility(GONE);
                 btnGotIt.setVisibility(View.GONE);
                 btnMissedIt.setVisibility(View.GONE);
                 teamOnePersonToken.setVisibility(GONE);
@@ -281,6 +285,8 @@ public class GamePlay extends AppCompatActivity {
         btnGotIt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                textViewCluePart1.setVisibility(GONE);
+                textViewCluePart2.setVisibility(GONE);
                 showCongratsAndNewClueGiversDialog(dialog, dialogView);
             }
         });
@@ -288,6 +294,8 @@ public class GamePlay extends AppCompatActivity {
         btnMissedIt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                textViewCluePart1.setVisibility(GONE);
+                textViewCluePart2.setVisibility(GONE);
                 randint = 0;
                 setCounter = 0;
                 while (randint <= 1){
@@ -462,7 +470,7 @@ public class GamePlay extends AppCompatActivity {
 
     public void showCongratsAndNewClueGiversDialog(final Dialog dialog, View dialogView) {
         dialog.setContentView(dialogView);
-        textViewSubtitle.setVisibility(VISIBLE);
+        textViewBigTitle.setVisibility(VISIBLE);
         textViewSubtitle.setVisibility(VISIBLE);
         btnContinue.setVisibility(VISIBLE);
         textViewBigTitle.setText(getString(R.string.congrats_with_placeholder, whichTeamHadTheLastTurn));
@@ -572,7 +580,7 @@ public class GamePlay extends AppCompatActivity {
                 clue1TextView.setVisibility(GONE);
                 clue2TextView.setVisibility(GONE);
                 clue3TextView.setVisibility(GONE);
-                clueChosenTextView.setVisibility(GONE);
+                textViewClueChosen.setVisibility(GONE);
                 personPlaceThingChosenTextView.setVisibility(GONE);
                 btnGotIt.setVisibility(GONE);
                 btnMissedIt.setVisibility(GONE);
@@ -594,26 +602,35 @@ public class GamePlay extends AppCompatActivity {
         });
     }
 
-    public void weenieDialog(final Dialog dialog, View dialogView){
+    public void weenieDialog(final Dialog dialog, View dialogView) {
         dialog.setContentView(dialogView);
+        textViewCluePart1.setVisibility(GONE);
+        textViewCluePart2.setVisibility(GONE);
         btnContinue.setVisibility(VISIBLE);
         textViewBigTitle.setVisibility(VISIBLE);
         textViewSubtitle.setVisibility(VISIBLE);
         textViewBigTitle.setText(R.string.weenie);
         textViewSubtitle.setText(R.string.weenie_message);
+        btnContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
         dialog.show();
     }
-    public void showingClues(ABSTRACTSFileRead abstractsFileReadClues){
+    public void showingClues(ABSTRACTSFileRead abstractsFileReadClues) {
+        textViewCluePart1.setVisibility(GONE);
+        textViewCluePart2.setVisibility(GONE);
         int wildCard = random.nextInt(5);
         if (wildCard == 1) {
-            clueChosenTextView.setVisibility(GONE);
+            textViewClueChosen.setVisibility(GONE);
             clue1TextView.setVisibility(VISIBLE);
             clue2TextView.setVisibility(VISIBLE);
             clue3TextView.setVisibility(VISIBLE);
             String clue1 = abstractsFileReadClues.getClueOrClues();
             String clue2 = abstractsFileReadClues.getClueOrClues();
             String clue3 = abstractsFileReadClues.getClueOrClues();
-
             clue1TextView.setText(getString(R.string.clue_with_placeholder, clue1));
             clue2TextView.setText(getString(R.string.clue_with_placeholder, clue2));
             clue3TextView.setText(getString(R.string.clue_with_placeholder, clue3));
@@ -621,9 +638,10 @@ public class GamePlay extends AppCompatActivity {
             clue1TextView.setVisibility(GONE);
             clue2TextView.setVisibility(GONE);
             clue3TextView.setVisibility(GONE);
-            clueChosenTextView.setVisibility(VISIBLE);
-            String clueChosen = abstractsFileReadClues.getClueOrClues();
-            clueChosenTextView.setText(getString(R.string.clue_with_placeholder, clueChosen));
+            textViewCluePart1.setVisibility(VISIBLE);
+            textViewCluePart2.setVisibility(VISIBLE);
+            textViewClueChosen.setVisibility(VISIBLE);
+            textViewClueChosen.setText(abstractsFileReadClues.getClueOrClues());
         }
     }
 

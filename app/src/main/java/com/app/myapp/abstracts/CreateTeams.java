@@ -41,7 +41,8 @@ public class CreateTeams extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 textViewTooManyCharacters.setVisibility(GONE);
-                teamOneName = editTextEnterTeamName.getText().toString();
+                String editTextContent = editTextEnterTeamName.getText().toString();
+                teamOneName = editTextContent.equals("") ? getString(R.string.team1) : editTextContent;
                 if(teamOneName.length() > 12) {
                     textViewTooManyCharacters.setVisibility(VISIBLE);
                     return;
@@ -56,11 +57,12 @@ public class CreateTeams extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         textViewTooManyCharacters.setVisibility(GONE);
-                        teamTwoName = editTextEnterTeamName.getText().toString();
-                        if(teamTwoName.length() > 12) {
+                        String editTextContent = editTextEnterTeamName.getText().toString();
+                        if(editTextContent.length() > 12) {
                             textViewTooManyCharacters.setVisibility(VISIBLE);
                             return;
                         }
+                        teamTwoName = editTextContent.equals("") ? getString(R.string.team2) : editTextContent;
                         textViewTeamName.setText(teamTwoName);
                         editTextEnterTeamName.setVisibility(GONE);
                         btnNext.setText(R.string.play);
