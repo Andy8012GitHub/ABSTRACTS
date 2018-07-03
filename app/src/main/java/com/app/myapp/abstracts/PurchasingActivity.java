@@ -22,17 +22,7 @@ import com.android.billingclient.api.SkuDetailsResponseListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PurchasingActivity extends AppCompatActivity implements PurchasesUpdatedListener {
-    /*
-    Steps:
-    - Connect to app Play app
-    - Query purchases
-    - Initiate a purchase
-        - Query again
-        - Close connection
-    - Make process secure
-    - Test on alpha/beta channel
-     */
+public class PurchasingActivity extends AppCompatActivity {
     Button btnBackToYourLists;
     TextView textViewMessageAboutGPlay;
     TextView textViewExpandedListPriceAndTitle;
@@ -46,11 +36,7 @@ public class PurchasingActivity extends AppCompatActivity implements PurchasesUp
     Button btnBuyExpandedList;
     Button btnBuy1988OriginalList;
 
-    private BillingClient mBillingClient;
-    private Activity mActivity = this;
-    private boolean mServiceIsConnected = false;
-    public final List<Purchase> mPurchases = new ArrayList<>();
-    private String base64EncodedPublicKey;
+    BillingManager billingManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,179 +56,53 @@ public class PurchasingActivity extends AppCompatActivity implements PurchasesUp
         btnBuyExpandedList = (Button) findViewById(R.id.btnBuyExpandedList);
         btnBuy1988OriginalList = (Button) findViewById(R.id.btnBuy1988OriginalList);
 
+        textViewMessageAboutGPlay.setText("");
+
+        billingManager = new BillingManager(this);
+        textViewMessageAboutGPlay.setText(getResources().getString(billingManager.messageForGUI));
+        billingManager.querySkuDetailsAsync();
+        textViewMessageAboutGPlay.setText(getResources().getString(billingManager.messageForGUI));
+        if (billingManager.messageForGUI == 32){
+            for (SkuDetails skuDetails : billingManager.mSkuDetailsList) {
+                String sku = skuDetails.getSku();
+                String price = skuDetails.getPrice();
+                String description = skuDetails.getDescription();
+                if ("expanded_list".equals(sku)) {
+                    textViewExpandedListPriceAndTitle.setText(getString(R.string.price_and_title_with_placeholders, price, textViewExpandedListPriceAndTitle.getText()));
+                    textView1988OriginalListDescription.setText(description);
+                } else if ("1988_original_list".equals(sku)) {
+                    textView1988OriginalListPriceAndTitle.setText(getString(R.string.price_and_title_with_placeholders, price, textView1988OriginalListPriceAndTitle.getText()));
+                    textView1988OriginalListDescription.setText(description);
+                } else if ("sports_list".equals(sku)) {
+                    textViewSportsListPriceAndTitle.setText(getString(R.string.price_and_title_with_placeholders, price, textViewSportsListPriceAndTitle.getText()));
+                    textViewSportsListDescription.setText(description);
+                } else if ("kiddie_list".equals(sku)) {
+                    textViewKiddieListPriceAndTitle.setText(getString(R.string.price_and_title_with_placeholders, price, textViewKiddieListPriceAndTitle.getText()));
+                    textViewKiddieListDescription.setText(description);
+                }
+            }
+        }
+
         btnBackToYourLists.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                endConn();
+                billingManager.endConn();
                 startActivity(new Intent(PurchasingActivity.this, PickPPTListActivity.class));
             }
         });
         btnBuyExpandedList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initiatePurchase("expanded_list");
+                billingManager.initiatePurchase("expanded_list");
+                textViewMessageAboutGPlay.setText(billingManager.messageForGUI);
             }
         });
         btnBuy1988OriginalList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initiatePurchase("1988_original_list");
+                billingManager.initiatePurchase("1988_original_list");
+                textViewMessageAboutGPlay.setText(billingManager.messageForGUI);
             }
         });
-
-        mBillingClient = BillingClient.newBuilder(mActivity).setListener(this).build();
-        queryPurchases();
-        querySkuDetailsAsync();
-    }
-
-    public void queryPurchases() {
-        mPurchases.clear();
-        Runnable queryToExecute = new Runnable() {
-            @Override
-            public void run() {
-                Purchase.PurchasesResult purchases = mBillingClient.queryPurchases(BillingClient.SkuType.INAPP);
-                mPurchases.addAll(purchases.getPurchasesList());
-            }
-        };
-        executeServiceRequest(queryToExecute);
-    }
-
-    public void executeServiceRequest(Runnable runnable) {
-        if(mServiceIsConnected)
-            runnable.run();
-        else
-            startConnection(runnable);
-    }
-
-    public void startConnection(final Runnable runnable) {
-        textViewMessageAboutGPlay.setText("");
-        mBillingClient = BillingClient.newBuilder(mActivity).setListener(this).build();
-        mBillingClient.startConnection(new BillingClientStateListener() {
-            @Override
-            public void onBillingSetupFinished(@BillingClient.BillingResponse int billingResponseCode) {
-                if (billingResponseCode == BillingClient.BillingResponse.OK) {
-                    mServiceIsConnected = true;
-                    runnable.run();
-                } else { //case BillingClient.BillingResponse.BILLING_UNAVAILABLE: case BillingClient.BillingResponse.SERVICE_DISCONNECTED: default:
-                    textViewMessageAboutGPlay.setText(R.string.g_play_unavailable);
-                }
-            }
-            @Override
-            public void onBillingServiceDisconnected() {
-                mServiceIsConnected = false;
-            }
-        });
-    }
-
-    public void querySkuDetailsAsync() {
-        textViewMessageAboutGPlay.setText("");
-        Runnable queryToExecute = new Runnable() {
-            @Override
-            public void run() {
-                List<String> skuList = new ArrayList<>();
-                skuList.add("expanded_list");
-                skuList.add("1988_original_list");
-                skuList.add("sports_list");
-                skuList.add("kiddie_list");
-                SkuDetailsParams.Builder params = SkuDetailsParams.newBuilder();
-                params.setSkusList(skuList).setType(BillingClient.SkuType.INAPP);
-                mBillingClient.querySkuDetailsAsync(params.build(),
-                        new SkuDetailsResponseListener() {
-                            @Override
-                            public void onSkuDetailsResponse(int responseCode, List<SkuDetails> skuDetailsList) {
-                                if (responseCode == BillingClient.BillingResponse.OK && skuDetailsList != null) {
-                                    for (SkuDetails skuDetails : skuDetailsList) {
-                                        String sku = skuDetails.getSku();
-                                        String price = skuDetails.getPrice();
-                                        String description = skuDetails.getDescription();
-                                        if ("expanded_list".equals(sku)) {
-                                            textViewExpandedListPriceAndTitle.setText(getString(R.string.price_and_title_with_placeholders, price, textViewExpandedListPriceAndTitle.getText()));
-                                            textView1988OriginalListDescription.setText(description);
-                                        } else if ("1988_original_list".equals(sku)) {
-                                            textView1988OriginalListPriceAndTitle.setText(getString(R.string.price_and_title_with_placeholders, price, textView1988OriginalListPriceAndTitle.getText()));
-                                            textView1988OriginalListDescription.setText(description);
-                                        } else if ("sports_list".equals(sku)) {
-                                            textViewSportsListPriceAndTitle.setText(getString(R.string.price_and_title_with_placeholders, price, textViewSportsListPriceAndTitle.getText()));
-                                            textViewSportsListDescription.setText(description);
-                                        } else if("kiddie_list".equals(sku)) {
-                                            textViewKiddieListPriceAndTitle.setText(getString(R.string.price_and_title_with_placeholders, price, textViewKiddieListPriceAndTitle.getText()));
-                                            textViewKiddieListDescription.setText(description);
-                                        }
-                                    }
-                                } else {
-                                    textViewMessageAboutGPlay.setText(R.string.g_play_error);
-                                }
-                            }
-                        });
-            }
-        };
-        executeServiceRequest(queryToExecute);
-    }
-
-    public void initiatePurchase(final String skuId) {
-        Runnable purchaseAction = new Runnable() {
-            @Override
-            public void run() {
-                BillingFlowParams flowParams = BillingFlowParams.newBuilder().setSku(skuId).setType(BillingClient.SkuType.INAPP).build();
-                int responseCode = mBillingClient.launchBillingFlow(mActivity, flowParams);
-            }
-        };
-        executeServiceRequest(purchaseAction);
-    }
-
-    @Override
-    public void onPurchasesUpdated(int responseCode, @Nullable List<Purchase> purchases) {
-        textViewMessageAboutGPlay.setText("");
-        if (responseCode == BillingClient.BillingResponse.OK && purchases != null) {
-            mPurchases.clear();
-            constructPublicKey();
-            for (Purchase p : purchases) {
-                if (verifyPurchase(base64EncodedPublicKey, p.getOriginalJson(), p.getSignature()))
-                    mPurchases.add(p);
-                else {
-                    textViewMessageAboutGPlay.setText(R.string.g_play_not_verified);
-                    return;
-                }
-            }
-        }
-        switch (responseCode) {
-            case BillingClient.BillingResponse.ITEM_ALREADY_OWNED:
-                textViewMessageAboutGPlay.setText(R.string.g_play_item_already_owned);
-                break;
-            case BillingClient.BillingResponse.USER_CANCELED:
-                textViewMessageAboutGPlay.setText(R.string.g_play_user_canceled);
-                break;
-            default:
-                textViewMessageAboutGPlay.setText(R.string.g_play_not_verified);
-                break;
-        }
-    }
-
-    public void constructPublicKey() {
-        String wrongKey = "HDD=Dj<I=gkqhkiB4w+=<Q@A<<J><Q3<HDD=>gF><Q@<hjUFu02*yqGUQFpe,ZjAm<R*g>.-qqr-d+&T0hglYZXDkireepmknqyK1yyz.*Fy0Gpl4.>?cl&?1qw@4&TdA1b/qSFDQUh/giq&+UuBtAo0SFTB2WdmdB@wru4fwrpDgzQ4cm4SdUfmUkWmq-kg,1KYIik2Q2a4kb/wud2krfSAomYqar.=-JIVIAQcUv2Apaty-k/EQpDGXyGUofqlhrDvi=nhK*+hRXTI0nQqwKtShjhG&jSVso1Eh,/vTv+pJTgd&SK.pJcCZa&ch/y02@FEb?0R*>qQlyfkZYD3S4j/J/fD?CE0ygXTk<JjHm?11WGomr4chHRjYe?A=rwS-wD?<Q<=";
-        StringBuilder stringBuilder = new StringBuilder();
-        for (char ch : wrongKey.toCharArray()) {
-            if (ch <= 75)
-                stringBuilder.append((char) (ch + 5));
-            else
-                stringBuilder.append((char) ch);
-        }
-        base64EncodedPublicKey = stringBuilder.toString();
-    }
-
-    public boolean verifyPurchase(String base64EncodedPublicKey, String signedData, String signature) {
-        boolean isVerified = false;
-        if (TextUtils.isEmpty(signedData) || TextUtils.isEmpty(base64EncodedPublicKey) || TextUtils.isEmpty(signature)) {
-            return isVerified;
-        }
-        if (signature.contains(base64EncodedPublicKey)) {
-            isVerified = true;
-        }
-        return isVerified;
-    }
-
-    public void endConn() {
-        mBillingClient.endConnection();
-        mBillingClient = null;
     }
 }

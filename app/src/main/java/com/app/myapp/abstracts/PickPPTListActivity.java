@@ -29,7 +29,7 @@ public class PickPPTListActivity extends AppCompatActivity {
     Button btnNotNow;
 
     static String fileNameOfListChosen = "ABSTRACTS PPT - basic";
-    PurchasingActivity purchasingActivity = new PurchasingActivity();
+    BillingManager billingManager;
     ArrayList<String> skus = new ArrayList<>();
 
     @Override
@@ -64,11 +64,11 @@ public class PickPPTListActivity extends AppCompatActivity {
             }
         });
 
-        purchasingActivity.queryPurchases();
-        for (Purchase p : purchasingActivity.mPurchases) {
+        billingManager = new BillingManager(this);
+        for (Purchase p : billingManager.mPurchases) {
             skus.add(p.getSku());
         }
-        purchasingActivity.endConn();
+        billingManager.endConn();
 
         textViewExpanded.setOnClickListener(new View.OnClickListener() {
             @Override
