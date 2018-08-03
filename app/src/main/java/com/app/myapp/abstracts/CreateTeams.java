@@ -51,8 +51,8 @@ public class CreateTeams extends AppCompatActivity {
                 editTextEnterTeamName.setText("");
                 btnNext.setText(R.string.submit);
                 textViewTeamName.setText(R.string.team2);
-                textViewTeamName.setTextColor(getResources().getColor(R.color.black));
-                editTextEnterTeamName.setHint(R.string.enter_team_name);
+                textViewTeamName.setTextColor(getResources().getColor(R.color.darkGray));
+                editTextEnterTeamName.setHint(R.string.team2);
                 btnNext.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

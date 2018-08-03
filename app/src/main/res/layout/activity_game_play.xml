@@ -99,11 +99,9 @@
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/placeImage"
         app:layout_constraintTop_toBottomOf="@+id/TeamName">
 
@@ -116,7 +114,6 @@
             android:paddingBottom="4dp"
             android:paddingLeft="0dp"
             android:text="@string/person"
-            android:textAlignment="center"
             android:textColor="@android:color/background_light"
             android:textSize="26sp"
             tools:layout_editor_absoluteX="137dp"
@@ -131,7 +128,7 @@
             android:paddingBottom="4dp"
             android:paddingLeft="0dp"
             android:text="@string/place"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textColor="@android:color/background_light"
             android:textSize="26sp" />
 
@@ -143,7 +140,7 @@
             android:button="@color/colorPrimary"
             android:paddingLeft="0dp"
             android:text="@string/thing"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textColor="@android:color/background_light"
             android:textSize="26sp" />
 
@@ -169,10 +166,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="30dp"
-        android:text="Text View"
+        android:text="PERSON, PLACE, or THING chosen"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
-        android:textSize="30sp"
+        android:textSize="33sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TeamName" />
@@ -352,7 +349,7 @@
         android:layout_marginStart="8dp"
         android:text="Team 2 Score"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/darkGray"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -363,8 +360,9 @@
         android:layout_width="70dp"
         android:layout_height="76dp"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/teamOnePlaceToken"
+        app:layout_constraintTop_toBottomOf="@+id/teamOneScore"
         app:srcCompat="@drawable/person_token_light" />
 
     <ImageView
@@ -382,10 +380,12 @@
     <ImageView
         android:id="@+id/teamOneThingToken"
         android:layout_width="70dp"
-        android:layout_height="76dp"
+        android:layout_height="74dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="40dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/teamOnePlaceToken"
+        app:layout_constraintTop_toBottomOf="@+id/teamOneScore"
         app:srcCompat="@drawable/thing_token_light" />
 
     <ImageView
@@ -396,7 +396,7 @@
         android:layout_marginStart="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/teamTwoPlaceToken"
+        app:layout_constraintTop_toBottomOf="@+id/teamTwoScore"
         app:srcCompat="@drawable/person_token_dark" />
 
     <ImageView
@@ -405,7 +405,6 @@
         android:layout_height="76dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -418,10 +417,24 @@
         android:layout_height="76dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="40dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/teamTwoPlaceToken"
+        app:layout_constraintTop_toBottomOf="@+id/teamTwoScore"
         app:srcCompat="@drawable/thing_token_dark" />
+
+    <ImageView
+        android:id="@+id/imgViewWildCard"
+        android:layout_width="260dp"
+        android:layout_height="291dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/personPlaceThingChosenTextView"
+        app:srcCompat="@drawable/wild_card" />
 
     <!--<com.wajahatkarim3.easyflipview.EasyFlipView-->
     <!--android:id="@+id/cardFlip1"-->

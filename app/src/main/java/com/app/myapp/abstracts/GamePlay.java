@@ -31,11 +31,11 @@ public class GamePlay extends AppCompatActivity {
     View dialogView;
 
     Button btnToMain, btnWeenieSoundFX;
-    TextView textViewTeamName, personPlaceThingChosenTextView, clue1TextView, clue2TextView, clue3TextView, textViewCluePart1, textViewCluePart2, textViewClueChosen, teamOneScore, teamTwoScore, textViewWhoIsPlaying, textViewBigTitle, textViewSubtitle;
+    TextView textViewPressIfRulesAreViolated, textViewTeamName, personPlaceThingChosenTextView, clue1TextView, clue2TextView, clue3TextView, textViewCluePart1, textViewCluePart2, textViewClueChosen, teamOneScore, teamTwoScore, textViewWhoIsPlaying, textViewBigTitle, textViewSubtitle;
     RadioButton personRadioButton,placeRadioButton,thingRadioButton;
     RadioGroup radioGroup;
     Button newSetPeoplePlaceThingButton, btnChangePPT, btnGetNewClue, btnGotIt, btnMissedIt, btnUndoLastScore, btnFirst, btnSecond, btnContinue;
-    ImageView teamOnePersonToken, teamOnePlaceToken, teamOneThingToken, teamTwoPersonToken, teamTwoPlaceToken, teamTwoThingToken, personImage, placeImage, thingImage;
+    ImageView imgViewWildCard, teamOnePersonToken, teamOnePlaceToken, teamOneThingToken, teamTwoPersonToken, teamTwoPlaceToken, teamTwoThingToken, personImage, placeImage, thingImage;
     Boolean teamOnePersonTokenEnabled = false, teamOnePlaceTokenEnabled = false, teamOneThingTokenEnabled = false, teamTwoPersonTokenEnabled = false, teamTwoPlaceTokenEnabled = false, teamTwoThingTokenEnabled = false;
 
     ConstraintLayout backgroundColor;
@@ -63,9 +63,11 @@ public class GamePlay extends AppCompatActivity {
         dialogView = inflater.inflate(com.app.myapp.abstracts.R.layout.dialog_all_game_play_dialogs, null);
 
         btnToMain = (Button) findViewById(R.id.btnToMain);
+        textViewPressIfRulesAreViolated = (TextView) findViewById(R.id.textViewPressIfRulesAreViolated);
         btnWeenieSoundFX = (Button) findViewById(R.id.btnWeenieSoundEffect);
         textViewTeamName = (TextView)findViewById(R.id.TeamName);
         personPlaceThingChosenTextView = (TextView)findViewById(R.id.personPlaceThingChosenTextView);
+        imgViewWildCard = (ImageView) findViewById(R.id.imgViewWildCard);
         clue1TextView = (TextView)findViewById(R.id.clue1TextView);
         clue2TextView = (TextView)findViewById(R.id.clue2TextView);
         clue3TextView = (TextView)findViewById(R.id.clue3TextView);
@@ -112,12 +114,12 @@ public class GamePlay extends AppCompatActivity {
         btnGotIt.setVisibility(View.GONE);
         btnMissedIt.setVisibility(View.GONE);
         btnUndoLastScore.setVisibility(GONE);
-        teamOnePersonToken.setVisibility(GONE);
-        teamOnePlaceToken.setVisibility(GONE);
-        teamOneThingToken.setVisibility(GONE);
-        teamTwoPersonToken.setVisibility(GONE);
-        teamTwoPlaceToken.setVisibility(GONE);
-        teamTwoThingToken.setVisibility(GONE);
+        teamOnePersonToken.setVisibility(View.INVISIBLE);
+        teamOnePlaceToken.setVisibility(View.INVISIBLE);
+        teamOneThingToken.setVisibility(View.INVISIBLE);
+        teamTwoPersonToken.setVisibility(View.INVISIBLE);
+        teamTwoPlaceToken.setVisibility(View.INVISIBLE);
+        teamTwoThingToken.setVisibility(View.INVISIBLE);
 
         textViewTeamName.setText(team1Name);
         whichTeamHadTheLastTurn = team1Name;
@@ -128,7 +130,7 @@ public class GamePlay extends AppCompatActivity {
         backgroundColor = (ConstraintLayout)findViewById(R.id.container);
         backgroundColor.setBackgroundResource(com.app.myapp.abstracts.R.color.colorPrimary);//changes color layout
         team1Color = getResources().getColor(R.color.white);
-        team2Color = getResources().getColor(R.color.black);
+        team2Color = getResources().getColor(R.color.darkGray);
 
         final ABSTRACTSFileRead abstractsFileRead = new ABSTRACTSFileRead(this, PickPPTListActivity.fileNameOfListChosen);
         final ABSTRACTSFileRead abstractsFileReadClues = new ABSTRACTSFileRead(this, "Clues");
@@ -173,7 +175,48 @@ public class GamePlay extends AppCompatActivity {
         newSetPeoplePlaceThingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newSetPeoplePlaceThingButton.setText("New PPT");
+                if(newSetPeoplePlaceThingButton.getText().equals("PPT Start")) {
+                    newSetPeoplePlaceThingButton.setText("New PPT");
+                    personRadioButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v){
+                            btnUndoLastScore.setVisibility(GONE);
+                            btnChangePPT.setVisibility(VISIBLE);
+                            radioButtonSetVisibilities();
+                            personPlaceThingChosenTextView.setText(person);
+                            whichPPTLastChosen = PERSON;
+                            showingClues(abstractsFileReadClues);
+                            showGoFirstOrSecondDialog(dialog, dialogView);
+                            setCounter = 0;
+                        }
+                    });
+                    placeRadioButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v){
+                            btnUndoLastScore.setVisibility(GONE);
+                            btnChangePPT.setVisibility(VISIBLE);
+                            radioButtonSetVisibilities();
+                            personPlaceThingChosenTextView.setText(place);
+                            whichPPTLastChosen = PLACE;
+                            showingClues(abstractsFileReadClues);
+                            showGoFirstOrSecondDialog(dialog, dialogView);
+                            setCounter = 0;
+                        }
+                    });
+                    thingRadioButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v){
+                            btnUndoLastScore.setVisibility(GONE);
+                            btnChangePPT.setVisibility(VISIBLE);
+                            radioButtonSetVisibilities();
+                            personPlaceThingChosenTextView.setText(thing);
+                            whichPPTLastChosen = THING;
+                            showingClues(abstractsFileReadClues);
+                            showGoFirstOrSecondDialog(dialog, dialogView);
+                            setCounter = 0;
+                        }
+                    });
+                }
                 setCounter++;
                 if (setCounter == randint){
                     weenieDialog(dialog,dialogView);
@@ -195,50 +238,10 @@ public class GamePlay extends AppCompatActivity {
             }
         });
 
-        personRadioButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                btnUndoLastScore.setVisibility(GONE);
-                btnChangePPT.setVisibility(VISIBLE);
-                radioButtonSetVisibilities();
-                personPlaceThingChosenTextView.setText(person);
-                whichPPTLastChosen = PERSON;
-                showingClues(abstractsFileReadClues);
-                showGoFirstOrSecondDialog(dialog, dialogView);
-                setCounter = 0;
-            }
-        });
-        placeRadioButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                btnUndoLastScore.setVisibility(GONE);
-                btnChangePPT.setVisibility(VISIBLE);
-                radioButtonSetVisibilities();
-                personPlaceThingChosenTextView.setText(place);
-                whichPPTLastChosen = PLACE;
-                showingClues(abstractsFileReadClues);
-                showGoFirstOrSecondDialog(dialog, dialogView);
-                setCounter = 0;
-            }
-        });
-        thingRadioButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                btnUndoLastScore.setVisibility(GONE);
-                btnChangePPT.setVisibility(VISIBLE);
-                radioButtonSetVisibilities();
-                personPlaceThingChosenTextView.setText(thing);
-                whichPPTLastChosen = THING;
-                showingClues(abstractsFileReadClues);
-                showGoFirstOrSecondDialog(dialog, dialogView);
-                setCounter = 0;
-            }
-        });
-
-
         btnGetNewClue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                imgViewWildCard.setVisibility(GONE);
                 setCounter++;
                 if (setCounter == randint){
                     weenieDialog(dialog, dialogView);
@@ -260,6 +263,7 @@ public class GamePlay extends AppCompatActivity {
                 personPlaceThingChosenTextView.setVisibility(GONE);
                 textViewCluePart1.setVisibility(GONE);
                 textViewCluePart2.setVisibility(GONE);
+                imgViewWildCard.setVisibility(GONE);
                 clue1TextView.setVisibility(View.GONE);
                 clue2TextView.setVisibility(View.GONE);
                 clue3TextView.setVisibility(View.GONE);
@@ -268,12 +272,12 @@ public class GamePlay extends AppCompatActivity {
                 textViewClueChosen.setVisibility(GONE);
                 btnGotIt.setVisibility(View.GONE);
                 btnMissedIt.setVisibility(View.GONE);
-                teamOnePersonToken.setVisibility(GONE);
-                teamOnePlaceToken.setVisibility(GONE);
-                teamOneThingToken.setVisibility(GONE);
-                teamTwoPersonToken.setVisibility(GONE);
-                teamTwoPlaceToken.setVisibility(GONE);
-                teamTwoThingToken.setVisibility(GONE);
+                teamOnePersonToken.setVisibility(View.INVISIBLE);
+                teamOnePlaceToken.setVisibility(View.INVISIBLE);
+                teamOneThingToken.setVisibility(View.INVISIBLE);
+                teamTwoPersonToken.setVisibility(View.INVISIBLE);
+                teamTwoPlaceToken.setVisibility(View.INVISIBLE);
+                teamTwoThingToken.setVisibility(View.INVISIBLE);
                 personImage.setVisibility(VISIBLE);
                 placeImage.setVisibility(VISIBLE);
                 thingImage.setVisibility(VISIBLE);
@@ -285,7 +289,9 @@ public class GamePlay extends AppCompatActivity {
         btnGotIt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                imgViewWildCard.setVisibility(GONE);
                 textViewCluePart1.setVisibility(GONE);
+                textViewClueChosen.setVisibility(GONE);
                 textViewCluePart2.setVisibility(GONE);
                 showCongratsAndNewClueGiversDialog(dialog, dialogView);
             }
@@ -294,8 +300,7 @@ public class GamePlay extends AppCompatActivity {
         btnMissedIt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textViewCluePart1.setVisibility(GONE);
-                textViewCluePart2.setVisibility(GONE);
+                imgViewWildCard.setVisibility(GONE);
                 randint = 0;
                 setCounter = 0;
                 while (randint <= 1){
@@ -312,29 +317,29 @@ public class GamePlay extends AppCompatActivity {
                 if(whichTeamHadTheLastTurn.equals(team1Name)) {
                     switch(whichPPTLastChosen) {
                         case PERSON:
-                            teamOnePersonToken.setVisibility(GONE);
+                            teamOnePersonToken.setVisibility(View.INVISIBLE);
                             teamOnePersonTokenEnabled = false;
                             break;
                         case PLACE:
-                            teamOnePlaceToken.setVisibility(GONE);
+                            teamOnePlaceToken.setVisibility(View.INVISIBLE);
                             teamOnePlaceTokenEnabled = false;
                             break;
                         case THING:
-                            teamOneThingToken.setVisibility(GONE);
+                            teamOneThingToken.setVisibility(View.INVISIBLE);
                             teamOneThingTokenEnabled = false;
                     }
                 } else {
                     switch(whichPPTLastChosen) {
                         case PERSON:
-                            teamTwoPersonToken.setVisibility(GONE);
+                            teamTwoPersonToken.setVisibility(View.INVISIBLE);
                             teamTwoPersonTokenEnabled = false;
                             break;
                         case PLACE:
-                            teamTwoPlaceToken.setVisibility(GONE);
+                            teamTwoPlaceToken.setVisibility(View.INVISIBLE);
                             teamTwoPlaceTokenEnabled = false;
                             break;
                         case THING:
-                            teamTwoThingToken.setVisibility(GONE);
+                            teamTwoThingToken.setVisibility(View.INVISIBLE);
                             teamTwoThingTokenEnabled = false;
                     }
                 }
@@ -377,29 +382,17 @@ public class GamePlay extends AppCompatActivity {
                 if (teamOnePersonTokenEnabled && teamOnePlaceTokenEnabled && teamOneThingTokenEnabled) {
                     textViewTeamName.setTextColor(team1Color);
                     textViewTeamName.setText(getString(R.string.won_with_placeholder, team1Name));
-                    radioGroup.setVisibility(GONE);
-                    newSetPeoplePlaceThingButton.setVisibility(GONE);
-                    teamOneScore.setVisibility(GONE);
-                    placeImage.setVisibility(GONE);
-                    personImage.setVisibility(GONE);
-                    thingImage.setVisibility(GONE);
-                    teamTwoScore.setVisibility(GONE);
-                    teamTwoPersonToken.setVisibility(GONE);
-                    teamTwoPlaceToken.setVisibility(GONE);
-                    teamTwoThingToken.setVisibility(GONE);
+                    teamTwoPersonToken.setVisibility(View.INVISIBLE);
+                    teamTwoPlaceToken.setVisibility(View.INVISIBLE);
+                    teamTwoThingToken.setVisibility(View.INVISIBLE);
+                    setVisibilitiesWhenSomebodyWins();
                 } else if (teamTwoThingTokenEnabled && teamTwoPlaceTokenEnabled && teamTwoPersonTokenEnabled) {
                     textViewTeamName.setTextColor(team2Color);
                     textViewTeamName.setText(getString(R.string.won_with_placeholder, team2Name));
-                    radioGroup.setVisibility(GONE);
-                    newSetPeoplePlaceThingButton.setVisibility(GONE);
-                    teamOneScore.setVisibility(GONE);
-                    placeImage.setVisibility(GONE);
-                    personImage.setVisibility(GONE);
-                    thingImage.setVisibility(GONE);
-                    teamTwoScore.setVisibility(GONE);
-                    teamOnePersonToken.setVisibility(GONE);
-                    teamOnePlaceToken.setVisibility(GONE);
-                    teamOneThingToken.setVisibility(GONE);
+                    setVisibilitiesWhenSomebodyWins();
+                    teamOnePersonToken.setVisibility(View.INVISIBLE);
+                    teamOnePlaceToken.setVisibility(View.INVISIBLE);
+                    teamOneThingToken.setVisibility(View.INVISIBLE);
                 }
                 else {
                     imageView.setImageResource(drawableFile);
@@ -411,25 +404,36 @@ public class GamePlay extends AppCompatActivity {
 
             }
         });
+    }
 
-
+    public void setVisibilitiesWhenSomebodyWins() {
+        textViewPressIfRulesAreViolated.setVisibility(GONE);
+        btnWeenieSoundFX.setVisibility(GONE);
+        radioGroup.setVisibility(GONE);
+        newSetPeoplePlaceThingButton.setVisibility(GONE);
+        btnUndoLastScore.setVisibility(GONE);
+        teamOneScore.setVisibility(View.INVISIBLE);
+        placeImage.setVisibility(GONE);
+        personImage.setVisibility(GONE);
+        thingImage.setVisibility(GONE);
+        teamTwoScore.setVisibility(View.INVISIBLE);
     }
 
     public void radioButtonSetVisibilities(){
         personImage.setVisibility(GONE);
         placeImage.setVisibility(GONE);
         thingImage.setVisibility(GONE);
-        teamOneScore.setVisibility(GONE);
-        teamTwoScore.setVisibility(GONE);
+        teamOneScore.setVisibility(View.INVISIBLE);
+        teamTwoScore.setVisibility(View.INVISIBLE);
         radioGroup.setVisibility(View.GONE);
         newSetPeoplePlaceThingButton.setVisibility(View.GONE);
         personPlaceThingChosenTextView.setVisibility(VISIBLE);
-        teamOnePersonToken.setVisibility(GONE);
-        teamOnePlaceToken.setVisibility(GONE);
-        teamOneThingToken.setVisibility(GONE);
-        teamTwoPersonToken.setVisibility(GONE);
-        teamTwoPlaceToken.setVisibility(GONE);
-        teamTwoThingToken.setVisibility(GONE);
+        teamOnePersonToken.setVisibility(View.INVISIBLE);
+        teamOnePlaceToken.setVisibility(View.INVISIBLE);
+        teamOneThingToken.setVisibility(View.INVISIBLE);
+        teamTwoPersonToken.setVisibility(View.INVISIBLE);
+        teamTwoPlaceToken.setVisibility(View.INVISIBLE);
+        teamTwoThingToken.setVisibility(View.INVISIBLE);
         btnGotIt.setVisibility(VISIBLE);
         btnMissedIt.setVisibility(VISIBLE);
         btnGetNewClue.setVisibility(VISIBLE);
@@ -473,7 +477,7 @@ public class GamePlay extends AppCompatActivity {
         textViewBigTitle.setVisibility(VISIBLE);
         textViewSubtitle.setVisibility(VISIBLE);
         btnContinue.setVisibility(VISIBLE);
-        textViewBigTitle.setText(getString(R.string.congrats_with_placeholder, whichTeamHadTheLastTurn));
+        textViewBigTitle.setText(getString(R.string.congrats_with_placeholder, otherTeamName));
         textViewSubtitle.setText(R.string.new_cg);
         dialog.show();
         btnContinue.setOnClickListener(new View.OnClickListener() {
@@ -592,9 +596,6 @@ public class GamePlay extends AppCompatActivity {
                 personImage.setVisibility(VISIBLE);
                 placeImage.setVisibility(VISIBLE);
                 thingImage.setVisibility(VISIBLE);
-                personRadioButton.setText(R.string.person);
-                placeRadioButton.setText(R.string.place);
-                thingRadioButton.setText(R.string.thing);
                 whichTeamHadTheLastTurn = textViewTeamName.getText().toString();
 
                 dialog.dismiss();
@@ -604,7 +605,13 @@ public class GamePlay extends AppCompatActivity {
 
     public void weenieDialog(final Dialog dialog, View dialogView) {
         dialog.setContentView(dialogView);
+        btnFirst.setVisibility(GONE);
+        btnSecond.setVisibility(GONE);
+        clue1TextView.setVisibility(GONE);
+        clue2TextView.setVisibility(GONE);
+        clue3TextView.setVisibility(GONE);
         textViewCluePart1.setVisibility(GONE);
+        textViewClueChosen.setVisibility(GONE);
         textViewCluePart2.setVisibility(GONE);
         btnContinue.setVisibility(VISIBLE);
         textViewBigTitle.setVisibility(VISIBLE);
@@ -621,6 +628,7 @@ public class GamePlay extends AppCompatActivity {
     }
     public void showingClues(ABSTRACTSFileRead abstractsFileReadClues) {
         textViewCluePart1.setVisibility(GONE);
+        textViewClueChosen.setVisibility(GONE);
         textViewCluePart2.setVisibility(GONE);
         int wildCard = random.nextInt(5);
         if (wildCard == 1) {
@@ -628,13 +636,17 @@ public class GamePlay extends AppCompatActivity {
             clue1TextView.setVisibility(VISIBLE);
             clue2TextView.setVisibility(VISIBLE);
             clue3TextView.setVisibility(VISIBLE);
+            clue1TextView.bringToFront();
+            clue2TextView.bringToFront();
+            clue3TextView.bringToFront();
             String clue1 = abstractsFileReadClues.getClueOrClues();
             String clue2 = abstractsFileReadClues.getClueOrClues();
             String clue3 = abstractsFileReadClues.getClueOrClues();
             clue1TextView.setText(getString(R.string.clue_with_placeholder, clue1));
             clue2TextView.setText(getString(R.string.clue_with_placeholder, clue2));
             clue3TextView.setText(getString(R.string.clue_with_placeholder, clue3));
-        }else {
+            imgViewWildCard.setVisibility(VISIBLE);
+        } else {
             clue1TextView.setVisibility(GONE);
             clue2TextView.setVisibility(GONE);
             clue3TextView.setVisibility(GONE);
