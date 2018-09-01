@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.util.Random;
+
 import static android.view.View.VISIBLE;
 import static com.app.myapp.abstracts.DefinitionsActivity.PPTLastChosen.PERSON;
 import static com.app.myapp.abstracts.DefinitionsActivity.PPTLastChosen.PLACE;
@@ -33,6 +35,8 @@ public class DefinitionsActivity extends AppCompatActivity {
     Button btnTeam1GotIt;
     Button btnTeam2GotIt;
     Button btnUndo;
+
+    Random random = new Random();
 
     boolean weenieButtonIsOnStart = true;
     int teamThatHadLastTurn;
@@ -69,7 +73,9 @@ public class DefinitionsActivity extends AppCompatActivity {
         btnTeam1GotIt.setText(CreateTeams.teamOneName + " GOT IT!");
         btnTeam2GotIt.setText(CreateTeams.teamTwoName + " GOT IT!");
 
-        final MediaPlayer mediaPlayer = MediaPlayer.create(DefinitionsActivity.this, R.raw.old_weenie_sounds);
+        final MediaPlayer mediaPlayerWeenie = MediaPlayer.create(DefinitionsActivity.this, R.raw.weenie);
+        final MediaPlayer mediaPlayerYouAreAWeenie = MediaPlayer.create(DefinitionsActivity.this, R.raw.youareaweenie);
+        final MediaPlayer mediaPlayerWeenieSong = MediaPlayer.create(DefinitionsActivity.this, R.raw.weeniesong);
 
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(dialogView);
@@ -91,16 +97,15 @@ public class DefinitionsActivity extends AppCompatActivity {
         btnWeenieSoundFX.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(weenieButtonIsOnStart) {
-                    mediaPlayer.start();
-                    btnWeenieSoundFX.setText(R.string.stop_weenie_sound);
-                    weenieButtonIsOnStart = false;
+                int weenieRandom = random.nextInt(3);
+                if(weenieRandom == 0){
+                    mediaPlayerWeenie.start();
                 }
-                else {
-                    mediaPlayer.stop();
-                    mediaPlayer.prepareAsync();
-                    btnWeenieSoundFX.setText(R.string.weenie_sound);
-                    weenieButtonIsOnStart = true;
+                else if (weenieRandom == 1){
+                    mediaPlayerWeenieSong.start();
+                }
+                else{
+                    mediaPlayerYouAreAWeenie.start();
                 }
             }
         });
@@ -207,6 +212,6 @@ public class DefinitionsActivity extends AppCompatActivity {
                 }
             }
         });
-    }
+        }
 
 }
