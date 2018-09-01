@@ -72,6 +72,8 @@
     <string name="g_play_item_already_owned">That item is already owned.</string>
     <string name="g_play_error">Something went wrong. Your purchase could not be verified.</string>
     <string name="g_play_user_canceled">Canceled purchase.</string>
+    <string name="if_you_were_a">If you were a</string>
+    <string name="I_would_be">I would be a</string>
 
     -
     <string name="large_text">

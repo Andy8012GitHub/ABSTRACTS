@@ -53,6 +53,8 @@ public class GamePlay extends AppCompatActivity {
     Rotate3dAnimation animation;
     boolean weenieButtonIsOnStart = true;
 
+    MediaPlayer mediaPlayerClapping = MediaPlayer.create(GamePlay.this, R.raw.zapsplat_multimedia_male_voice_processed_says_you_win_002_21573);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,7 +132,7 @@ public class GamePlay extends AppCompatActivity {
 
         final ABSTRACTSFileRead abstractsFileRead = new ABSTRACTSFileRead(this, PickPPTListActivity.fileNameOfListChosen);
         final ABSTRACTSFileRead abstractsFileReadClues = new ABSTRACTSFileRead(this, "Clues");
-        final MediaPlayer mediaPlayer = MediaPlayer.create(GamePlay.this, R.raw.weenie);
+        final MediaPlayer mediaPlayer = MediaPlayer.create(GamePlay.this, R.raw.old_weenie_sounds);
 
         btnToMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -500,6 +502,7 @@ public class GamePlay extends AppCompatActivity {
                         }else {
                             teamOnePersonToken.setVisibility(VISIBLE);
                             animateCoin(teamOnePersonToken, com.app.myapp.abstracts.R.drawable.person_token_light, com.app.myapp.abstracts.R.drawable.back_of_light);
+                            mediaPlayerClapping.start();
                         }
                         teamOnePersonTokenEnabled = true;
                     }
@@ -618,12 +621,15 @@ public class GamePlay extends AppCompatActivity {
             clue2TextView.setText(getString(R.string.clue_with_placeholder, clue2));
             clue3TextView.setText(getString(R.string.clue_with_placeholder, clue3));
         }else {
-            clue1TextView.setVisibility(GONE);
-            clue2TextView.setVisibility(GONE);
-            clue3TextView.setVisibility(GONE);
-            clueChosenTextView.setVisibility(VISIBLE);
+            clue1TextView.setVisibility(VISIBLE);
+            clue2TextView.setVisibility(VISIBLE);
+            clue3TextView.setVisibility(VISIBLE);
+            //clueChosenTextView.setVisibility(VISIBLE);
             String clueChosen = abstractsFileReadClues.getClueOrClues();
-            clueChosenTextView.setText(getString(R.string.clue_with_placeholder, clueChosen));
+            //clueChosenTextView.setText(getString(R.string.clue_with_placeholder, clueChosen));
+            clue1TextView.setText(R.string.if_you_were_a);
+            clue2TextView.setText(clueChosen);
+            clue3TextView.setText(R.string.I_would_be);
         }
     }
 

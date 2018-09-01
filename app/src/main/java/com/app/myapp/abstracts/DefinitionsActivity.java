@@ -69,7 +69,7 @@ public class DefinitionsActivity extends AppCompatActivity {
         btnTeam1GotIt.setText(CreateTeams.teamOneName + " GOT IT!");
         btnTeam2GotIt.setText(CreateTeams.teamTwoName + " GOT IT!");
 
-        final MediaPlayer mediaPlayer = MediaPlayer.create(DefinitionsActivity.this, R.raw.weenie);
+        final MediaPlayer mediaPlayer = MediaPlayer.create(DefinitionsActivity.this, R.raw.old_weenie_sounds);
 
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(dialogView);
