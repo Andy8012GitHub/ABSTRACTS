@@ -14,7 +14,7 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 public class RulesActivity extends AppCompatActivity {
-    Button btnRulesToMain, btnRewind15Sec;
+    Button btnRulesToMain, btnRewind15Sec, btnFastForward15Sec;
     RadioGroup radioGroup;
     RadioButton radioBtnSeeRules;
     RadioButton radioBtnHearRules;
@@ -36,8 +36,7 @@ public class RulesActivity extends AppCompatActivity {
         imgBtnPlayPause = (ImageButton) findViewById(com.app.myapp.abstracts.R.id.imgBtnPlayPause);
         imgBtnPlayPause.setVisibility(GONE);
         btnRewind15Sec = (Button) findViewById(R.id.btnRewind15Sec);
-
-        btnRewind15Sec.setVisibility(GONE);
+        btnFastForward15Sec = (Button) findViewById(R.id.btnFastForward15Sec);
 
         final MediaPlayer mediaPlayerRules = MediaPlayer.create(RulesActivity.this, R.raw.audio_rules);
 
@@ -61,11 +60,13 @@ public class RulesActivity extends AppCompatActivity {
                     case com.app.myapp.abstracts.R.id.radioBtnSeeRules:
                         imgBtnPlayPause.setVisibility(GONE);
                         btnRewind15Sec.setVisibility(GONE);
+                        btnFastForward15Sec.setVisibility(GONE);
                         textViewRulesContent.setVisibility(VISIBLE);
                         break;
                     case com.app.myapp.abstracts.R.id.radioBtnHearRules:
                         textViewRulesContent.setVisibility(GONE);
                         btnRewind15Sec.setVisibility(VISIBLE);
+                        btnFastForward15Sec.setVisibility(VISIBLE);
                         imgBtnPlayPause.setVisibility(VISIBLE);
                         imgBtnPlayPause.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -91,6 +92,13 @@ public class RulesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 length = mediaPlayerRules.getCurrentPosition() - 15000;
+                mediaPlayerRules.seekTo(length);
+            }
+        });
+        btnFastForward15Sec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                length = mediaPlayerRules.getCurrentPosition() + 15000;
                 mediaPlayerRules.seekTo(length);
             }
         });

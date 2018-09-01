@@ -3,8 +3,8 @@
     <string name="app_subtitle">The Game of Absurd Logic</string>
     <string name="play">Play</string>
     <string name="rules">Rules</string>
-    <string name="definitions">Definitions &amp; Score Keeping</string>
-    <string name="note_beta_version">NOTE: This is a beta version that will undergo updates in the near future. Please give feedback at abstractsgame@gmail.com.</string>
+    <string name="definitions">Definitions &amp;\nScore Keeping</string>
+    <string name="note_beta_version">NOTE: You will automatically play with the Basic Free List of PPTs because this is a beta version that will undergo updates in the near future. Please give feedback at abstractsgame@gmail.com.</string>
     <string name="main_menu">Main Menu</string>
     <string name="get_ready_to_play">Get ready to play…</string>
     <string name="pick_your_ppts">Pick a list of PPTs to play with.</string>
@@ -18,12 +18,13 @@
     <string name="ppt_expanded_list_subtitle">With more than 1,400 PPTs</string>
     <string name="ppt_1988_original_list"><b>1988 Original List</b></string>
     <string name="ppt_1988_original_list_subtitle">From the 1988 board game with 960 PPTs</string>
+    <string name="ppt_sports_list">Sports List</string>
+    <string name="ppt_kiddie_list">Kiddie List</string>
     <string name="create_teams_title">Name Your Teams</string>
-    <string name="enter_team_name">Enter team name</string>
     <string name="too_many_chars">Team names cannot exceed 12 characters.</string>
     <string name="next_team">Next Team</string>
     <string name="submit">Submit</string>
-    <string name="for_non_clue_givers">for non-Clue Givers</string>
+    <string name="for_non_clue_givers">for non-CLUE GIVERS</string>
     <string name="team1">Team 1</string>
     <string name="team2">Team 2</string>
     <string name="team1_got_it">Team 1 Got It!</string>
@@ -43,84 +44,85 @@
     <string name="cont">Continue</string>
     <string name="get_a_clue">Get New Clue</string>
     <string name="change_ppt">Change PPT</string>
-    <string name="wild_card">WILD CARD!\n\n</string>
-    <string name="clue_with_placeholder">If I were a %1$s,\nI would be a…</string>
+    <string name="clue_with_placeholder">If you were a %1$s,\nwhat would you be?</string>
+    <string name="clue_if_you">If you were a</string>
+    <string name="clue_what_would_you_be">what would you be?</string>
     <string name="correct">Got It!</string>
     <string name="incorrect">Missed It</string>
     <string name="undo_last">Undo Last Score</string>
     <string name="congrats_with_placeholder">CONGRATS, %1$s</string>
-    <string name="new_cg">Winners of this round get to choose the new Person, Place, or Thing (PPT). Welcome new Clue Givers.</string>
-    <string name="won_with_placeholder">%1$s WON!!!</string>
+    <string name="new_cg">Winners of this round get to choose the new PERSON, PLACE, or THING (PPT). Welcome new CLUE GIVERS.</string>
+    <string name="won_with_placeholder">%1$s WON!!!\nBIG CONGRATS!</string>
     <string name="title_activity_weenie">Weenie</string>
     <string name="weenie_sound">WEENIE Sound</string>
     <string name="stop_weenie_sound">Stop Sound</string>
     <string name="if_rules_violated">Press if Rules\nare violated</string>
     <string name="weenie">WEENIE!</string>
-    <string name="weenie_message">You are a Weenie! Pass device to the other Clue Giver. You pushed the limits too far. Next time, don\'t be a Weenie!</string>
+    <string name="weenie_message">You are a WEENIE! Pass device to the other CLUE GIVER. You pushed the limits too far. Next time, don\'t be a WEENIE!</string>
     <string name="first_or_second_with_placeholder">%1$s, do you want to give clues first, or second?</string>
     <string name="first">First</string>
     <string name="second">Second</string>
     <string name="see_rules">See Rules</string>
     <string name="hear_rules">Hear Rules</string>
     <string name="rewind">Rewind 15 sec.</string>
+    <string name="fast_forward">Fast-forward 15 sec.</string>
     <string name="back_to_picking_list">Back to Your Lists</string>
     <string name="purchasing_title">Shop for Lists</string>
     <string name="buy">BUY</string>
+    <string name="price_and_title_with_placeholders">%1$s \t %2$s</string>
     <string name="sku_expanded_list">expanded_list</string>
     <string name="sku_1988_original_list">1988_original_list</string>
-    <string name="g_play_unavailable">Sorry. Google Play purchasing is not available on your device.</string>
+    <string name="g_play_unavailable">Sorry. Google Play purchasing is not available on your device at this time.</string>
     <string name="g_play_item_already_owned">That item is already owned.</string>
-    <string name="g_play_error">Something went wrong. Your purchase could not be verified.</string>
+    <string name="g_play_not_verified">Your purchase could not be verified.</string>
     <string name="g_play_user_canceled">Canceled purchase.</string>
-    <string name="if_you_were_a">If you were a</string>
-    <string name="I_would_be">I would be a</string>
+    <string name="g_play_error">Something went wrong. Try again later.</string>
 
     -
     <string name="large_text">
         <b>Thanks for downloading the ABSTRACTS app!</b>
-        \n\n ABSTRACTS is a party game. It is designed to be played with two teams.
-        \n Collect all three tokens – the PERSON (da Vinci’s “Man”), the PLACE (“World”), and the THING (“All-seeing Eye”) – by correctly guessing each from clues given by Clue Givers, and your team wins!
-        \n Players tap “Play,” and select PEOPLE, PLACES, &amp; THINGs to use or purchase from Google Play.
-        <b>BEGINNING THE GAME</b>
-        \n\n <b>Two teams</b> with two or more players each (we’ve tested it with forty people) sit apart to discreetly discuss possible answers. <b>Both teams are trying to guess the same PERSON, PLACE, or THING (PPT),</b> so listen carefully to all clues as they will often build upon each other.
-        \n <b>Clue Givers share one device</b> even though they change during the game. Team members may also download the ABSTRACTS app to review rules, remind the team of definitions of PEOPLE, PLACES &amp; THINGS, and to keep score.
-        \n If players choose to <b>enter their team names and members, Clue Givers will be chosen randomly by the game.</b>
-        \n When one of the Clue Givers <b>pushes the “PPT Start” button,</b> a choice of a PERSON, PLACE, or THING will appear on the device. The first team’s <b>Clue Giver picks one of the PPTs.</b> That Clue Giver announces which category the Clue Givers are giving clues for (PERSON, PLACE, or THING). The <b>other Clue Giver then decides if he/she wants to give clues first or second.</b>
-        \n Whoever gives a clue first <b>presses “Get New Clue,”</b> and either uses the clue (or one of the three clues in the case of a Wild Card) or presses the button again. As soon as the Clue Giver selects an option and gives the clue, his or her team has <b>60 seconds</b> to come up with a guess of the famous PERSON, PLACE, or THING.
-        \n\n NOTE: If the Clue Givers are unfamiliar with the PERSON, PLACE, or THING, they can press the “New PPT” button, or <b>they may use the Internet to get information.</b> This is a battle of wits and wisdom, but it’s also just a game – so <b>have fun, and make up whatever “house” rules work for your group.</b>
-        \n\n <b>THREE THINGS TO REMEMBER WHEN GIVING CLUES</b>
-        \n\n 1.
+        \n\nABSTRACTS is a party game. It is designed to be played with two teams.
+        \nCollect all three tokens – the PERSON (da Vinci’s “Man”), the PLACE (“World”), and the THING (“All-seeing Eye”) – by correctly guessing each from clues given by CLUE GIVERS, and your team wins!
+        \nPlayers tap “Play,” and select PEOPLE, PLACES, &amp; THINGs to use or purchase from Google Play.
+        \n\n<b>BEGINNING THE GAME</b>
+        \n\n<b>Two teams</b> with two or more players each (we’ve tested it with forty people) sit apart to discreetly discuss possible answers. <b>Both teams are trying to guess the same PERSON, PLACE, or THING (PPT),</b> so listen carefully to all clues as they will often build upon each other.
+        \n<b>CLUE GIVERS share one device</b> even though they change during the game. Team members may also download the ABSTRACTS app to review rules, remind the team of definitions of PEOPLE, PLACES &amp; THINGS, and to keep score.
+        \nTeams will enter team names and <b>choose one CLUE GIVER each.</b>
+        \nWhen one CLUE GIVER <b>pushes the “PPT Start” button,</b> a choice of a PERSON, PLACE, or THING will appear on the device. The first team’s <b>CLUE GIVER picks one of the PPTs.</b> That CLUE GIVER announces which category the CLUE GIVERS are giving clues for (PERSON, PLACE, or THING). The <b>other CLUE GIVER then decides if he/she wants to give clues first or second.</b>
+        \nWhoever gives a clue first <b>presses “Get New Clue,”</b> and either uses the clue (or one of the three clues in the case of a <b>Wild Card</b>) or presses the button again. As soon as the CLUE GIVER selects an option and gives the clue, his or her team has <b>60 seconds to come up with a guess of the famous PERSON, PLACE, or THING.</b>        \n\nNOTE: If the CLUE GIVERS are unfamiliar with the PERSON, PLACE, or THING, they can press the “New PPT” button, or <b>they may use the Internet to get information.</b> This is a battle of wits and wisdom, but it’s also just a game – so <b>have fun, and make up whatever “house” rules work for your group.</b>
+        \n\n<b>THREE THINGS TO REMEMBER WHEN GIVING CLUES</b>
+        \n\n1.
         You <b>CANNOT give any part of the name</b> of the PERSON, PLACE, or THING in your clue.
-        \n 2.
+        \n2.
         <b>You can only use up to five words</b> in your clue (you have up to five words after saying “If I were a ______, I would be . . .”).
-        \n 3.
+        \n3.
         <b>Clues must be based on the clue you chose.</b> You can be creative with your clues, use voice inflections, almost say a word and then say “blank,” etc.
-        \n\n NOTE: The <b>violation</b> of any of these rules results in the other Clue Giver or a score keeper pressing the “WEENIE Sound” button and calling the offending Clue Giver a “WEENIE.” The <b>WEENIE’s team forfeits their guess, and play passes to the other team.</b>
-        \n\n <b>FOUR THINGS TO REMEMBER IN MAKING GUESSES</b>
-        \n\n 1.
+        \n\nNOTE: The <b>violation</b> of any of these rules results in the other CLUE GIVER or a score keeper pressing the “WEENIE Sound” button and calling the offending CLUE GIVER a “WEENIE.” The <b>WEENIE’s team forfeits their guess, and play passes to the other team.</b>
+        \n\n<b>FOUR THINGS TO REMEMBER IN MAKING GUESSES</b>
+        \n\n1.
         <b>Only the team whose turn it is can guess.</b> If the other team guesses out of turn, the team whose turn it is may use that as their answer.
-        \n 2.
+        \n2.
         <b>Only one guess is allowed per clue.</b> If someone blurts out a guess without discussing it with the rest of the team that becomes the one guess.
-        \n 3.
-        <b>Your team has 60 seconds</b> from the time your Clue Giver finishes giving a clue until a guess is made. When time is up, a guess needs to be made or it’s the other team’s turn.
-        \n 4.
-        <b>All the PEOPLE, PLACES, and THINGS are proper nouns.</b> There are no generic people like “teacher,” “firefighter,” “politician,” or generic places or things. <b>PEOPLE are specific, real or fictional, single or small groups.</b> EXAMPLES: “THE BEATLES” would be a person, as would “Taylor Swift,” and even “Bugs Bunny.” <b>PLACES are tangible, historical or sometimes fictional locations.</b> They often are cities, countries, monuments or tourist attractions. EXAMPLES: “The White House,” “Eiffel Tower,” and “Disneyland” would be PLACES and not THINGS. <b>THINGS are hardest to wrap your head around because they are a weird catch-all category. They are often products, companies, organizations, titles of books, movies, TV shows, songs, etc.</b> EXAMPLES: “Kentucky Fried Chicken,” “The Voice,” and “Google.”
-        \n\n <b>EARNING TOKENS</b>
-        \n\n If a team <b>doesn’t guess exactly what is on the Clue Giver screen, both Clue Givers confer and decide if the answer is acceptable OR the Clue Giver says, “Partially correct,” and the team then has ONE more guess</b> before play passes to the other team. EXAMPLE: If the PLACE was “CALGARY STAMPEDE” and the team guessed “CALGARY,” that is partially correct. However, if the THING was “GOOD MORNING AMERICA” and the team guessed “GOOD MORNING VIETNAM,” those are clearly two different THINGS, so play would pass to the other team.
-        \n <b>When a team guesses correctly,</b> the Clue Giver <b>presses the “Got It” button</b> and the token for that respective category will appear on-screen. <b>A new Clue Giver, chosen from that team,</b> presses the “New PPT” button and <b>chooses a new PERSON, PLACE, or THING</b> for both teams to guess. The <b>other team’s Clue Giver gets to choose who goes first.</b>
-        \n <b>If a team’s guess is incorrect,</b> they can quietly discuss, but should pay attention to the other team’s clues and guesses. Clue Givers must remain silent and neutral, including non-verbal expressions, when they are not giving clues. Clue Givers have the option of telling their team on <b>a scale from one to twenty how close they were</b> with their guess (determine by your “house rules”).
-        \n\n <b>WINNING THE GAME</b>
+        \n3.
+        <b>Your team has 60 seconds</b> from the time your CLUE GIVER finishes giving a clue until a guess is made. When time is up, a guess needs to be made or it’s the other team’s turn.
+        \n4.
+        <b>All the PEOPLE, PLACES, and THINGS are proper nouns.</b> There are no generic people like “teacher,” “firefighter,” “politician,” or generic places or things. <b>PEOPLE are specific, real or fictional, single or small groups.</b> EXAMPLES: “The Beatles” would be a person, as would “Taylor Swift,” and even “Bugs Bunny.” <b>PLACES are tangible, historical or sometimes fictional locations.</b> They often are cities, countries, monuments or tourist attractions. EXAMPLES: “The White House,” “Eiffel Tower,” and “Disneyland” would be PLACES and not THINGS. <b>THINGS are hardest to wrap your head around because they are a weird catch-all category. They are often products, companies, organizations, titles of books, movies, TV shows, songs, etc.</b> EXAMPLES: “Kentucky Fried Chicken,” “The Voice,” and “Google.”
+        \n\n<b>EARNING TOKENS</b>
+        \n\nIf a team <b>doesn’t guess exactly what is on the CLUE GIVER screen, both CLUE GIVERS confer and decide if the answer is acceptable OR the CLUE GIVER says, “Partially correct,” and the team then has ONE more guess</b> before play passes to the other team. EXAMPLE: If the PLACE was “Calgary Stampede” and the team guessed “Calgary,” that is partially correct. However, if the THING was “Good Morning America” and the team guessed “Good Morning Vietnam,” those are clearly two different THINGS, so play would pass to the other team.
+        \n<b>When a team guesses correctly,</b> the CLUE GIVER <b>presses the “Got It” button</b> and the token for that respective category will appear on-screen. <b>A new CLUE GIVER, chosen from that team,</b> presses the “New PPT” button and <b>chooses a new PERSON, PLACE, or THING</b> for both teams to guess. The <b>other team’s CLUE GIVER gets to choose who goes first.</b>
+        \n<b>If a team’s guess is incorrect,</b> they can quietly discuss, but should pay attention to the other team’s clues and guesses. CLUE GIVERS must remain silent and neutral, including non-verbal expressions, when they are not giving clues. CLUE GIVERS have the option of telling their team on <b>a scale from one to twenty how close they were</b> with their guess (determine by your “house rules”).
+        \n\n<b>WINNING THE GAME</b>
         \n\n<b>When one team has acquired all three tokens, the game is over.</b>
-        \n\n NOTE: Most games only last fifteen to twenty minutes. Play the best two out of three if you want to play longer.
-        \n\n <b>HOW TO DOWNLOAD MORE PEOPLE, PLACES, &amp; THINGS</b>
-        \n\n This is the Basic Free Version. We have created other versions so you can play with <b>more than 2,300 total PEOPLE, PLACES, &amp; THINGS.</b> Get the latest Expanded Version for just $1.99. And you can get the <b>original 1988</b> PEOPLE, PLACES, &amp; THINGS for an additional $.99!
-        \n\n NOTE: There will be some duplication across the lists.
-        \n\n <b>SHARING THE FUN</b>
-        \n\n Pictures of you with an ABSTRACTS game <b>standing by famous PEOPLE, PLACES, or THINGS from the game or showing celebrities their names on one of the lists</b> would be awesome. Please share on <b>your own social media</b> and on <b>The Incredible Game Company Facebook (@IncredibleGameCompany) and Instagram site.</b> We would also love to have you <b>submit ideas for other lists for us to create</b> to our Facebook page.
-        \n We appreciate you helping get the word out that ABSTRACTS is a creative thinking game, great for brainstorming and team building – that it gets the juices flowing.
-        \n Copyright 2018 by M. Agrelius
-        \n Original game by M. Agrelius
-        \n Graphic designs by Eric Gillett
-        \n App developed by Andrew Riley and Ashlynn Wilson
+        \n\nNOTE: Most games only last fifteen to twenty minutes. Play the best two out of three if you want to play longer.
+        \n\n<b>HOW TO DOWNLOAD MORE PEOPLE, PLACES, &amp; THINGS</b>
+        \n\nThis is the <b>Basic Free Version.</b> We have created other versions so you can play with <b>more than 2,300 total PEOPLE, PLACES, &amp; THINGS.</b> Get the latest <b>Expanded Version</b> for just $1.99. And you can get the <b>1988 Original</b> PEOPLE, PLACES, &amp; THINGS for an additional $.99! More lists are coming soon.
+        \n\nNOTE: There will be some duplication across the lists.
+        \n\n<b>SHARING THE FUN</b>
+        \n\nPictures of you with an ABSTRACTS game <b>standing by famous PEOPLE, PLACES, or THINGS from the game or showing celebrities their names on one of the lists</b> would be awesome. Please share on <b>your own social media</b> and on <b>The Incredible Game Company Facebook (@IncredibleGameCompany) and Instagram site.</b> We would also love to have you <b>submit ideas for other lists for us to create</b> to our Facebook page.
+        \nWe appreciate you helping get the word out that ABSTRACTS is a creative thinking game, great for brainstorming and team building – that it gets the juices flowing.
+        \n\nCopyright 2018 by M. Agrelius
+        \nOriginal game by M. Agrelius
+        \nGraphic designs by Eric Gillett
+        \nApp developed by Andrew Riley and Ashlynn Wilson
 </string>
 </resources>

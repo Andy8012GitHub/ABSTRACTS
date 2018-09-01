@@ -47,12 +47,12 @@
         android:id="@+id/enterTeamName"
         android:layout_width="272dp"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnNext"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="4dp"
-        android:layout_alignTop="@+id/btnNext"
         android:layout_toLeftOf="@+id/btnNext"
         android:ems="10"
-        android:hint="@string/enter_team_name"
+        android:hint="@string/team1"
         android:inputType="textPersonName" />
 
     <Button

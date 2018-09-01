@@ -48,11 +48,9 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMessageAboutGPlay">
@@ -66,7 +64,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textViewExpandedListTitleAndPrice"
+                android:id="@+id/textViewExpandedListPriceAndTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="8dp"
@@ -103,7 +101,7 @@
                 app:srcCompat="@drawable/line_color_primary" />
 
             <TextView
-                android:id="@+id/textView1988OriginalListTitleAndPrice"
+                android:id="@+id/textView1988OriginalListPriceAndTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="8dp"
@@ -132,6 +130,60 @@
                 android:backgroundTint="@color/white"
                 android:text="@string/buy"
                 android:textAlignment="center" />
+
+            <ImageView
+                android:id="@+id/imageViewLine2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/line_color_primary" />
+
+            <TextView
+                android:id="@+id/textViewSportsListPriceAndTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp"
+                android:text="@string/ppt_sports_list"
+                android:textAlignment="viewStart"
+                android:textColor="@color/darkGray"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewSportsListDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:paddingLeft="8dp"
+                android:text="getDescription()"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imageViewLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/line_color_primary" />
+
+            <TextView
+                android:id="@+id/textViewKiddieListPriceAndTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp"
+                android:text="@string/ppt_kiddie_list"
+                android:textAlignment="viewStart"
+                android:textColor="@color/darkGray"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textViewKiddieListDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:paddingLeft="8dp"
+                android:text="getDescription()"
+                android:textSize="16sp" />
 
         </LinearLayout>
     </ScrollView>
