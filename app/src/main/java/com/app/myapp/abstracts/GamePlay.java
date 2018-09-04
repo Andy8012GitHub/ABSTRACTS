@@ -31,7 +31,7 @@ public class GamePlay extends AppCompatActivity {
     View dialogView;
 
     Button btnToMain, btnWeenieSoundFX;
-    TextView textViewTeamName, personPlaceThingChosenTextView, clue1TextView, clue2TextView, clue3TextView, clueChosenTextView, teamOneScore, teamTwoScore, textViewWhoIsPlaying, textViewBigTitle, textViewSubtitle;
+    TextView textViewPressIfRulesAreViolated, textViewTeamName, personPlaceThingChosenTextView, clue1TextView, clue2TextView, clue3TextView, clueChosenTextView, teamOneScore, teamTwoScore, textViewWhoIsPlaying, textViewBigTitle, textViewSubtitle;
     RadioButton personRadioButton,placeRadioButton,thingRadioButton;
     RadioGroup radioGroup;
     Button newSetPeoplePlaceThingButton, btnChangePPT, btnGetNewClue, btnGotIt, btnMissedIt, btnUndoLastScore, btnFirst, btnSecond, btnContinue;
@@ -51,9 +51,10 @@ public class GamePlay extends AppCompatActivity {
     int team1Color;
     int team2Color;
     Rotate3dAnimation animation;
-    boolean weenieButtonIsOnStart = true;
+//    boolean weenieButtonIsOnStart = true;
 
-    MediaPlayer mediaPlayerClapping = MediaPlayer.create(GamePlay.this, R.raw.zapsplat_multimedia_male_voice_processed_says_you_win_002_21573);
+    MediaPlayer mediaPlayerClapping;
+    MediaPlayer mediaPlayerYouWin;
 
 
     @Override
@@ -65,6 +66,7 @@ public class GamePlay extends AppCompatActivity {
         dialogView = inflater.inflate(com.app.myapp.abstracts.R.layout.dialog_all_game_play_dialogs, null);
 
         btnToMain = (Button) findViewById(R.id.btnToMain);
+        textViewPressIfRulesAreViolated = (TextView) findViewById(R.id.textViewPressIfRulesAreViolated);
         btnWeenieSoundFX = (Button) findViewById(R.id.btnWeenieSoundEffect);
         textViewTeamName = (TextView)findViewById(R.id.TeamName);
         personPlaceThingChosenTextView = (TextView)findViewById(R.id.personPlaceThingChosenTextView);
@@ -73,7 +75,7 @@ public class GamePlay extends AppCompatActivity {
         clue3TextView = (TextView)findViewById(R.id.clue3TextView);
         teamOneScore = (TextView)findViewById(R.id.teamOneScore);
         teamTwoScore = (TextView)findViewById(R.id.teamTwoScore);
-        clueChosenTextView = (TextView)findViewById(R.id.clueChosenTextView);
+        clueChosenTextView = (TextView)findViewById(R.id.textViewClueChosen);
         personRadioButton = (RadioButton)findViewById(R.id.personRadioButton);
         placeRadioButton = (RadioButton)findViewById(R.id.placeRadioButton);
         thingRadioButton = (RadioButton)findViewById(R.id.thingRadioButton);
@@ -132,7 +134,12 @@ public class GamePlay extends AppCompatActivity {
 
         final ABSTRACTSFileRead abstractsFileRead = new ABSTRACTSFileRead(this, PickPPTListActivity.fileNameOfListChosen);
         final ABSTRACTSFileRead abstractsFileReadClues = new ABSTRACTSFileRead(this, "Clues");
-        final MediaPlayer mediaPlayer = MediaPlayer.create(GamePlay.this, R.raw.old_weenie_sounds);
+
+        mediaPlayerClapping = MediaPlayer.create(GamePlay.this, R.raw.clapping);
+        mediaPlayerYouWin = MediaPlayer.create(GamePlay.this, R.raw.zapsplat_multimedia_male_voice_processed_says_you_win_002_21573);
+        final MediaPlayer mediaPlayerWeenie = MediaPlayer.create(GamePlay.this, R.raw.weenie);
+        final MediaPlayer mediaPlayerYouAreAWeenie = MediaPlayer.create(GamePlay.this, R.raw.youareaweenie);
+        final MediaPlayer mediaPlayerWeenieSong = MediaPlayer.create(GamePlay.this, R.raw.weeniesong);
 
         btnToMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,17 +151,26 @@ public class GamePlay extends AppCompatActivity {
         btnWeenieSoundFX.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(weenieButtonIsOnStart) {
-                    mediaPlayer.start();
-                    btnWeenieSoundFX.setText(R.string.stop_weenie_sound);
-                    weenieButtonIsOnStart = false;
-                }
-                else {
-                    mediaPlayer.stop();
-                    mediaPlayer.prepareAsync();
-                    btnWeenieSoundFX.setText(R.string.weenie_sound);
-                    weenieButtonIsOnStart = true;
-                }
+//                if(weenieButtonIsOnStart) {
+                    int weenieRandom = random.nextInt(3);
+                    if(weenieRandom == 0){
+                        mediaPlayerWeenie.start();
+                    }
+                    else if (weenieRandom == 1){
+                        mediaPlayerWeenieSong.start();
+                    }
+                    else{
+                        mediaPlayerYouAreAWeenie.start();
+                    }
+//                    btnWeenieSoundFX.setText(R.string.stop_weenie_sound);
+//                    weenieButtonIsOnStart = false;
+//                }
+//                else {
+//                    mediaPlayer.stop();
+//                    mediaPlayer.prepareAsync();
+//                    btnWeenieSoundFX.setText(R.string.weenie_sound);
+//                    weenieButtonIsOnStart = true;
+//                }
             }
         });
         btnContinue.setOnClickListener(new View.OnClickListener() {
@@ -371,19 +387,7 @@ public class GamePlay extends AppCompatActivity {
                 if (teamOnePersonTokenEnabled && teamOnePlaceTokenEnabled && teamOneThingTokenEnabled) {
                     textViewTeamName.setTextColor(team1Color);
                     textViewTeamName.setText(getString(R.string.won_with_placeholder, team1Name));
-                    radioGroup.setVisibility(GONE);
-                    newSetPeoplePlaceThingButton.setVisibility(GONE);
-                    teamOneScore.setVisibility(GONE);
-                    placeImage.setVisibility(GONE);
-                    personImage.setVisibility(GONE);
-                    thingImage.setVisibility(GONE);
-                    teamTwoScore.setVisibility(GONE);
-                    teamTwoPersonToken.setVisibility(GONE);
-                    teamTwoPlaceToken.setVisibility(GONE);
-                    teamTwoThingToken.setVisibility(GONE);
-                } else if (teamTwoThingTokenEnabled && teamTwoPlaceTokenEnabled && teamTwoPersonTokenEnabled) {
-                    textViewTeamName.setTextColor(team2Color);
-                    textViewTeamName.setText(getString(R.string.won_with_placeholder, team2Name));
+                    mediaPlayerYouWin.start();
                     radioGroup.setVisibility(GONE);
                     newSetPeoplePlaceThingButton.setVisibility(GONE);
                     teamOneScore.setVisibility(GONE);
@@ -394,6 +398,32 @@ public class GamePlay extends AppCompatActivity {
                     teamOnePersonToken.setVisibility(GONE);
                     teamOnePlaceToken.setVisibility(GONE);
                     teamOneThingToken.setVisibility(GONE);
+                    teamTwoPersonToken.setVisibility(GONE);
+                    teamTwoPlaceToken.setVisibility(GONE);
+                    teamTwoThingToken.setVisibility(GONE);
+                    btnUndoLastScore.setVisibility(GONE);
+                    btnWeenieSoundFX.setVisibility(GONE);
+                    textViewPressIfRulesAreViolated.setVisibility(GONE);
+                } else if (teamTwoThingTokenEnabled && teamTwoPlaceTokenEnabled && teamTwoPersonTokenEnabled) {
+                    textViewTeamName.setTextColor(team2Color);
+                    textViewTeamName.setText(getString(R.string.won_with_placeholder, team2Name));
+                    mediaPlayerYouWin.start();
+                    radioGroup.setVisibility(GONE);
+                    newSetPeoplePlaceThingButton.setVisibility(GONE);
+                    teamOneScore.setVisibility(GONE);
+                    placeImage.setVisibility(GONE);
+                    personImage.setVisibility(GONE);
+                    thingImage.setVisibility(GONE);
+                    teamTwoScore.setVisibility(GONE);
+                    teamOnePersonToken.setVisibility(GONE);
+                    teamOnePlaceToken.setVisibility(GONE);
+                    teamOneThingToken.setVisibility(GONE);
+                    teamTwoPersonToken.setVisibility(GONE);
+                    teamTwoPlaceToken.setVisibility(GONE);
+                    teamTwoThingToken.setVisibility(GONE);
+                    btnUndoLastScore.setVisibility(GONE);
+                    btnWeenieSoundFX.setVisibility(GONE);
+                    textViewPressIfRulesAreViolated.setVisibility(GONE);
                 }
                 else {
                     imageView.setImageResource(drawableFile);
@@ -513,6 +543,7 @@ public class GamePlay extends AppCompatActivity {
                         else {
                             teamOnePlaceToken.setVisibility(VISIBLE);
                             animateCoin(teamOnePlaceToken, com.app.myapp.abstracts.R.drawable.place_token_light, com.app.myapp.abstracts.R.drawable.back_of_light);
+                            mediaPlayerClapping.start();
                         }
                         teamOnePlaceTokenEnabled = true;
                     }
@@ -523,6 +554,7 @@ public class GamePlay extends AppCompatActivity {
                         else {
                             teamOneThingToken.setVisibility(VISIBLE);
                             animateCoin(teamOneThingToken, com.app.myapp.abstracts.R.drawable.thing_token_light, com.app.myapp.abstracts.R.drawable.back_of_light);
+                            mediaPlayerClapping.start();
                         }
                         teamOneThingTokenEnabled = true;
                     }
@@ -535,6 +567,7 @@ public class GamePlay extends AppCompatActivity {
                         else {
                             teamTwoPersonToken.setVisibility(VISIBLE);
                             animateCoin(teamTwoPersonToken, com.app.myapp.abstracts.R.drawable.person_token_dark, com.app.myapp.abstracts.R.drawable.back_of_dark);
+                            mediaPlayerClapping.start();
                         }
                         teamTwoPersonTokenEnabled = true;
                     }
@@ -545,6 +578,7 @@ public class GamePlay extends AppCompatActivity {
                         else {
                             teamTwoPlaceToken.setVisibility(VISIBLE);
                             animateCoin(teamTwoPlaceToken, com.app.myapp.abstracts.R.drawable.place_token_dark, com.app.myapp.abstracts.R.drawable.back_of_dark);
+                            mediaPlayerClapping.start();
                         }
                         teamTwoPlaceTokenEnabled = true;
                     }
@@ -555,6 +589,7 @@ public class GamePlay extends AppCompatActivity {
                         else {
                             teamTwoThingToken.setVisibility(VISIBLE);
                             animateCoin(teamTwoThingToken, com.app.myapp.abstracts.R.drawable.thing_token_dark, com.app.myapp.abstracts.R.drawable.back_of_dark);
+                            mediaPlayerClapping.start();
                         }
                         teamTwoThingTokenEnabled = true;
                     }
@@ -627,9 +662,9 @@ public class GamePlay extends AppCompatActivity {
             //clueChosenTextView.setVisibility(VISIBLE);
             String clueChosen = abstractsFileReadClues.getClueOrClues();
             //clueChosenTextView.setText(getString(R.string.clue_with_placeholder, clueChosen));
-            clue1TextView.setText(R.string.if_you_were_a);
+            clue1TextView.setText(R.string.clue_if_you);
             clue2TextView.setText(clueChosen);
-            clue3TextView.setText(R.string.I_would_be);
+            clue3TextView.setText(R.string.clue_what_would_you_be);
         }
     }
 
