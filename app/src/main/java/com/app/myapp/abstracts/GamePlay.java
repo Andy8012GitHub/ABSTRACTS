@@ -30,12 +30,12 @@ public class GamePlay extends AppCompatActivity {
     LayoutInflater inflater;
     View dialogView;
 
-    Button btnToMain, btnWeenieSoundFX;
+    Button btnToMain, btnWeenieSoundFX, btnPlayAgain;
     TextView textViewPressIfRulesAreViolated, textViewTeamName, personPlaceThingChosenTextView, clue1TextView, clue2TextView, clue3TextView, clueChosenTextView, teamOneScore, teamTwoScore, textViewWhoIsPlaying, textViewBigTitle, textViewSubtitle;
     RadioButton personRadioButton,placeRadioButton,thingRadioButton;
     RadioGroup radioGroup;
     Button newSetPeoplePlaceThingButton, btnChangePPT, btnGetNewClue, btnGotIt, btnMissedIt, btnUndoLastScore, btnFirst, btnSecond, btnContinue;
-    ImageView teamOnePersonToken, teamOnePlaceToken, teamOneThingToken, teamTwoPersonToken, teamTwoPlaceToken, teamTwoThingToken, personImage, placeImage, thingImage;
+    ImageView teamOnePersonToken, teamOnePlaceToken, teamOneThingToken, teamTwoPersonToken, teamTwoPlaceToken, teamTwoThingToken, personImage, placeImage, thingImage, imgViewWildCardBackground;
     Boolean teamOnePersonTokenEnabled = false, teamOnePlaceTokenEnabled = false, teamOneThingTokenEnabled = false, teamTwoPersonTokenEnabled = false, teamTwoPlaceTokenEnabled = false, teamTwoThingTokenEnabled = false;
 
     ConstraintLayout backgroundColor;
@@ -67,12 +67,14 @@ public class GamePlay extends AppCompatActivity {
 
         btnToMain = (Button) findViewById(R.id.btnToMain);
         textViewPressIfRulesAreViolated = (TextView) findViewById(R.id.textViewPressIfRulesAreViolated);
+        btnPlayAgain = (Button) findViewById(R.id.btnPlayAgain);
         btnWeenieSoundFX = (Button) findViewById(R.id.btnWeenieSoundEffect);
         textViewTeamName = (TextView)findViewById(R.id.TeamName);
         personPlaceThingChosenTextView = (TextView)findViewById(R.id.personPlaceThingChosenTextView);
         clue1TextView = (TextView)findViewById(R.id.clue1TextView);
         clue2TextView = (TextView)findViewById(R.id.clue2TextView);
         clue3TextView = (TextView)findViewById(R.id.clue3TextView);
+        imgViewWildCardBackground = (ImageView) findViewById(R.id.imgViewWildCardBackground);
         teamOneScore = (TextView)findViewById(R.id.teamOneScore);
         teamTwoScore = (TextView)findViewById(R.id.teamTwoScore);
         clueChosenTextView = (TextView)findViewById(R.id.textViewClueChosen);
@@ -130,16 +132,13 @@ public class GamePlay extends AppCompatActivity {
         backgroundColor = (ConstraintLayout)findViewById(R.id.container);
         backgroundColor.setBackgroundResource(com.app.myapp.abstracts.R.color.colorPrimary);//changes color layout
         team1Color = getResources().getColor(R.color.white);
-        team2Color = getResources().getColor(R.color.black);
+        team2Color = getResources().getColor(R.color.darkGray);
 
         final ABSTRACTSFileRead abstractsFileRead = new ABSTRACTSFileRead(this, PickPPTListActivity.fileNameOfListChosen);
         final ABSTRACTSFileRead abstractsFileReadClues = new ABSTRACTSFileRead(this, "Clues");
 
         mediaPlayerClapping = MediaPlayer.create(GamePlay.this, R.raw.clapping);
         mediaPlayerYouWin = MediaPlayer.create(GamePlay.this, R.raw.zapsplat_multimedia_male_voice_processed_says_you_win_002_21573);
-        final MediaPlayer mediaPlayerWeenie = MediaPlayer.create(GamePlay.this, R.raw.weenie);
-        final MediaPlayer mediaPlayerYouAreAWeenie = MediaPlayer.create(GamePlay.this, R.raw.youareaweenie);
-        final MediaPlayer mediaPlayerWeenieSong = MediaPlayer.create(GamePlay.this, R.raw.weeniesong);
 
         btnToMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,26 +150,14 @@ public class GamePlay extends AppCompatActivity {
         btnWeenieSoundFX.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if(weenieButtonIsOnStart) {
-                    int weenieRandom = random.nextInt(3);
-                    if(weenieRandom == 0){
-                        mediaPlayerWeenie.start();
-                    }
-                    else if (weenieRandom == 1){
-                        mediaPlayerWeenieSong.start();
-                    }
-                    else{
-                        mediaPlayerYouAreAWeenie.start();
-                    }
-//                    btnWeenieSoundFX.setText(R.string.stop_weenie_sound);
-//                    weenieButtonIsOnStart = false;
-//                }
-//                else {
-//                    mediaPlayer.stop();
-//                    mediaPlayer.prepareAsync();
-//                    btnWeenieSoundFX.setText(R.string.weenie_sound);
-//                    weenieButtonIsOnStart = true;
-//                }
+                playWeenieSound();
+            }
+        });
+        btnPlayAgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(GamePlay.this, CreateTeams.class);
+                startActivity(intent);
             }
         });
         btnContinue.setOnClickListener(new View.OnClickListener() {
@@ -189,6 +176,7 @@ public class GamePlay extends AppCompatActivity {
         newSetPeoplePlaceThingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                imgViewWildCardBackground.setVisibility(GONE);
                 newSetPeoplePlaceThingButton.setText("New PPT");
                 setCounter++;
                 if (setCounter == randint){
@@ -255,6 +243,7 @@ public class GamePlay extends AppCompatActivity {
         btnGetNewClue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                imgViewWildCardBackground.setVisibility(GONE);
                 setCounter++;
                 if (setCounter == randint){
                     weenieDialog(dialog, dialogView);
@@ -264,7 +253,7 @@ public class GamePlay extends AppCompatActivity {
                         randint = random.nextInt(10);
                     }
                     switchTeamNameInTextView();
-                }else {
+                } else {
                     showingClues(abstractsFileReadClues);
                 }
             }
@@ -277,6 +266,7 @@ public class GamePlay extends AppCompatActivity {
                 clue1TextView.setVisibility(View.GONE);
                 clue2TextView.setVisibility(View.GONE);
                 clue3TextView.setVisibility(View.GONE);
+                imgViewWildCardBackground.setVisibility(GONE);
                 btnGetNewClue.setVisibility(View.GONE);
                 btnChangePPT.setVisibility(View.GONE);
                 clueChosenTextView.setVisibility(View.GONE);
@@ -299,6 +289,7 @@ public class GamePlay extends AppCompatActivity {
         btnGotIt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                imgViewWildCardBackground.setVisibility(GONE);
                 showCongratsAndNewClueGiversDialog(dialog, dialogView);
             }
         });
@@ -306,6 +297,7 @@ public class GamePlay extends AppCompatActivity {
         btnMissedIt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                imgViewWildCardBackground.setVisibility(GONE);
                 randint = 0;
                 setCounter = 0;
                 while (randint <= 1){
@@ -350,6 +342,32 @@ public class GamePlay extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void playWeenieSound() {
+        final MediaPlayer mediaPlayerWeenie = MediaPlayer.create(GamePlay.this, R.raw.weenie);
+        final MediaPlayer mediaPlayerYouAreAWeenie = MediaPlayer.create(GamePlay.this, R.raw.youareaweenie);
+        final MediaPlayer mediaPlayerWeenieSong = MediaPlayer.create(GamePlay.this, R.raw.weeniesong);
+//                if(weenieButtonIsOnStart) {
+        int weenieRandom = random.nextInt(3);
+        if(weenieRandom == 0){
+            mediaPlayerWeenie.start();
+        }
+        else if (weenieRandom == 1){
+            mediaPlayerWeenieSong.start();
+        }
+        else{
+            mediaPlayerYouAreAWeenie.start();
+        }
+//                    btnWeenieSoundFX.setText(R.string.stop_weenie_sound);
+//                    weenieButtonIsOnStart = false;
+//                }
+//                else {
+//                    mediaPlayer.stop();
+//                    mediaPlayer.prepareAsync();
+//                    btnWeenieSoundFX.setText(R.string.weenie_sound);
+//                    weenieButtonIsOnStart = true;
+//                }
     }
 
     private void switchTeamNameInTextView() {
@@ -403,6 +421,7 @@ public class GamePlay extends AppCompatActivity {
                     teamTwoThingToken.setVisibility(GONE);
                     btnUndoLastScore.setVisibility(GONE);
                     btnWeenieSoundFX.setVisibility(GONE);
+                    btnPlayAgain.setVisibility(VISIBLE);
                     textViewPressIfRulesAreViolated.setVisibility(GONE);
                 } else if (teamTwoThingTokenEnabled && teamTwoPlaceTokenEnabled && teamTwoPersonTokenEnabled) {
                     textViewTeamName.setTextColor(team2Color);
@@ -424,6 +443,7 @@ public class GamePlay extends AppCompatActivity {
                     btnUndoLastScore.setVisibility(GONE);
                     btnWeenieSoundFX.setVisibility(GONE);
                     textViewPressIfRulesAreViolated.setVisibility(GONE);
+                    btnPlayAgain.setVisibility(VISIBLE);
                 }
                 else {
                     imageView.setImageResource(drawableFile);
@@ -494,7 +514,7 @@ public class GamePlay extends AppCompatActivity {
 
     public void showCongratsAndNewClueGiversDialog(final Dialog dialog, View dialogView) {
         dialog.setContentView(dialogView);
-        textViewSubtitle.setVisibility(VISIBLE);
+        textViewBigTitle.setVisibility(VISIBLE);
         textViewSubtitle.setVisibility(VISIBLE);
         btnContinue.setVisibility(VISIBLE);
         textViewBigTitle.setText(getString(R.string.congrats_with_placeholder, whichTeamHadTheLastTurn));
@@ -639,6 +659,7 @@ public class GamePlay extends AppCompatActivity {
         textViewSubtitle.setVisibility(VISIBLE);
         textViewBigTitle.setText(R.string.weenie);
         textViewSubtitle.setText(R.string.weenie_message);
+        playWeenieSound();
         dialog.show();
     }
     public void showingClues(ABSTRACTSFileRead abstractsFileReadClues){
@@ -648,10 +669,10 @@ public class GamePlay extends AppCompatActivity {
             clue1TextView.setVisibility(VISIBLE);
             clue2TextView.setVisibility(VISIBLE);
             clue3TextView.setVisibility(VISIBLE);
+            imgViewWildCardBackground.setVisibility(VISIBLE);
             String clue1 = abstractsFileReadClues.getClueOrClues();
             String clue2 = abstractsFileReadClues.getClueOrClues();
             String clue3 = abstractsFileReadClues.getClueOrClues();
-
             clue1TextView.setText(getString(R.string.clue_with_placeholder, clue1));
             clue2TextView.setText(getString(R.string.clue_with_placeholder, clue2));
             clue3TextView.setText(getString(R.string.clue_with_placeholder, clue3));

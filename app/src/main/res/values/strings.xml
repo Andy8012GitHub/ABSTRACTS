@@ -53,6 +53,7 @@
     <string name="congrats_with_placeholder">CONGRATS, %1$s</string>
     <string name="new_cg">Winners of this round get to choose the new PERSON, PLACE, or THING (PPT). Welcome new CLUE GIVERS.</string>
     <string name="won_with_placeholder">%1$s WON!!!\nBIG CONGRATS!</string>
+    <string name="play_again">Play Again?</string>
     <string name="title_activity_weenie">Weenie</string>
     <string name="weenie_sound">WEENIE Sound</string>
     <string name="stop_weenie_sound">Stop Sound</string>
