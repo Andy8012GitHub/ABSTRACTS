@@ -47,9 +47,8 @@ public class CreateTeams extends AppCompatActivity {
                     textViewTooManyCharacters.setVisibility(VISIBLE);
                     return;
                 }
-                textViewTeamName.setText(teamOneName);
                 editTextEnterTeamName.setText("");
-                btnNext.setText(R.string.submit);
+                btnNext.setText(R.string.play);
                 textViewTeamName.setText(R.string.team2);
                 textViewTeamName.setTextColor(getResources().getColor(R.color.darkGray));
                 editTextEnterTeamName.setHint(R.string.team2);
@@ -58,20 +57,12 @@ public class CreateTeams extends AppCompatActivity {
                     public void onClick(View view) {
                         textViewTooManyCharacters.setVisibility(GONE);
                         String editTextContent = editTextEnterTeamName.getText().toString();
-                        if(editTextContent.length() > 12) {
+                        teamTwoName = editTextContent.equals("") ? getString(R.string.team2) : editTextContent;
+                        if(teamTwoName.length() > 12) {
                             textViewTooManyCharacters.setVisibility(VISIBLE);
                             return;
                         }
-                        teamTwoName = editTextContent.equals("") ? getString(R.string.team2) : editTextContent;
-                        textViewTeamName.setText(teamTwoName);
-                        editTextEnterTeamName.setVisibility(GONE);
-                        btnNext.setText(R.string.play);
-                        btnNext.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                startActivity(new Intent(CreateTeams.this, GamePlay.class));
-                            }
-                        });
+                        startActivity(new Intent(CreateTeams.this, GamePlay.class));
                     }
                 });
             }

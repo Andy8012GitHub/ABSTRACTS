@@ -161,6 +161,7 @@
 
     <TextView
         android:id="@+id/personPlaceThingChosenTextView"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -189,6 +190,7 @@
 
     <TextView
         android:id="@+id/clue1TextView"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -205,6 +207,7 @@
 
     <TextView
         android:id="@+id/clue2TextView"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -220,6 +223,7 @@
 
     <TextView
         android:id="@+id/clue3TextView"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -252,6 +256,7 @@
 
     <TextView
         android:id="@+id/textViewClueChosen"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -283,6 +288,7 @@
 
     <Button
         android:id="@+id/btnGetNewClue"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -294,6 +300,7 @@
 
     <Button
         android:id="@+id/btnChangePPT"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -305,6 +312,7 @@
 
     <Button
         android:id="@+id/btnUndoLastScore"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -318,6 +326,7 @@
 
     <Button
         android:id="@+id/btnGotIt"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -329,6 +338,7 @@
 
     <Button
         android:id="@+id/btnMissedIt"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -370,6 +380,7 @@
 
     <ImageView
         android:id="@+id/teamOnePersonToken"
+        android:visibility="gone"
         android:layout_width="70dp"
         android:layout_height="76dp"
         android:layout_marginStart="40dp"
@@ -380,6 +391,7 @@
 
     <ImageView
         android:id="@+id/teamOnePlaceToken"
+        android:visibility="gone"
         android:layout_width="70dp"
         android:layout_height="76dp"
         android:layout_marginEnd="8dp"
@@ -392,6 +404,7 @@
 
     <ImageView
         android:id="@+id/teamOneThingToken"
+        android:visibility="gone"
         android:layout_width="70dp"
         android:layout_height="74dp"
         android:layout_marginBottom="8dp"
@@ -403,6 +416,7 @@
 
     <ImageView
         android:id="@+id/teamTwoPersonToken"
+        android:visibility="gone"
         android:layout_width="70dp"
         android:layout_height="76dp"
         android:layout_marginBottom="8dp"
@@ -414,6 +428,7 @@
 
     <ImageView
         android:id="@+id/teamTwoPlaceToken"
+        android:visibility="gone"
         android:layout_width="70dp"
         android:layout_height="76dp"
         android:layout_marginBottom="8dp"
@@ -426,6 +441,7 @@
 
     <ImageView
         android:id="@+id/teamTwoThingToken"
+        android:visibility="gone"
         android:layout_width="70dp"
         android:layout_height="76dp"
         android:layout_marginBottom="8dp"
