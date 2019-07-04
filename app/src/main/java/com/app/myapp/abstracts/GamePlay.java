@@ -334,7 +334,7 @@ public class GamePlay extends AppCompatActivity {
         else if (weenieRandom == 1){
             mediaPlayerWeenieSong.start();
         }
-        else{
+        else {
             mediaPlayerYouAreAWeenie.start();
         }
 //                    btnWeenieSoundFX.setText(R.string.stop_weenie_sound);
@@ -508,6 +508,29 @@ public class GamePlay extends AppCompatActivity {
                 while (randInt <= 1){
                     randInt = random.nextInt(10);
                 }
+
+                radioGroup.clearCheck();
+                btnGetNewClue.setVisibility(GONE);
+                btnChangePPT.setVisibility(GONE);
+                clue1TextView.setVisibility(GONE);
+                clue2TextView.setVisibility(GONE);
+                clue3TextView.setVisibility(GONE);
+                clueChosenTextView.setVisibility(GONE);
+                personPlaceThingChosenTextView.setVisibility(GONE);
+                btnGotIt.setVisibility(GONE);
+                btnMissedIt.setVisibility(GONE);
+                radioGroup.setVisibility(VISIBLE);
+                btnNewSetPPTs.setVisibility(VISIBLE);
+                btnUndoLastScore.setVisibility(VISIBLE);
+                teamOneScore.setVisibility(VISIBLE);
+                teamTwoScore.setVisibility(VISIBLE);
+                personImage.setVisibility(VISIBLE);
+                placeImage.setVisibility(VISIBLE);
+                thingImage.setVisibility(VISIBLE);
+                personRadioButton.setText(R.string.person);
+                placeRadioButton.setText(R.string.place);
+                thingRadioButton.setText(R.string.thing);
+
                 if (teamOnePersonTokenEnabled){
                     teamOnePersonToken.setVisibility(VISIBLE);
                 }
@@ -605,6 +628,19 @@ public class GamePlay extends AppCompatActivity {
                     animateCoin(teamTwoPlaceToken, com.app.myapp.abstracts.R.drawable.place_token_dark, com.app.myapp.abstracts.R.drawable.back_of_dark);
                     animateCoin(teamTwoThingToken, com.app.myapp.abstracts.R.drawable.thing_token_dark, com.app.myapp.abstracts.R.drawable.back_of_dark);
                 }
+
+                dialog.dismiss();
+            }
+        });
+    }
+
+    public void weenieDialog(final Dialog dialog, View dialogView){
+        dialog.setContentView(dialogView);
+        dialog.setCanceledOnTouchOutside(false);
+        btnContinue.setVisibility(VISIBLE);
+        btnContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 radioGroup.clearCheck();
                 btnGetNewClue.setVisibility(GONE);
                 btnChangePPT.setVisibility(GONE);
@@ -630,20 +666,15 @@ public class GamePlay extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-    }
-
-    public void weenieDialog(final Dialog dialog, View dialogView){
-        dialog.setContentView(dialogView);
-        dialog.setCanceledOnTouchOutside(false);
-        btnContinue.setVisibility(VISIBLE);
         textViewBigTitle.setVisibility(VISIBLE);
         textViewSubtitle.setVisibility(VISIBLE);
         textViewBigTitle.setText(R.string.weenie);
         textViewSubtitle.setText(R.string.weenie_message);
         playWeenieSound();
-        switchTeamNameInTextView();
         dialog.show();
+        switchTeamNameInTextView();
     }
+
     public void showingClues(ABSTRACTSFileRead abstractsFileReadClues){
         int wildCard = random.nextInt(5);
         if (wildCard == 1) {
@@ -658,7 +689,8 @@ public class GamePlay extends AppCompatActivity {
             clue1TextView.setText(getString(R.string.clue_with_placeholder, clue1));
             clue2TextView.setText(getString(R.string.clue_with_placeholder, clue2));
             clue3TextView.setText(getString(R.string.clue_with_placeholder, clue3));
-        }else {
+        }
+        else {
             clue1TextView.setVisibility(VISIBLE);
             clue2TextView.setVisibility(VISIBLE);
             clue3TextView.setVisibility(VISIBLE);
